@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   AbsoluteFill,
+  Audio,
   Img,
   Sequence,
   interpolate,
@@ -13,6 +14,7 @@ import {
 import { loadFont as loadOrbitron } from '@remotion/google-fonts/Orbitron';
 import { loadFont as loadInter } from '@remotion/google-fonts/Inter';
 import data from './data/tierlist.json';
+import TL from './timeline.json';
 
 const { fontFamily: TITLE } = loadOrbitron('normal', { weights: ['700', '900'], subsets: ['latin'] });
 const { fontFamily: BODY } = loadInter('normal', { weights: ['500', '700', '800'], subsets: ['latin'] });
@@ -32,38 +34,29 @@ const C = {
   down: '#f87171',
 };
 
-type Lang = 'fr' | 'en';
+// Anglais uniquement (CLAUDE.md du dépôt) : pas de dictionnaire multilingue.
+const fmtDay = (iso: string) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+const weekLabel = (() => {
+  const [a, b] = [fmtDay(data.week.start), fmtDay(data.week.end)];
+  // « Oct 12 – 18 » si même mois, sinon « Sep 29 – Oct 5 »
+  return a.split(' ')[0] === b.split(' ')[0] ? `${a} – ${b.split(' ')[1]}` : `${a} – ${b}`;
+})();
 const T = {
-  fr: {
-    kicker: 'Wild Rift · Master+',
-    title: 'TIER LIST',
-    sub: 'Les champions S+ de chaque rôle',
-    role: { TOP: 'TOP', JUNGLE: 'JUNGLE', MID: 'MID', ADC: 'ADC', SUPPORT: 'SUPPORT' },
-    roleSub: { TOP: 'Baron lane', JUNGLE: 'Jungle', MID: 'Mid lane', ADC: 'Dragon lane', SUPPORT: 'Support' },
-    wr: 'victoires',
-    movesTitle: 'ÇA BOUGE',
-    movesSub: (d: string) => `Derniers mouvements · ${d}`,
-    ups: 'Montent',
-    downs: 'Descendent',
-    cta: 'Tier list complète\net raisons de chaque tier',
-    date: (iso: string) => new Date(iso).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' }),
-    pct: (n: number) => `${n.toFixed(1).replace('.', ',')} %`,
-  },
-  en: {
-    kicker: 'Wild Rift · Master+',
-    title: 'TIER LIST',
-    sub: 'The S+ champions of every role',
-    role: { TOP: 'TOP', JUNGLE: 'JUNGLE', MID: 'MID', ADC: 'ADC', SUPPORT: 'SUPPORT' },
-    roleSub: { TOP: 'Baron lane', JUNGLE: 'Jungle', MID: 'Mid lane', ADC: 'Dragon lane', SUPPORT: 'Support' },
-    wr: 'win rate',
-    movesTitle: 'ON THE MOVE',
-    movesSub: (d: string) => `Latest shifts · ${d}`,
-    ups: 'Rising',
-    downs: 'Falling',
-    cta: 'Full tier list\nwith the reason for every tier',
-    date: (iso: string) => new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-    pct: (n: number) => `${n.toFixed(1)}%`,
-  },
+  kicker: 'Wild Rift · Master+',
+  title: 'TIER LIST',
+  week: `Meta of the week · ${weekLabel}`,
+  sub: 'The S+ champions of every role',
+  role: { TOP: 'TOP', JUNGLE: 'JUNGLE', MID: 'MID', ADC: 'ADC', SUPPORT: 'SUPPORT' },
+  roleSub: { TOP: 'Baron lane', JUNGLE: 'Jungle', MID: 'Mid lane', ADC: 'Dragon lane', SUPPORT: 'Support' },
+  wr: 'win rate',
+  movesTitle: 'ON THE MOVE',
+  movesSub: (d: string) => `Latest shifts · ${d}`,
+  ups: 'Rising',
+  downs: 'Falling',
+  cta: 'Full tier list\nwith the reason for every tier',
+  ctaWeek: 'Updated every week',
+  date: fmtDay,
+  pct: (n: number) => `${n.toFixed(1)}%`,
 } as const;
 
 // Texte imposé par la politique fan-content de Riot : il ne se traduit pas (cf. scripts/lib/footer.mjs du site).
@@ -73,10 +66,7 @@ const RIOT_NOTICE =
 const tierLabel = (t: string) => (t === 'S_PLUS' ? 'S+' : t);
 
 // ── Timeline (30 fps) ─────────────────────────────────────────────────────────
-const INTRO = 90;
-const ROLE = 72;
-const MOVES = 96;
-const OUTRO = 72;
+const { intro: INTRO, role: ROLE, moves: MOVES, outro: OUTRO } = TL;
 const ROLES_START = INTRO;
 const MOVES_START = ROLES_START + ROLE * data.roles.length;
 const OUTRO_START = MOVES_START + MOVES;
@@ -128,11 +118,11 @@ const TopBar: React.FC<{ patch: string }> = ({ patch }) => {
       </div>
       <div
         style={{
-          fontFamily: BODY, fontWeight: 800, fontSize: 30, color: C.bg0, background: C.cyan,
-          padding: '10px 22px', borderRadius: 999, letterSpacing: 1,
+          fontFamily: BODY, fontWeight: 800, fontSize: 26, color: C.bg0, background: C.cyan,
+          padding: '10px 22px', borderRadius: 999, letterSpacing: 1, whiteSpace: 'nowrap',
         }}
       >
-        PATCH {patch}
+        PATCH {patch} · {weekLabel.toUpperCase()}
       </div>
     </div>
   );
@@ -169,10 +159,10 @@ const GoldText: React.FC<{ children: React.ReactNode; style?: React.CSSPropertie
 );
 
 // ── Scènes ────────────────────────────────────────────────────────────────────
-const Intro: React.FC<{ lang: Lang }> = ({ lang }) => {
+const Intro: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = T[lang];
+  const t = T;
   const heroIn = spring({ frame: f, fps, config: { damping: 18, mass: 0.9 } });
   const titleIn = spring({ frame: f - 8, fps, config: { damping: 14 } });
   const subIn = interpolate(f, [24, 40], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
@@ -220,7 +210,17 @@ const Intro: React.FC<{ lang: Lang }> = ({ lang }) => {
         <div style={{ marginTop: 26, fontFamily: TITLE, fontWeight: 700, fontSize: 92, color: C.text, opacity: titleIn }}>
           {data.patch}
         </div>
-        <div style={{ marginTop: 34, fontFamily: BODY, fontWeight: 600, fontSize: 44, color: C.muted, opacity: subIn }}>
+        <div
+          style={{
+            display: 'inline-block', marginTop: 30, padding: '14px 34px', borderRadius: 999,
+            border: `3px solid ${C.cyan}`, background: `${C.cyan}1f`, fontFamily: BODY, fontWeight: 800,
+            fontSize: 40, color: C.cyan2, letterSpacing: 2, textTransform: 'uppercase',
+            opacity: subIn, transform: `scale(${0.9 + subIn * 0.1})`,
+          }}
+        >
+          {t.week}
+        </div>
+        <div style={{ marginTop: 30, fontFamily: BODY, fontWeight: 600, fontSize: 44, color: C.muted, opacity: subIn }}>
           {t.sub}
         </div>
       </div>
@@ -230,10 +230,10 @@ const Intro: React.FC<{ lang: Lang }> = ({ lang }) => {
 
 type Champ = (typeof data.roles)[number]['splus'][number];
 
-const ChampCard: React.FC<{ c: Champ; i: number; lang: Lang; size: number }> = ({ c, i, lang, size }) => {
+const ChampCard: React.FC<{ c: Champ; i: number; size: number }> = ({ c, i, size }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const s = spring({ frame: f - 10 - i * 5, fps, config: { damping: 13, mass: 0.7 } });
+  const s = spring({ frame: f - TL.cardDelay - i * TL.cardStagger, fps, config: { damping: 13, mass: 0.7 } });
   const wrIn = interpolate(f, [22 + i * 5, 34 + i * 5], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return (
     <div style={{ width: size + 40, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `translateY(${(1 - s) * 80}px) scale(${0.6 + s * 0.4})`, opacity: s }}>
@@ -249,17 +249,17 @@ const ChampCard: React.FC<{ c: Champ; i: number; lang: Lang; size: number }> = (
       <div style={{ marginTop: 18, fontFamily: BODY, fontWeight: 800, fontSize: 42, color: C.text, whiteSpace: 'nowrap' }}>{c.name}</div>
       {c.winRate != null && (
         <div style={{ marginTop: 4, fontFamily: BODY, fontWeight: 600, fontSize: 30, color: C.up, opacity: wrIn }}>
-          {T[lang].pct(c.winRate)} <span style={{ color: C.muted }}>{T[lang].wr}</span>
+          {T.pct(c.winRate)} <span style={{ color: C.muted }}>{T.wr}</span>
         </div>
       )}
     </div>
   );
 };
 
-const RoleScene: React.FC<{ role: (typeof data.roles)[number]; index: number; lang: Lang }> = ({ role, index, lang }) => {
+const RoleScene: React.FC<{ role: (typeof data.roles)[number]; index: number }> = ({ role, index }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = T[lang];
+  const t = T;
   const head = spring({ frame: f, fps, config: { damping: 16 } });
   const n = role.splus.length;
   const size = n <= 2 ? 360 : n <= 4 ? 300 : 260;
@@ -299,7 +299,7 @@ const RoleScene: React.FC<{ role: (typeof data.roles)[number]; index: number; la
         }}
       >
         {role.splus.map((c, i) => (
-          <ChampCard key={c.key} c={c} i={i} lang={lang} size={size} />
+          <ChampCard key={c.key} c={c} i={i} size={size} />
         ))}
       </div>
     </AbsoluteFill>
@@ -308,12 +308,12 @@ const RoleScene: React.FC<{ role: (typeof data.roles)[number]; index: number; la
 
 type Move = (typeof data.moves.ups)[number];
 
-const MoveRow: React.FC<{ m: Move; i: number; up: boolean; lang: Lang }> = ({ m, i, up, lang }) => {
+const MoveRow: React.FC<{ m: Move; i: number; up: boolean }> = ({ m, i, up }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const s = spring({ frame: f - 14 - i * 6 - (up ? 0 : 18), fps, config: { damping: 15 } });
+  const s = spring({ frame: f - TL.moveDelay - i * TL.moveStagger - (up ? 0 : TL.downsOffset), fps, config: { damping: 15 } });
   const col = up ? C.up : C.down;
-  const key = m.role as keyof (typeof T)['fr']['role'];
+  const key = m.role as keyof typeof T['role'];
   return (
     <div
       style={{
@@ -325,7 +325,7 @@ const MoveRow: React.FC<{ m: Move; i: number; up: boolean; lang: Lang }> = ({ m,
       <Img src={staticFile(`champions/${m.key}.jpg`)} style={{ width: 110, height: 110, borderRadius: 20 }} />
       <div style={{ flex: 1 }}>
         <div style={{ fontFamily: BODY, fontWeight: 800, fontSize: 44, color: C.text }}>{m.name}</div>
-        <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 28, color: C.muted, letterSpacing: 3 }}>{T[lang].role[key]}</div>
+        <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 28, color: C.muted, letterSpacing: 3 }}>{T.role[key]}</div>
       </div>
       <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 50, color: C.text, display: 'flex', alignItems: 'center', gap: 16 }}>
         <span style={{ color: C.muted }}>{tierLabel(m.from)}</span>
@@ -336,10 +336,10 @@ const MoveRow: React.FC<{ m: Move; i: number; up: boolean; lang: Lang }> = ({ m,
   );
 };
 
-const MovesScene: React.FC<{ lang: Lang }> = ({ lang }) => {
+const MovesScene: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = T[lang];
+  const t = T;
   const head = spring({ frame: f, fps, config: { damping: 16 } });
   const label = (txt: string, col: string) => (
     <div style={{ fontFamily: BODY, fontWeight: 800, fontSize: 34, color: col, letterSpacing: 6, textTransform: 'uppercase', margin: '10px 0 4px 8px' }}>{txt}</div>
@@ -352,21 +352,21 @@ const MovesScene: React.FC<{ lang: Lang }> = ({ lang }) => {
       </div>
       <div style={{ position: 'absolute', top: 560, left: 90, right: 90, display: 'flex', flexDirection: 'column', gap: 20 }}>
         {label(t.ups, C.up)}
-        {data.moves.ups.map((m, i) => <MoveRow key={m.key} m={m} i={i} up lang={lang} />)}
+        {data.moves.ups.map((m, i) => <MoveRow key={m.key} m={m} i={i} up />)}
         <div style={{ height: 24 }} />
         {label(t.downs, C.down)}
-        {data.moves.downs.map((m, i) => <MoveRow key={m.key} m={m} i={i} up={false} lang={lang} />)}
+        {data.moves.downs.map((m, i) => <MoveRow key={m.key} m={m} i={i} up={false} />)}
       </div>
     </AbsoluteFill>
   );
 };
 
-const Outro: React.FC<{ lang: Lang }> = ({ lang }) => {
+const Outro: React.FC = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const t = T[lang];
+  const t = T;
   const s = spring({ frame: f, fps, config: { damping: 14 } });
-  const url = lang === 'fr' ? 'wildriftcore.com/tierlist' : 'wildriftcore.com/en/tierlist';
+  const url = 'wildriftcore.com/en/tierlist';
   const pulse = 1 + Math.sin((f / fps) * Math.PI * 2) * 0.02;
   return (
     <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 90px' }}>
@@ -375,6 +375,9 @@ const Outro: React.FC<{ lang: Lang }> = ({ lang }) => {
           WILD RIFT <GoldText>CORE</GoldText>
         </div>
         <div style={{ marginTop: 40, fontFamily: BODY, fontWeight: 700, fontSize: 52, color: C.text, whiteSpace: 'pre-line', lineHeight: 1.25 }}>{t.cta}</div>
+        <div style={{ marginTop: 22, fontFamily: BODY, fontWeight: 700, fontSize: 34, color: C.gold2, letterSpacing: 4, textTransform: 'uppercase' }}>
+          {t.ctaWeek} · {weekLabel}
+        </div>
         <div
           style={{
             marginTop: 56, display: 'inline-block', fontFamily: BODY, fontWeight: 800, fontSize: 50, color: C.bg0,
@@ -392,22 +395,24 @@ const Outro: React.FC<{ lang: Lang }> = ({ lang }) => {
   );
 };
 
-export const TierListPatch: React.FC<{ lang: Lang }> = ({ lang }) => (
+export const TierListPatch: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: C.bg0 }}>
+    {/* synthétisée par scripts/synth-audio.mjs, calée sur src/timeline.json */}
+    <Audio src={staticFile('audio/soundtrack.wav')} />
     <Background />
     <Sequence durationInFrames={INTRO}>
-      <Intro lang={lang} />
+      <Intro />
     </Sequence>
     {data.roles.map((role, i) => (
       <Sequence key={role.role} from={ROLES_START + i * ROLE} durationInFrames={ROLE}>
-        <RoleScene role={role} index={i} lang={lang} />
+        <RoleScene role={role} index={i} />
       </Sequence>
     ))}
     <Sequence from={MOVES_START} durationInFrames={MOVES}>
-      <MovesScene lang={lang} />
+      <MovesScene />
     </Sequence>
     <Sequence from={OUTRO_START} durationInFrames={OUTRO}>
-      <Outro lang={lang} />
+      <Outro />
     </Sequence>
     <TopBar patch={data.patch} />
     <ProgressBar />

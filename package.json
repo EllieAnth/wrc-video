@@ -4,10 +4,9 @@
   "description": "",
   "scripts": {
     "sync": "node scripts/sync-data.mjs",
+    "audio": "node scripts/synth-audio.mjs",
     "studio": "remotion studio src/index.ts",
-    "render:fr": "remotion render src/index.ts TierListPatch-fr out/tierlist-fr.mp4 --codec=h264 --crf=18",
-    "render:en": "remotion render src/index.ts TierListPatch-en out/tierlist-en.mp4 --codec=h264 --crf=18",
-    "render": "npm run sync && npm run render:fr && npm run render:en"
+    "render": "npm run sync && npm run audio && remotion render src/index.ts TierListPatch out/tierlist-en.mp4 --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k"
   },
   "keywords": [],
   "author": "",

@@ -58,8 +58,17 @@ const downs = moves.filter((m) => m.delta < 0).sort(byHeight).slice(0, 3);
 const hero = Object.values(computed.roles).flat().sort((a, b) => b.score - a.score || b.percentile - a.percentile)[0];
 const heroKey = norm(hero.name);
 
+// Semaine de méta (lundi → dimanche) du dernier recalcul de la tier list, pas de la date du rendu.
+const computedDay = new Date(computed.computedAt.slice(0, 10) + 'T00:00:00Z');
+const monday = new Date(computedDay);
+monday.setUTCDate(computedDay.getUTCDate() - ((computedDay.getUTCDay() + 6) % 7));
+const sunday = new Date(monday);
+sunday.setUTCDate(monday.getUTCDate() + 6);
+const isoDay = (d) => d.toISOString().slice(0, 10);
+
 const data = {
   patch: meta.patch.version,
+  week: { start: isoDay(monday), end: isoDay(sunday) },
   syncedAt: new Date().toISOString().slice(0, 10),
   rank: computed.danLabel,
   hero: heroKey,

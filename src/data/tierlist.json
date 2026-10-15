@@ -1,5 +1,9 @@
 {
   "patch": "7.3b",
+  "week": {
+    "start": "2026-10-12",
+    "end": "2026-10-18"
+  },
   "syncedAt": "2026-10-15",
   "rank": "Master+",
   "hero": "malphite",
