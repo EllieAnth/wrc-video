@@ -1,0 +1,231 @@
+{
+  "patch": "7.3b",
+  "syncedAt": "2026-10-15",
+  "rank": "Master+",
+  "hero": "malphite",
+  "roles": [
+    {
+      "role": "TOP",
+      "label": {
+        "fr": "Top / Baron Lane",
+        "en": "Top / Baron Lane",
+        "pt-BR": "Top / Baron Lane",
+        "tr": "Top / Baron Lane",
+        "id": "Top / Baron Lane"
+      },
+      "splus": [
+        {
+          "key": "malphite",
+          "name": "Malphite",
+          "winRate": 55.15,
+          "pickRate": 7.85
+        },
+        {
+          "key": "shen",
+          "name": "Shen",
+          "winRate": 55.81,
+          "pickRate": 3.02
+        },
+        {
+          "key": "mordekaiser",
+          "name": "Mordekaiser",
+          "winRate": 50.71,
+          "pickRate": 11.49
+        },
+        {
+          "key": "teemo",
+          "name": "Teemo",
+          "winRate": 52.71,
+          "pickRate": 4.69
+        }
+      ]
+    },
+    {
+      "role": "JUNGLE",
+      "label": {
+        "fr": "Jungle",
+        "en": "Jungle",
+        "pt-BR": "Jungle",
+        "tr": "Jungle",
+        "id": "Jungle"
+      },
+      "splus": [
+        {
+          "key": "nocturne",
+          "name": "Nocturne",
+          "winRate": 55.26,
+          "pickRate": 9.22
+        },
+        {
+          "key": "rammus",
+          "name": "Rammus",
+          "winRate": 57.57,
+          "pickRate": 5.14
+        },
+        {
+          "key": "ekko",
+          "name": "Ekko",
+          "winRate": 53.28,
+          "pickRate": 7.26
+        },
+        {
+          "key": "amumu",
+          "name": "Amumu",
+          "winRate": 56.4,
+          "pickRate": 3.05
+        }
+      ]
+    },
+    {
+      "role": "MID",
+      "label": {
+        "fr": "Mid Lane",
+        "en": "Mid Lane",
+        "pt-BR": "Mid Lane",
+        "tr": "Mid Lane",
+        "id": "Mid Lane"
+      },
+      "splus": [
+        {
+          "key": "hwei",
+          "name": "Hwei",
+          "winRate": 55.98,
+          "pickRate": 8.62
+        },
+        {
+          "key": "syndra",
+          "name": "Syndra",
+          "winRate": 51.22,
+          "pickRate": 6.66
+        },
+        {
+          "key": "brand",
+          "name": "Brand",
+          "winRate": 52.11,
+          "pickRate": 10.51
+        },
+        {
+          "key": "morgana",
+          "name": "Morgana",
+          "winRate": 52.08,
+          "pickRate": 6.7
+        },
+        {
+          "key": "galio",
+          "name": "Galio",
+          "winRate": 51.41,
+          "pickRate": 11.49
+        }
+      ]
+    },
+    {
+      "role": "ADC",
+      "label": {
+        "fr": "ADC / Dragon Lane",
+        "en": "ADC / Dragon Lane",
+        "pt-BR": "ADC / Dragon Lane",
+        "tr": "ADC / Dragon Lane",
+        "id": "ADC / Dragon Lane"
+      },
+      "splus": [
+        {
+          "key": "senna",
+          "name": "Senna",
+          "winRate": 55.58,
+          "pickRate": 3.16
+        },
+        {
+          "key": "yunara",
+          "name": "Yunara",
+          "winRate": 51.24,
+          "pickRate": 15.95
+        }
+      ]
+    },
+    {
+      "role": "SUPPORT",
+      "label": {
+        "fr": "Support",
+        "en": "Support",
+        "pt-BR": "Support",
+        "tr": "Support",
+        "id": "Support"
+      },
+      "splus": [
+        {
+          "key": "senna",
+          "name": "Senna",
+          "winRate": 54.18,
+          "pickRate": 12.35
+        },
+        {
+          "key": "malphite",
+          "name": "Malphite",
+          "winRate": 51.07,
+          "pickRate": 7.68
+        },
+        {
+          "key": "hwei",
+          "name": "Hwei",
+          "winRate": 55.36,
+          "pickRate": 1.52
+        }
+      ]
+    }
+  ],
+  "moves": {
+    "date": "2026-10-13",
+    "ups": [
+      {
+        "key": "teemo",
+        "name": "Teemo",
+        "role": "TOP",
+        "from": "S",
+        "to": "S_PLUS",
+        "delta": 1
+      },
+      {
+        "key": "kennen",
+        "name": "Kennen",
+        "role": "TOP",
+        "from": "B",
+        "to": "A",
+        "delta": 1
+      },
+      {
+        "key": "vi",
+        "name": "Vi",
+        "role": "JUNGLE",
+        "from": "B",
+        "to": "A",
+        "delta": 1
+      }
+    ],
+    "downs": [
+      {
+        "key": "chogath",
+        "name": "Cho'Gath",
+        "role": "TOP",
+        "from": "S_PLUS",
+        "to": "S",
+        "delta": -1
+      },
+      {
+        "key": "thresh",
+        "name": "Thresh",
+        "role": "SUPPORT",
+        "from": "S_PLUS",
+        "to": "S",
+        "delta": -1
+      },
+      {
+        "key": "sion",
+        "name": "Sion",
+        "role": "TOP",
+        "from": "A",
+        "to": "B",
+        "delta": -1
+      }
+    ]
+  }
+}
