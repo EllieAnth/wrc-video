@@ -9,15 +9,16 @@
   L'arbre de travail de nexus-core peut être en retard ou sale : **toujours `git show origin/main:`**.
 - Réseaux visés : TikTok, YouTube Shorts, Instagram Reels (9:16, 1080×1920, 30 i/s, 17 à 40 s).
 
-## Les cinq formats (`src/formats/<id>/`, liste dans `registry.ts`)
+## Les deux formats (`src/formats/<id>/`, liste dans `registry.ts`)
 
 | id | sujet | données | durée |
 |---|---|---|---|
 | `meta-movers` | tier list de la semaine, tableau qui bouge, ▲/▼ | `tierlist.json` | 38 s |
-| `duel` | n° 1 d'un rôle contre son counter, interaction clé, verdict | `duel.json` (ledger counters) | 23 s |
-| `hidden-pick` | champion fort et peu joué, preuve par la courbe | `hidden.json` | 17,5 s |
 | `patch` | buffs/nerfs/objets du patch, puis « did it work? » (avant → après) | `patch.json` | 24,5 s |
-| `draft-report` | drafts analysés sur 30 j, ennemi le plus affronté, paire du mois | `draft.json` | 17,5 s |
+
+Trois autres formats (duel, hidden-pick, draft-report) ont été construits puis **retirés le 2026-10-15** :
+Anthony ne les a pas jugés utiles. Ils restent dans l'historique git (commit `bb353f7`) ; ne pas les
+reproposer sans demande explicite.
 
 Chaque dossier contient `timeline.ts` (durées des scènes + repères sonores — **seule source des
 timings**, lue par la composition, `cues.mts` et `export-voice.mts`), `voice.ts` (texte à dire,
@@ -28,11 +29,18 @@ dans `registry.ts` + une `Composition` dans `src/Root.tsx`.
 ## Chaîne de production (`npm run render` = 0 token, 0 appel IA)
 
 `sync` (données + icônes/splashs CommunityDragon + aperçus Riot des sorts) → `clips` (clips de
-créateurs, ci-dessous) → `cues` → `audio` (`scripts/synth-audio.mjs` : musique et bruitages
-**synthétisés**, aucun fichier sous droits) → `voice` (`out/<id>-voice.md`) → `render:all`.
+créateurs, ci-dessous) → `cues` → `audio` (`scripts/synth-audio.mjs` : **bruitages seulement**,
+synthétisés, aucun fichier sous droits) → `voice` (`out/<id>-voice.md`) → `render:all`.
 Vérification visuelle sans rendu complet : `npx tsx scripts/stills.mts --format=<id>` →
 planche-contact `out/stills/<id>-sheet.jpg`. Les fichiers lourds (cache yt-dlp, logs) vont sur
 `/Volumes/T7/wrc-video-cache/`, jamais sur le disque natif.
+
+## Son : bruitages seulement, la musique vient de TikTok (décision du 2026-10-15)
+
+Aucune musique dans le rendu : `synth-audio.mjs` ne pose que les bruitages (impact d'ouverture, whoosh,
+pops, ticks, montée, impact de fin) calés sur les repères de `timeline.ts`. La musique est ajoutée dans
+TikTok au moment de publier (bibliothèque de la plateforme, droits couverts). `--music` remet
+l'ancienne bande-son synthétisée pour un essai, jamais pour une publication.
 
 ## Voix : synthèse TikTok, pas de TTS payant (décision du 2026-10-15)
 
@@ -47,8 +55,14 @@ Les créateurs YouTube sont **réputés consentants** : on reprend des extraits 
 illustrer un champion, **à condition d'afficher le nom de la chaîne en évidence** (`CreatorBadge`,
 « CLIP BY <chaîne> », jamais retiré ni réduit). `scripts/fetch-clips.mjs` : index
 `champion_videos.json` du site → repli recherche YouTube ; sonde audio pour trouver le passage le
-plus fort (ebur128), télécharge 4 à 8 s en 1080p, recadre en 9:16, sans son. Sorties :
-`public/clips/<key>-creator.mp4` + `src/data/clips-creators.json` (chaîne, URL, instant).
+plus fort (ebur128), télécharge 4 à 8 s en 1080p, **garde l'image entière au ratio de la source**
+(16:9 → 1920×1080, Short → 1080×1920), sans son. Sorties : `public/clips/<key>-creator.mp4` +
+`src/data/clips-creators.json` (chaîne, URL, instant, `source` = dimensions réelles).
+**Le cadrage se fait dans `ClipPanel` (`src/fx/Video.tsx`)**, jamais à l'encodage : recadrage ≤ 25 % en
+largeur (paysage) ou ≤ 40 % en hauteur (portrait), reste du panneau rempli par le clip flouté. Un
+recadrage 9:16 au centre perdait le champion dès que la caméra du créateur n'était pas verrouillée
+sur lui (retour d'Anthony, 2026-10-15). Changer le cadrage = re-rendre ; changer l'encodage =
+`fetch-clips.mjs --reframe` (ré-encode depuis le cache du T7, sans re-télécharger).
 Chaînes exclues : Riot / Wild Rift officiel. Anthony juge les clips et demande des remplacements :
 `--champ=<key> --replace` refait le choix. Repli automatique si aucun clip : splash en Ken Burns.
 

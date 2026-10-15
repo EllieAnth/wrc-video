@@ -5,21 +5,34 @@ import { clamp, ease, ramp, useSpring } from './util';
 import creators from '../data/clips-creators.json';
 
 export type CreatorClip = { src: string; creator: string; channel: string; url: string; title: string; kind: string; start: number; duration: number; source: string };
+const clipAspect = (clip: CreatorClip) => { const [w, h] = clip.source.split('x').map(Number); return w > 0 && h > 0 ? w / h : 16 / 9; };
 export const creatorClip = (key: string): CreatorClip | null => (creators as Record<string, CreatorClip>)[key] || null;
 
-/** Panneau vidéo plein cadre ou en bande : fondu haut/bas, lent zoom, grain. `clip` = chemin sous public/. */
+/** Panneau vidéo : la source est l'image ENTIÈRE du créateur (fetch-clips.mjs), `aspect` = son ratio l/h.
+ *  Le clip net est recadré au plus de 25 % en largeur (source paysage : hauteur plafonnée à un cadre 4:3) ou de
+ *  40 % en hauteur (source portrait, Short), pour que le champion reste dans le champ même quand la caméra du
+ *  créateur n'est pas verrouillée sur lui. Le reste du panneau est rempli par le même clip flouté. Zoom lent discret. */
 export const ClipPanel: React.FC<{
   src: string; startFrom?: number; top?: number; height?: number; delay?: number; zoomFrom?: number; zoomTo?: number;
-  fadeEdges?: boolean; dim?: number; children?: React.ReactNode; durationFrames?: number;
-}> = ({ src, startFrom = 0, top = 0, height, delay = 0, zoomFrom = 1.12, zoomTo = 1.02, fadeEdges = true, dim = 0, children, durationFrames = 90 }) => {
+  fadeEdges?: boolean; dim?: number; children?: React.ReactNode; durationFrames?: number; aspect?: number;
+}> = ({ src, startFrom = 0, top = 0, height, delay = 0, zoomFrom = 1.05, zoomTo = 1.0, fadeEdges = true, dim = 0, children, durationFrames = 90, aspect = 16 / 9 }) => {
   const f = useCurrentFrame();
-  const { height: H } = useVideoConfig();
+  const { width: W, height: H } = useVideoConfig();
+  const h = height ?? H - top;
   const open = useSpring(delay, { damping: 20 });
   const z = interpolate(f, [delay, delay + durationFrames], [zoomFrom, zoomTo], { ...clamp, easing: ease.out });
   const fade = 'linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%)';
+  const landscape = aspect >= 1;
+  const fgW = landscape ? W : Math.min(W, Math.round((h * aspect) / 0.6));
+  const fgH = landscape ? Math.min(h, Math.round((W * 3) / 4)) : h;
+  const fgTop = Math.round((h - fgH) / 2), fgLeft = Math.round((W - fgW) / 2);
+  const fill = fgH < h || fgW < W;
   return (
-    <div style={{ position: 'absolute', left: 0, right: 0, top, height: height ?? H - top, overflow: 'hidden', opacity: open, maskImage: fadeEdges ? fade : undefined, WebkitMaskImage: fadeEdges ? fade : undefined, transform: `scaleY(${0.9 + open * 0.1})` }}>
-      <OffthreadVideo src={staticFile(src)} startFrom={startFrom} muted style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${z})` }} />
+    <div style={{ position: 'absolute', left: 0, right: 0, top, height: h, overflow: 'hidden', opacity: open, maskImage: fadeEdges ? fade : undefined, WebkitMaskImage: fadeEdges ? fade : undefined, transform: `scaleY(${0.9 + open * 0.1})`, background: '#05060d' }}>
+      {fill && <OffthreadVideo src={staticFile(src)} startFrom={startFrom} muted style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(28px) brightness(0.55) saturate(1.2)', transform: 'scale(1.15)' }} />}
+      <div style={{ position: 'absolute', left: fgLeft, top: fgTop, width: fgW, height: fgH, overflow: 'hidden', boxShadow: fill ? '0 0 60px #000c' : undefined }}>
+        <OffthreadVideo src={staticFile(src)} startFrom={startFrom} muted style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${z})` }} />
+      </div>
       {dim > 0 && <div style={{ position: 'absolute', inset: 0, background: `#05060d`, opacity: dim }} />}
       {children}
     </div>
@@ -47,7 +60,7 @@ export const CreatorPanel: React.FC<{ champ: string; top?: number; height?: numb
   const clip = creatorClip(champ);
   if (clip) {
     return (
-      <ClipPanel src={clip.src} top={top} height={height} delay={delay} durationFrames={durationFrames} dim={dim}>
+      <ClipPanel src={clip.src} aspect={clipAspect(clip)} top={top} height={height} delay={delay} durationFrames={durationFrames} dim={dim}>
         <CreatorBadge clip={clip} delay={delay + 8} bottom={badgeBottom} />
       </ClipPanel>
     );

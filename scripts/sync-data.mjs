@@ -23,7 +23,6 @@ const norm = (s) => String(s).toLowerCase().replace(/[^a-z]/g, '');
 const write = (name, obj) => fs.writeFileSync(path.join(DATA_DIR, name), JSON.stringify(obj, null, 2) + '\n');
 
 const ROLES = ['top', 'jungle', 'mid', 'adc', 'support'];
-const LEDGER_ROLE = { TOP: 'TOP', JUNGLE: 'JUNGLE', MID: 'MID', ADC: 'DRAGON', SUPPORT: 'SUPPORT' };
 const TIER_RANK = { C: 0, B: 1, A: 2, S: 3, S_PLUS: 4 };
 
 // ── Sources ───────────────────────────────────────────────────────────────────
@@ -34,7 +33,6 @@ const changelog = json('assets/data/tierlist-changelog.json');
 const meta = json('assets/data/meta_current.json');
 const trends = json('assets/data/meta-trends.json');
 const palettes = json('assets/data/champion-palettes.json');
-const ledger = json('assets/data/counters-matchup-ledger.json');
 const patchEffect = json('assets/data/patch-effect.json');
 const lanes = Object.fromEntries(ROLES.map((r) => [r, json(`tierslist/${r}.json`)]));
 
@@ -81,34 +79,6 @@ for (const m of roleMoves) { const r = rowsBefore.find((x) => x.tier === m.from)
 const movers = { ...common, hero: heroKey, roles, board: { role: boardRole, rows: rowsAfter, fromRows: rowsBefore, moved: roleMoves.map((m) => m.key) }, moves: { date: lastRun.date, ups: moves.filter((m) => m.delta > 0).sort(byHeight).slice(0, 3), downs: moves.filter((m) => m.delta < 0).sort(byHeight).slice(0, 3) } };
 
 // ── 2. Duel of the Week ───────────────────────────────────────────────────────
-// Le n° 1 d'un rôle contre un pick populaire du même rôle : écart le plus net, confiance ≥ 0,85.
-const pairFor = (a, b, role) => ledger.pairs[`${a}|${b}|${role}`] || null;
-const slugByNorm = new Map(); for (const k of Object.keys(ledger.pairs)) { const [a, b] = k.split('|'); slugByNorm.set(norm(a), a); slugByNorm.set(norm(b), b); }
-let duel = null;
-for (const r of roles) {
-  const top = [...r.splus].sort((a, b) => b.score - a.score)[0];
-  if (!top) continue;
-  const popular = (computed.roles[r.role] || []).filter((c) => norm(c.name) !== top.key).sort((a, b) => b.breakdown.pickRate - a.breakdown.pickRate).slice(0, 8);
-  for (const p of popular) {
-    const A = slugByNorm.get(top.key), B = slugByNorm.get(norm(p.name));
-    if (!A || !B) continue;
-    const lr = LEDGER_ROLE[r.role];
-    const ab = pairFor(A, B, lr), ba = pairFor(B, A, lr);
-    const pair = ab || ba; if (!pair || !pair.include || pair.confidence < 0.85) continue;
-    const edge = ab ? ab.edge : -ba.edge; // signe vu du n° 1
-    const cand = { ...common, role: r.role, a: champ(r.role.toLowerCase(), top.key, top.name), b: champ(r.role.toLowerCase(), norm(p.name), p.name), edge, confidence: pair.confidence, type: pair.type, tags: pair.tags, keyInteraction: pair.key_interaction, judgedFrom: pair.judgedFrom };
-    if (!duel || Math.abs(cand.edge) > Math.abs(duel.edge) || (Math.abs(cand.edge) === Math.abs(duel.edge) && cand.confidence > duel.confidence)) duel = cand;
-  }
-}
-
-// ── 3. Hidden Pick ────────────────────────────────────────────────────────────
-const hiddenRows = Object.entries(computed.roles).flatMap(([role, rows]) => rows.map((c) => ({ role, c })))
-  .filter(({ c }) => c.breakdown.pickRate < 2 && c.breakdown.winRate >= 54 && TIER_RANK[c.computedTier] >= 2)
-  .sort((x, y) => y.c.breakdown.winRate - x.c.breakdown.winRate);
-const hiddenRow = hiddenRows[0];
-const hiddenReason = hiddenRow && (lanes[hiddenRow.role.toLowerCase()].tiers[hiddenRow.c.computedTier] || []).find((c) => norm(c.name) === norm(hiddenRow.c.name))?.reason?.en;
-const hidden = hiddenRow ? { ...common, pick: { ...champ(hiddenRow.role.toLowerCase(), norm(hiddenRow.c.name), hiddenRow.c.name), reason: hiddenReason || null }, others: hiddenRows.slice(1, 3).map(({ role, c }) => champ(role.toLowerCase(), norm(c.name), c.name)) } : null;
-
 // ── 4. Patch : notes + effet mesuré ───────────────────────────────────────────
 const effect = patchEffect.patches.at(-1);
 const notesFile = list('assets/data').filter((f) => /^patch\d+[a-z]?\.json$/.test(f)).sort().at(-1);
@@ -125,28 +95,13 @@ const patch = {
   effects: effect.champions.map((c) => ({ key: norm(c.name), name: c.name, type: c.type, wrBefore: c.wr.before, wrAfter: c.wr.after, wrDelta: c.wr.delta, days: c.wr.days, pickBefore: c.pick?.before ?? null, pickAfter: c.pick?.after ?? null, pickDelta: c.pick?.delta ?? null, palette: paletteFor(norm(c.name)) })).sort((a, b) => Math.abs(b.wrDelta) - Math.abs(a.wrDelta)),
 };
 
-// ── 5. Draft Report (mensuel) ─────────────────────────────────────────────────
-const draftFile = list('assets/data/draft-trends').filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().at(-1);
-const dt = json(`assets/data/draft-trends/${draftFile}`);
-const pickRole = (r) => (r === 'DRAGON' ? 'ADC' : r);
-const draft = {
-  ...common,
-  generatedAt: dt.generatedAt, windowDays: dt.windowDays, drafts: dt.drafts,
-  bySurface: dt.bySurface, byLang: dt.byLang.slice(0, 5), byCountry: (dt.byCountry || []).filter((c) => c.country !== 'XX').slice(0, 5),
-  recoFollow: dt.recoFollow,
-  mostFaced: dt.picks.filter((p) => p.side === 'enemy').slice(0, 5).map((p) => ({ ...champ(pickRole(p.role).toLowerCase(), norm(p.champ), nameFor(norm(p.champ))), n: p.n })),
-  mostPicked: dt.picks.filter((p) => p.side === 'ally').slice(0, 5).map((p) => ({ ...champ(pickRole(p.role).toLowerCase(), norm(p.champ), nameFor(norm(p.champ))), n: p.n })),
-  topPairs: (dt.pairs || []).slice(0, 3).map((p) => ({ role: pickRole(p.role), pick: norm(p.pick), pickName: nameFor(norm(p.pick)), versus: norm(p.versus), versusName: nameFor(norm(p.versus)), n: p.n })),
-};
-
 // ── Visuels ───────────────────────────────────────────────────────────────────
 // CommunityDragon (même hôte que champions-avatar-index du site) : `tile` 380 px pour les cartes,
 // `splash-art/centered` 1280×720 pour les fonds. Clips d'action : aperçus officiels Riot des sorts
 // (CDN des pages champion de leagueoflegends.com, « Legal Jibber Jabber »).
 const keys = new Set();
 const collect = (o) => { if (!o || typeof o !== 'object') return; if (Array.isArray(o)) return o.forEach(collect); if (typeof o.key === 'string' && o.key && 'name' in o && 'palette' in o) keys.add(o.key); for (const v of Object.values(o)) if (v && typeof v === 'object') collect(v); };
-collect([movers, duel, hidden, patch, draft]); keys.add(heroKey);
-for (const p of draft.topPairs) { keys.add(p.pick); keys.add(p.versus); }
+collect([movers, patch]); keys.add(heroKey);
 
 const fetchTo = async (url, out, type = 'image/') => {
   if (fs.existsSync(out)) return true;
@@ -173,8 +128,6 @@ const clips = {};
 const used = new Set();
 const clipJobs = [{ key: heroKey, spell: 'R' }];
 for (const r of roles) { if (!r.spotlight) continue; r.spotlightSpell = used.has(r.spotlight) ? 'Q' : 'R'; used.add(r.spotlight); clipJobs.push({ key: r.spotlight, spell: r.spotlightSpell }); }
-if (duel) clipJobs.push({ key: duel.a.key, spell: 'R' }, { key: duel.b.key, spell: 'R' });
-if (hidden) clipJobs.push({ key: hidden.pick.key, spell: 'R' });
 for (const e of patch.effects.slice(0, 3)) clipJobs.push({ key: e.key, spell: 'R' });
 for (const { key, spell } of clipJobs) {
   const id = idFor(key); if (id == null) { console.warn(`! pas d'id Riot pour ${key}`); continue; }
@@ -185,10 +138,6 @@ for (const { key, spell } of clipJobs) {
 
 movers.clips = clips;
 write('tierlist.json', movers);
-write('duel.json', duel);
-write('hidden.json', hidden);
 write('patch.json', patch);
-write('draft.json', draft);
 write('splash.json', [...splashKeys].filter((k) => fs.existsSync(path.join(splashDir, `${k}.jpg`))));
 console.log(`patch ${common.patch} · semaine ${common.week.start} → ${common.week.end} · ${keys.size} icônes · ${splashKeys.size} splashs · ${Object.keys(clips).length} clips Riot`);
-console.log(`duel : ${duel ? `${duel.a.name} vs ${duel.b.name} (${duel.role}, edge ${duel.edge})` : 'aucun'} · hidden : ${hidden ? `${hidden.pick.name} ${hidden.pick.winRate}% / ${hidden.pick.pickRate}%` : 'aucun'} · patch ${patch.version} : ${patch.effects.length} effets, ${patch.buffs.length} buffs, ${patch.nerfs.length} nerfs · draft : ${draft.drafts} drafts`);

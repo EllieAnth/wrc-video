@@ -1,4 +1,4 @@
-# Rend les cinq formats chaque lundi (après la tier list de nexus-core) et les publie en release.
+# Rend les deux formats chaque lundi (après la tier list de nexus-core) et les publie en release.
 # Secret requis : NEXUS_CORE_TOKEN — PAT à lecture seule (Contents: read) sur EllieAnth/nexus-core (privé).
 # Les clips de créateurs (yt-dlp) peuvent échouer sur les IP GitHub : la vidéo se replie alors sur le splash.
 name: Render weekly videos
@@ -75,7 +75,7 @@ jobs:
           tag_name: ${{ steps.week.outputs.tag }}
           name: Videos — ${{ steps.week.outputs.tag }}
           body: |
-            Five English shorts rendered from the week's data. Voice-over text per scene in the `*-voice.md` files (paste into TikTok text-to-speech).
+            English shorts rendered from the week's data (sound effects only: add music on TikTok). Voice-over text per scene in the `*-voice.md` files (paste into TikTok text-to-speech).
           files: |
             out/*.mp4
             out/*-voice.md

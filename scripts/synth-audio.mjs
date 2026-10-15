@@ -1,9 +1,11 @@
 #!/usr/bin/env node
-// Bande-son synthétisée note par note (aucun fichier audio sous droits), calée sur l'image : les
+// Bruitages synthétisés (aucun fichier audio sous droits), calés sur l'image : les
 // instants viennent d'un fichier de repères écrit par scripts/cues.mts depuis la timeline du format,
 // la même source que la composition. Un bruitage tombe donc toujours sur l'image qu'il souligne.
 //
-//   node scripts/synth-audio.mjs --format=meta-movers
+//   node scripts/synth-audio.mjs --format=meta-movers [--music]
+// Sans --music : bruitages seulement (impact d'ouverture, whoosh, pops, ticks, montée, impact de fin) —
+// décision d'Anthony (2026-10-15) : la musique est ajoutée dans TikTok à la publication, jamais ici.
 //   lit  public/audio/<format>.cues.json  → écrit  public/audio/<format>.wav  (stéréo 44,1 kHz, 16 bits)
 //
 // Repères : { fps, bpm, total, sections: [{ start, len, kind: 'intro'|'groove'|'break'|'outro', chords?, intensity? }],
@@ -13,6 +15,7 @@ import path from 'node:path';
 
 const arg = (n, d) => { const h = process.argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.split('=')[1] : d; };
 const FORMAT = arg('format', 'meta-movers');
+const MUSIC = process.argv.includes('--music');
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const Q = JSON.parse(fs.readFileSync(path.join(ROOT, `public/audio/${FORMAT}.cues.json`), 'utf8'));
 
@@ -82,6 +85,12 @@ const breakSection = (from, beats, chords) => {
 for (const s of Q.sections) {
   const from = t(s.start), beats = Math.max(1, Math.round(sec(s.len) / BEAT));
   const chords = s.chords || ['Am', 'F', 'C', 'G'];
+  if (!MUSIC) { // bruitages de structure seulement : l'ouverture et la fin de chaque section
+    if (s.kind === 'intro') { impact(from + 0.2); riser(from + sec(s.len) - 1.4, 1.4); }
+    else if (s.kind === 'groove') crash(from, 0.16);
+    else if (s.kind === 'outro') impact(from, 0.7);
+    continue;
+  }
   if (s.kind === 'intro') { impact(from + 0.2); pad(from, CH[chords[0]], sec(s.len) + 0.3, 0.05); riser(from + sec(s.len) - 1.4, 1.4); }
   else if (s.kind === 'groove') { groove(from, beats, chords, s.intensity ?? 1); crash(from); }
   else if (s.kind === 'break') breakSection(from, beats, chords);
@@ -117,7 +126,7 @@ for (let s = 0; s < N; s++) {
   L[s] = Math.tanh((L[s] + revL[s] * 0.6) * 1.1) * fi * fo; R[s] = Math.tanh((R[s] + revR[s] * 0.6) * 1.1) * fi * fo;
   peak = Math.max(peak, Math.abs(L[s]), Math.abs(R[s]));
 }
-const norm = 0.72 / peak; // ≈ -14 LUFS intégrés, la cible de TikTok/Reels/Shorts (mesuré par ffmpeg ebur128)
+const norm = 0.72 / peak; // crête à -2,9 dBFS ; avec la musique ≈ -14 LUFS intégrés (cible TikTok/Reels/Shorts) ; bruitages seuls : des pics nets, la musique TikTok comble
 const wav = Buffer.alloc(44 + N * 4);
 wav.write('RIFF', 0); wav.writeUInt32LE(36 + N * 4, 4); wav.write('WAVE', 8); wav.write('fmt ', 12); wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(2, 22);
 wav.writeUInt32LE(SR, 24); wav.writeUInt32LE(SR * 4, 28); wav.writeUInt16LE(4, 32); wav.writeUInt16LE(16, 34); wav.write('data', 36); wav.writeUInt32LE(N * 4, 40);

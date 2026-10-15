@@ -8,7 +8,7 @@
     "kind": "search",
     "start": 28.3,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x886"
   },
   "shen": {
     "src": "clips/shen-creator.mp4",
@@ -19,7 +19,7 @@
     "kind": "search",
     "start": 6.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "mordekaiser": {
     "src": "clips/mordekaiser-creator.mp4",
@@ -30,7 +30,7 @@
     "kind": "guide",
     "start": 1.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "teemo": {
     "src": "clips/teemo-creator.mp4",
@@ -41,7 +41,7 @@
     "kind": "short",
     "start": 28,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "nocturne": {
     "src": "clips/nocturne-creator.mp4",
@@ -52,7 +52,7 @@
     "kind": "search",
     "start": 3.3,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "rammus": {
     "src": "clips/rammus-creator.mp4",
@@ -63,7 +63,7 @@
     "kind": "search",
     "start": 28.4,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "ekko": {
     "src": "clips/ekko-creator.mp4",
@@ -74,7 +74,7 @@
     "kind": "highlights",
     "start": 2,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "amumu": {
     "src": "clips/amumu-creator.mp4",
@@ -85,7 +85,7 @@
     "kind": "short",
     "start": 3.2,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "hwei": {
     "src": "clips/hwei-creator.mp4",
@@ -96,7 +96,7 @@
     "kind": "search",
     "start": 5.1,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "syndra": {
     "src": "clips/syndra-creator.mp4",
@@ -107,7 +107,7 @@
     "kind": "short",
     "start": 8.8,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "brand": {
     "src": "clips/brand-creator.mp4",
@@ -118,7 +118,7 @@
     "kind": "short",
     "start": 1.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "morgana": {
     "src": "clips/morgana-creator.mp4",
@@ -129,7 +129,7 @@
     "kind": "search",
     "start": 9.4,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x864"
   },
   "galio": {
     "src": "clips/galio-creator.mp4",
@@ -140,7 +140,7 @@
     "kind": "short",
     "start": 3.7,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1920"
   },
   "senna": {
     "src": "clips/senna-creator.mp4",
@@ -151,7 +151,7 @@
     "kind": "short",
     "start": 19.1,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "yunara": {
     "src": "clips/yunara-creator.mp4",
@@ -162,7 +162,7 @@
     "kind": "search",
     "start": 12.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x866"
   },
   "kennen": {
     "src": "clips/kennen-creator.mp4",
@@ -173,7 +173,7 @@
     "kind": "search",
     "start": 10.9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x884"
   },
   "vi": {
     "src": "clips/vi-creator.mp4",
@@ -184,7 +184,7 @@
     "kind": "search",
     "start": 1.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x864"
   },
   "chogath": {
     "src": "clips/chogath-creator.mp4",
@@ -195,7 +195,7 @@
     "kind": "search",
     "start": 4.9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1068"
   },
   "thresh": {
     "src": "clips/thresh-creator.mp4",
@@ -206,7 +206,7 @@
     "kind": "short",
     "start": 5.9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "sion": {
     "src": "clips/sion-creator.mp4",
@@ -217,7 +217,7 @@
     "kind": "short",
     "start": 2.9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "skarner": {
     "src": "clips/skarner-creator.mp4",
@@ -228,7 +228,7 @@
     "kind": "search",
     "start": 9.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "samira": {
     "src": "clips/samira-creator.mp4",
@@ -239,7 +239,7 @@
     "kind": "short",
     "start": 9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "caitlyn": {
     "src": "clips/caitlyn-creator.mp4",
@@ -250,7 +250,7 @@
     "kind": "short",
     "start": 18.4,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "tristana": {
     "src": "clips/tristana-creator.mp4",
@@ -261,7 +261,7 @@
     "kind": "search",
     "start": 13.2,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x886"
   },
   "volibear": {
     "src": "clips/volibear-creator.mp4",
@@ -272,7 +272,7 @@
     "kind": "short",
     "start": 13.4,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "tryndamere": {
     "src": "clips/tryndamere-creator.mp4",
@@ -283,7 +283,7 @@
     "kind": "short",
     "start": 28.3,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "jhin": {
     "src": "clips/jhin-creator.mp4",
@@ -294,7 +294,7 @@
     "kind": "search",
     "start": 20.2,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "yasuo": {
     "src": "clips/yasuo-creator.mp4",
@@ -305,7 +305,7 @@
     "kind": "short",
     "start": 38.9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "missfortune": {
     "src": "clips/missfortune-creator.mp4",
@@ -316,7 +316,7 @@
     "kind": "search",
     "start": 9.9,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1920x1080"
   },
   "jinx": {
     "src": "clips/jinx-creator.mp4",
@@ -327,7 +327,7 @@
     "kind": "short",
     "start": 14.6,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1080x1920"
   },
   "draven": {
     "src": "clips/draven-creator.mp4",
@@ -338,6 +338,6 @@
     "kind": "highlights",
     "start": 4.7,
     "duration": 7,
-    "source": "undefinedxundefined"
+    "source": "1072x1920"
   }
 }

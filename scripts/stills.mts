@@ -1,5 +1,5 @@
 // Planche-contact d'un format : une image au cœur de chaque scène (60 %) + une à 20 %, assemblées par ffmpeg.
-// npx tsx scripts/stills.mts --format=duel [--frames=10,80,200]  → out/stills/<format>-sheet.jpg
+// npx tsx scripts/stills.mts --format=patch [--frames=10,80,200]  → out/stills/<format>-sheet.jpg
 import { bundle } from '@remotion/bundler';
 import { renderStill, selectComposition } from '@remotion/renderer';
 import { execFileSync } from 'node:child_process';

@@ -7,9 +7,12 @@
 // youtube[], et champion-videos/<slug>.json, catégories highlights > ranked > meta), lu sur
 // origin/main de ../nexus-core. Téléchargement par yt-dlp dans le cache du T7 (disque natif
 // quasi plein), choix du passage le plus bruyant (ebur128, fenêtre de WINDOW s : c'est là que ça se
-// bat), recadrage 9:16 en 1080×1920, muet (la bande-son est synthétisée).
+// bat), image 16:9 ENTIÈRE en 1920×1080, muette. Le cadrage se fait dans la composition (ClipPanel) :
+// un recadrage 9:16 au centre perdait le champion dès que la caméra du créateur n'était pas verrouillée
+// sur lui (retour d'Anthony, 2026-10-15).
 //
-//   node scripts/fetch-clips.mjs [--replace]                 # champions de src/data/tierlist.json
+//   node scripts/fetch-clips.mjs [--replace]                 # champions de tierlist.json + vedette du patch
+//   node scripts/fetch-clips.mjs --reframe                   # ré-encode les clips existants depuis le cache, sans re-télécharger
 //   node scripts/fetch-clips.mjs --champ=yasuo,samira --window=8
 // Sorties : public/clips/<key>-creator.mp4 (gitignoré) + src/data/clips-creators.json (versionné).
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -32,7 +35,12 @@ const byNorm = new Map(Object.entries(index).map(([k, v]) => [norm(k), { slug: k
 const tl = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/tierlist.json'), 'utf8'));
 const wanted = arg('champ')
   ? arg('champ').split(',').map(norm)
-  : [...new Set([tl.hero, ...tl.roles.flatMap((r) => r.splus.map((c) => c.key)), ...tl.moves.ups.map((m) => m.key), ...tl.moves.downs.map((m) => m.key)])];
+  : [...new Set([tl.hero, ...tl.roles.flatMap((r) => r.splus.map((c) => c.key)), ...tl.moves.ups.map((m) => m.key), ...tl.moves.downs.map((m) => m.key), ...patchHeadline()])];
+function patchHeadline() { // vedette du format patch : l'effet mesuré le plus net (même choix que src/formats/patch/index.tsx)
+  const f = path.join(ROOT, 'src/data/patch.json'); if (!fs.existsSync(f)) return [];
+  const p = JSON.parse(fs.readFileSync(f, 'utf8')); const top = [...(p.effects || [])].sort((a, b) => Math.abs(b.wrDelta) - Math.abs(a.wrDelta))[0];
+  return top ? [top.key] : [];
+}
 
 const OUT_DIR = path.join(ROOT, 'public/clips');
 const DATA = path.join(ROOT, 'src/data/clips-creators.json');
@@ -42,6 +50,7 @@ const data = fs.existsSync(DATA) ? JSON.parse(fs.readFileSync(DATA, 'utf8')) : {
 // --replace : refuse le clip retenu (Anthony l'a jugé mauvais) et en choisit un autre ; les refus
 // s'accumulent dans clips-rejected.json pour ne jamais revenir sur une vidéo écartée.
 const REPLACE = process.argv.includes('--replace');
+const REFRAME = process.argv.includes('--reframe');
 const REJECTED = path.join(ROOT, 'src/data/clips-rejected.json');
 const rejected = fs.existsSync(REJECTED) ? JSON.parse(fs.readFileSync(REJECTED, 'utf8')) : {};
 
@@ -117,8 +126,25 @@ function loudestWindow(file, duration) {
   return bestT;
 }
 
-for (const key of wanted) {
+// Le segment commence ~1 s avant `start` ; image ENTIÈRE au ratio de la source (16:9 → 1920×1080, Short 9:16 → 1080×1920), sans audio.
+function encode(seg, start, len, out) {
+  const vf = "scale='if(gt(iw,ih),1920,-2)':'if(gt(iw,ih),-2,1920)':flags=lanczos,fps=30,format=yuv420p";
+  const r = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(start > 0 ? 1 : 0), '-i', seg, '-t', String(len), '-vf', vf, '-an', '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-movflags', '+faststart', out], { encoding: 'utf8' });
+  return r.status === 0 ? null : r.stderr.slice(0, 200);
+}
+
+const dims = (file) => { const r = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', file], { encoding: 'utf8' }); return (r.stdout || '').trim().replace(',', 'x') || '?'; };
+
+for (const key of (REFRAME && !arg('champ') ? Object.keys(data) : wanted)) {
   const out = path.join(OUT_DIR, `${key}-creator.mp4`);
+  if (REFRAME) {
+    const seg = path.join(CACHE, `${ytId(data[key].url)}.seg.mp4`);
+    if (!data[key] || !fs.existsSync(seg)) { console.warn(`! ${key} : pas de clip ou segment absent du cache, relancer sans --reframe`); continue; }
+    const err = encode(seg, data[key].start, data[key].duration, out);
+    if (!err) data[key].source = dims(out);
+    console.log(err ? `! ${key} : ${err}` : `↻ ${key} (${data[key].creator}) ${data[key].source}`);
+    continue;
+  }
   if (REPLACE && data[key]) {
     rejected[key] = [...new Set([...(rejected[key] || []), ytId(data[key].url)].filter(Boolean))];
     fs.writeFileSync(REJECTED, JSON.stringify(rejected, null, 2) + '\n');
@@ -136,11 +162,9 @@ for (const key of wanted) {
     const len = Math.min(WINDOW, d.duration - start);
     const seg = downloadSegment(d.id, c.url, start, len);
     if (!seg) continue;
-    // Le segment commence ~1 s avant `start` ; recadrage 9:16 (centre) puis 1080×1920, sans audio.
-    const vf = `crop='min(iw,ih*9/16)':'min(ih,iw*16/9)',scale=1080:1920:flags=lanczos,fps=30,format=yuv420p`;
-    const r = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(start > 0 ? 1 : 0), '-i', seg, '-t', String(len), '-vf', vf, '-an', '-c:v', 'libx264', '-crf', '20', '-preset', 'medium', '-movflags', '+faststart', out], { encoding: 'utf8' });
-    if (r.status !== 0) { console.warn(`! ffmpeg ${key}: ${r.stderr.slice(0, 200)}`); continue; }
-    data[key] = { src: `clips/${key}-creator.mp4`, creator: d.creator, channel: d.channel, url: d.url, title: d.title, kind: c.kind, start: Math.round(start * 10) / 10, duration: Math.round(len * 10) / 10, source: `${d.width}x${d.height}` };
+    const err = encode(seg, start, len, out);
+    if (err) { console.warn(`! ffmpeg ${key}: ${err}`); continue; }
+    data[key] = { src: `clips/${key}-creator.mp4`, creator: d.creator, channel: d.channel, url: d.url, title: d.title, kind: c.kind, start: Math.round(start * 10) / 10, duration: Math.round(len * 10) / 10, source: dims(out) };
     console.log(`+ ${key} ← ${d.creator} · ${c.kind} · ${start.toFixed(1)}s`);
     done = true; break;
   }

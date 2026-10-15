@@ -7,10 +7,7 @@ from the site's weekly data. English only.
 | Composition | What it shows |
 |---|---|
 | `meta-movers` | Tier list of the week: live board, who moved up or down, why |
-| `duel` | The #1 of a role vs its counter — key interaction, verdict |
-| `hidden-pick` | A strong, rarely played pick, with its 30-day curve |
 | `patch` | Buffs, nerfs, items — then "did it work?" before/after |
-| `draft-report` | Drafts analyzed in 30 days: most faced, most picked, pair of the month |
 
 ```bash
 npm ci
@@ -21,7 +18,7 @@ npm run studio    # preview
 npm run render:all
 ```
 
-Soundtrack and sound effects are synthesized (`scripts/synth-audio.mjs`), no licensed audio.
+Sound effects only, synthesized (`scripts/synth-audio.mjs`), no licensed audio: music is added on TikTok at publish time.
 Voice-over is TikTok's free text-to-speech: `out/<id>-voice.md` gives the text per scene with timings.
 
 Wild Rift Core was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by
