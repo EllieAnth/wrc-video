@@ -28,7 +28,9 @@ const TIER_RANK = { C: 0, B: 1, A: 2, S: 3, S_PLUS: 4 };
 // ── Sources ───────────────────────────────────────────────────────────────────
 const computed = json('assets/data/tierlist-computed.json');
 const avatars = json('assets/data/champions-avatar-index.json');
-const avatarByNorm = new Map(avatars.map((a) => [norm(a.name), a]));
+// Quatre entrées de l'index (mel, nidalee, rell, velkoz, mesuré le 15/10) portent un slug à la place de l'URL :
+// on reconstruit l'URL CommunityDragon sur le même gabarit que les autres (vérifié : /tile et /splash-art répondent 200).
+const avatarByNorm = new Map(avatars.map((a) => [norm(a.name), /^https?:\/\//.test(a.icon) ? a : { ...a, icon: `https://cdn.communitydragon.org/latest/champion/${a.slug || a.icon}/square` }]));
 const changelog = json('assets/data/tierlist-changelog.json');
 const meta = json('assets/data/meta_current.json');
 const trends = json('assets/data/meta-trends.json');
@@ -105,6 +107,7 @@ collect([movers, patch]); keys.add(heroKey);
 
 const fetchTo = async (url, out, type = 'image/') => {
   if (fs.existsSync(out)) return true;
+  if (!/^https?:\/\//.test(url)) { console.warn(`! pas une URL : ${url} (${path.basename(out)})`); return false; } // ex. Nidalee, icon: 'nidalee' dans l'index du site (15/10)
   const res = await fetch(url);
   if (!res.ok || !String(res.headers.get('content-type')).startsWith(type)) { console.warn(`! ${url} : ${res.status}`); return false; }
   fs.writeFileSync(out, Buffer.from(await res.arrayBuffer())); return true;
@@ -112,6 +115,14 @@ const fetchTo = async (url, out, type = 'image/') => {
 const iconDir = path.join(ROOT, 'public/champions'); fs.mkdirSync(iconDir, { recursive: true });
 const splashDir = path.join(ROOT, 'public/splash'); fs.mkdirSync(splashDir, { recursive: true });
 const clipDir = path.join(ROOT, 'public/clips'); fs.mkdirSync(clipDir, { recursive: true });
+// Images d'objets du patch : fichiers du site (assets/images/...), copiés depuis origin/main.
+const itemDir = path.join(ROOT, 'public/items'); fs.mkdirSync(itemDir, { recursive: true });
+for (const it of patch.items) {
+  if (!it.image) continue;
+  const rel = it.image.replace(/^\//, ''); const out = path.join(itemDir, `${it.key}${path.extname(rel)}`);
+  try { if (!fs.existsSync(out)) fs.writeFileSync(out, execFileSync('git', ['-C', NEXUS, 'show', `origin/main:${rel}`], { maxBuffer: 1e8, stdio: ['pipe', 'pipe', 'ignore'] })); it.image = `items/${path.basename(out)}`; }
+  catch { console.warn(`! image d'objet absente : ${rel}`); it.image = null; }
+}
 for (const key of keys) {
   const a = avatarByNorm.get(key);
   if (!a) { console.warn(`! pas d'icône pour ${key}`); continue; }

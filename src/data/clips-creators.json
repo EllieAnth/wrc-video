@@ -339,5 +339,27 @@
     "start": 4.7,
     "duration": 7,
     "source": "1072x1920"
+  },
+  "jayce": {
+    "src": "clips/jayce-creator.mp4",
+    "creator": "Targarion Wild Rift",
+    "channel": "https://www.youtube.com/channel/UChqFO0ZNnwjqjwnnRI6TvGA",
+    "url": "https://www.youtube.com/watch?v=DghBysMZ3n8",
+    "title": "BEST MOMENTS WILD RIFT Highlights Montage  JAYCE #1",
+    "kind": "search",
+    "start": 11.2,
+    "duration": 7,
+    "source": "1920x1080"
+  },
+  "ambessa": {
+    "src": "clips/ambessa-creator.mp4",
+    "creator": "de todo porocho",
+    "channel": "https://www.youtube.com/channel/UC8VOFgwn9QxnTzacq4pNbOw",
+    "url": "https://www.youtube.com/watch?v=G-kSJvdmxEU",
+    "title": "🔥 ¡IMPARABLE con AMBESSA! 💀 Pentakill, jugadas épicas y dominio total en Wild Rift 👑⚔️ #WildRift",
+    "kind": "search",
+    "start": 23.3,
+    "duration": 7,
+    "source": "1920x858"
   }
 }

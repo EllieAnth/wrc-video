@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame } from 'remotion';
 import data from '../../data/patch.json';
 import { BODY, C, TITLE, weekLabel } from '../../theme';
 import { Background, Flash } from '../../fx/Background';
@@ -92,11 +92,16 @@ const Items: React.FC = () => {
           const s = ramp(f, 12 + i * 12, 26 + i * 12, ease.back);
           const col = it.type === 'buff' ? C.up : it.type === 'nerf' ? C.down : C.gold;
           return (
-            <div key={it.key} style={{ display: 'flex', gap: 24, alignItems: 'flex-start', background: '#05060dcc', border: `1px solid ${C.line}`, borderRadius: 24, padding: '26px 30px', opacity: Math.min(1, s), transform: `translateX(${(1 - s) * 200}px)` }}>
-              <div style={{ width: 64, height: 64, borderRadius: 16, flex: 'none', background: `linear-gradient(180deg, ${col}, ${col}88)`, display: 'grid', placeItems: 'center', fontFamily: TITLE, fontWeight: 900, fontSize: 34, color: C.bg0 }}>{it.type === 'buff' ? '▲' : it.type === 'nerf' ? '▼' : '◆'}</div>
-              <div>
-                <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 40, color: C.gold2 }}>{it.name}</div>
-                <div style={{ marginTop: 8, fontFamily: BODY, fontWeight: 600, fontSize: 30, lineHeight: 1.35, color: C.text }}>{it.summary}</div>
+            <div key={it.key} style={{ display: 'flex', gap: 24, alignItems: 'center', background: '#05060dcc', border: `1px solid ${C.line}`, borderLeft: `10px solid ${col}`, borderRadius: 24, padding: '20px 26px', opacity: Math.min(1, s), transform: `translateX(${(1 - s) * 200}px)` }}>
+              <div style={{ width: 118, height: 118, borderRadius: 22, flex: 'none', overflow: 'hidden', border: `4px solid ${col}`, boxShadow: `0 0 28px ${col}66`, background: '#0b0d1a', display: 'grid', placeItems: 'center' }}>
+                {it.image ? <Img src={staticFile(it.image)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <span style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 44, color: col }}>{it.type === 'buff' ? '▲' : '▼'}</span>}
+              </div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+                  <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 40, color: C.text }}>{it.name}</div>
+                  <Pill size={24} bg={col}>{it.type === 'buff' ? '▲ BUFF' : it.type === 'nerf' ? '▼ NERF' : '◆ CHANGE'}</Pill>
+                </div>
+                <div style={{ marginTop: 6, fontFamily: BODY, fontWeight: 600, fontSize: 29, lineHeight: 1.3, color: C.muted }}>{it.summary}</div>
               </div>
             </div>
           );

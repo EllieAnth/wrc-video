@@ -172,42 +172,42 @@
       "name": "Youmuu's Ghostblade",
       "type": "buff",
       "summary": "Youmuu's Ghostblade now costs 2,900 gold instead of 3,000.",
-      "image": "/assets/images/newItems/youmuus_ghostblade.webp"
+      "image": "items/youmuus-ghostblade.webp"
     },
     {
       "key": "locket-of-the-iron-solari",
       "name": "Locket of the Iron Solari",
       "type": "buff",
       "summary": "Locket of the Iron Solari goes to 2,500 gold and 300 HP, from 2,600 gold and 200 HP.",
-      "image": "/assets/images/items-cn/locket-of-the-iron-solari.webp"
+      "image": "items/locket-of-the-iron-solari.webp"
     },
     {
       "key": "statikk-shiv",
       "name": "Statikk Shiv",
       "type": "buff",
       "summary": "Statikk Shiv now costs 2,900 gold instead of 3,000, and each attack grants 7 bonus Energized stacks instead of 5.",
-      "image": "/assets/images/newItems/statikk_shiv.webp"
+      "image": "items/statikk-shiv.webp"
     },
     {
       "key": "yun-tal-wildarrows",
       "name": "Yun Tal Wildarrows",
       "type": "buff",
       "summary": "Yun Tal Wildarrows now costs 3,000 gold instead of 3,100.",
-      "image": "/assets/images/newItems/yun_tal_wildarrows.webp"
+      "image": "items/yun-tal-wildarrows.webp"
     },
     {
       "key": "thornmail",
       "name": "Thornmail",
       "type": "nerf",
       "summary": "Thornmail now costs 2,850 gold instead of 2,700.",
-      "image": "/assets/images/newItems/thornmail.webp"
+      "image": "items/thornmail.webp"
     },
     {
       "key": "warmogs-armor",
       "name": "Warmog's Armor",
       "type": "nerf",
       "summary": "Warmog's Heart now needs 1,250 bonus health to trigger, up from 900.",
-      "image": "/assets/images/newItems/warmogs_armor.webp"
+      "image": "items/warmogs-armor.webp"
     }
   ],
   "effects": [
