@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Audio,
   Img,
+  OffthreadVideo,
   Sequence,
   interpolate,
   spring,
@@ -230,28 +231,68 @@ const Intro: React.FC = () => {
 
 type Champ = (typeof data.roles)[number]['splus'][number];
 
-const ChampCard: React.FC<{ c: Champ; i: number; size: number }> = ({ c, i, size }) => {
+const ChampCard: React.FC<{ c: Champ; i: number; size: number; star: boolean }> = ({ c, i, size, star }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const s = spring({ frame: f - TL.cardDelay - i * TL.cardStagger, fps, config: { damping: 13, mass: 0.7 } });
   const wrIn = interpolate(f, [22 + i * 5, 34 + i * 5], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return (
-    <div style={{ width: size + 40, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `translateY(${(1 - s) * 80}px) scale(${0.6 + s * 0.4})`, opacity: s }}>
+    <div style={{ width: size + 24, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `translateY(${(1 - s) * 80}px) scale(${0.6 + s * 0.4})`, opacity: s }}>
       <div
         style={{
-          width: size, height: size, borderRadius: 34, padding: 6,
-          background: `linear-gradient(140deg, ${C.gold2}, ${C.gold} 45%, ${C.cyan})`,
-          boxShadow: `0 18px 50px #000a, 0 0 40px ${C.gold}40`,
+          width: size, height: size, borderRadius: size * 0.14, padding: 5,
+          background: star ? `linear-gradient(140deg, ${C.cyan2}, ${C.cyan} 50%, ${C.gold})` : `linear-gradient(140deg, ${C.gold2}, ${C.gold} 45%, ${C.cyan})`,
+          boxShadow: `0 18px 50px #000a, 0 0 ${star ? 60 : 36}px ${star ? C.cyan : C.gold}55`,
         }}
       >
-        <Img src={staticFile(`champions/${c.key}.jpg`)} style={{ width: '100%', height: '100%', borderRadius: 28, display: 'block' }} />
+        <Img src={staticFile(`champions/${c.key}.jpg`)} style={{ width: '100%', height: '100%', borderRadius: size * 0.14 - 5, display: 'block' }} />
       </div>
-      <div style={{ marginTop: 18, fontFamily: BODY, fontWeight: 800, fontSize: 42, color: C.text, whiteSpace: 'nowrap' }}>{c.name}</div>
+      <div style={{ marginTop: 14, fontFamily: BODY, fontWeight: 800, fontSize: Math.max(28, Math.round(size * 0.18)), color: C.text, whiteSpace: 'nowrap' }}>{c.name}</div>
       {c.winRate != null && (
-        <div style={{ marginTop: 4, fontFamily: BODY, fontWeight: 600, fontSize: 30, color: C.up, opacity: wrIn }}>
-          {T.pct(c.winRate)} <span style={{ color: C.muted }}>{T.wr}</span>
+        <div style={{ marginTop: 2, fontFamily: BODY, fontWeight: 700, fontSize: Math.max(22, Math.round(size * 0.13)), color: C.up, opacity: wrIn, whiteSpace: 'nowrap' }}>
+          {T.pct(c.winRate)} <span style={{ color: C.muted, fontWeight: 600 }}>WR</span>
         </div>
       )}
+    </div>
+  );
+};
+
+const SPELL_LABEL: Record<string, string> = { R: 'Ultimate', Q: 'Q ability' };
+
+// Clip d'action du champion vedette : aperçu officiel Riot du sort (cf. scripts/sync-data.mjs).
+const SpotlightClip: React.FC<{ champ: string; spell: string }> = ({ champ, spell }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const clip = (data.clips as Record<string, { src: string; start: number }>)[`${champ}-${spell}`];
+  const name = data.roles.flatMap((r) => r.splus).find((c) => c.key === champ)?.name ?? champ;
+  const open = spring({ frame: f, fps, config: { damping: 20 } });
+  const labelIn = spring({ frame: f - 8, fps, config: { damping: 16 } });
+  const fade = 'linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%)';
+  if (!clip) return null;
+  return (
+    <div
+      style={{
+        position: 'absolute', top: 540, left: 0, right: 0, height: 700, overflow: 'hidden',
+        maskImage: fade, WebkitMaskImage: fade, opacity: open, transform: `scaleY(${0.85 + open * 0.15})`,
+      }}
+    >
+      <OffthreadVideo
+        src={staticFile(clip.src)}
+        startFrom={Math.round(clip.start * fps)}
+        muted
+        style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${1.32 - interpolate(f, [0, ROLE], [0, 0.08])})` }}
+      />
+      <div
+        style={{
+          position: 'absolute', left: 60, bottom: 92, display: 'flex', alignItems: 'center', gap: 16,
+          padding: '12px 26px', borderRadius: 999, background: '#05060dcc', border: `2px solid ${C.cyan}`,
+          fontFamily: BODY, fontWeight: 800, fontSize: 34, color: C.text, letterSpacing: 2, textTransform: 'uppercase',
+          transform: `translateX(${(1 - labelIn) * -120}px)`, opacity: labelIn,
+        }}
+      >
+        <span style={{ color: C.cyan2 }}>★ {name}</span>
+        <span style={{ color: C.muted, fontWeight: 600 }}>{SPELL_LABEL[spell] ?? spell}</span>
+      </div>
     </div>
   );
 };
@@ -262,29 +303,20 @@ const RoleScene: React.FC<{ role: (typeof data.roles)[number]; index: number }> 
   const t = T;
   const head = spring({ frame: f, fps, config: { damping: 16 } });
   const n = role.splus.length;
-  const size = n <= 2 ? 360 : n <= 4 ? 300 : 260;
+  const size = n <= 3 ? 220 : n === 4 ? 190 : 160;
   const key = role.role as keyof typeof t.role;
   return (
     <AbsoluteFill style={useSceneFade(ROLE)}>
-      {/* Lettrage géant en filigrane */}
-      <div
-        style={{
-          position: 'absolute', top: 1560, left: -200, right: -200, textAlign: 'center', fontFamily: TITLE, fontWeight: 900,
-          fontSize: 300, color: 'transparent', WebkitTextStroke: `3px ${C.cyan}38`, letterSpacing: 10, whiteSpace: 'nowrap',
-          transform: `translateX(${(1 - head) * 200}px)`,
-        }}
-      >
-        {t.role[key]}
-      </div>
-      <div style={{ position: 'absolute', top: 330, left: 0, right: 0, textAlign: 'center', opacity: head }}>
+      {role.spotlight && <SpotlightClip champ={role.spotlight} spell={role.spotlightSpell ?? 'R'} />}
+      <div style={{ position: 'absolute', top: 290, left: 0, right: 0, textAlign: 'center', opacity: head }}>
         <div style={{ fontFamily: BODY, fontWeight: 700, fontSize: 34, color: C.muted, letterSpacing: 6, textTransform: 'uppercase' }}>
           {index + 1} / {data.roles.length} · {t.roleSub[key]}
         </div>
-        <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 28 }}>
-          <span style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 120, color: C.text }}>{t.role[key]}</span>
+        <div style={{ marginTop: 6, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 28 }}>
+          <span style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 110, color: C.text }}>{t.role[key]}</span>
           <span
             style={{
-              fontFamily: TITLE, fontWeight: 900, fontSize: 64, color: C.bg0, background: `linear-gradient(180deg, ${C.gold2}, ${C.gold})`,
+              fontFamily: TITLE, fontWeight: 900, fontSize: 60, color: C.bg0, background: `linear-gradient(180deg, ${C.gold2}, ${C.gold})`,
               padding: '6px 24px', borderRadius: 18, transform: `rotate(-4deg) scale(${head})`,
             }}
           >
@@ -292,14 +324,9 @@ const RoleScene: React.FC<{ role: (typeof data.roles)[number]; index: number }> 
           </span>
         </div>
       </div>
-      <div
-        style={{
-          position: 'absolute', top: 640, left: 60, right: 60, display: 'flex', flexWrap: 'wrap',
-          justifyContent: 'center', rowGap: 56, columnGap: 20,
-        }}
-      >
+      <div style={{ position: 'absolute', top: 1270, left: 40, right: 40, display: 'flex', justifyContent: 'center', columnGap: 10 }}>
         {role.splus.map((c, i) => (
-          <ChampCard key={c.key} c={c} i={i} size={size} />
+          <ChampCard key={c.key} c={c} i={i} size={size} star={c.key === role.spotlight} />
         ))}
       </div>
     </AbsoluteFill>

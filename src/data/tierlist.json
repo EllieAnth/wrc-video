@@ -17,32 +17,38 @@
         "tr": "Top / Baron Lane",
         "id": "Top / Baron Lane"
       },
+      "spotlight": "malphite",
       "splus": [
         {
           "key": "malphite",
           "name": "Malphite",
           "winRate": 55.15,
-          "pickRate": 7.85
+          "pickRate": 7.85,
+          "score": 1
         },
         {
           "key": "shen",
           "name": "Shen",
           "winRate": 55.81,
-          "pickRate": 3.02
+          "pickRate": 3.02,
+          "score": 0.75
         },
         {
           "key": "mordekaiser",
           "name": "Mordekaiser",
           "winRate": 50.71,
-          "pickRate": 11.49
+          "pickRate": 11.49,
+          "score": 0.679
         },
         {
           "key": "teemo",
           "name": "Teemo",
           "winRate": 52.71,
-          "pickRate": 4.69
+          "pickRate": 4.69,
+          "score": 0.572
         }
-      ]
+      ],
+      "spotlightSpell": "R"
     },
     {
       "role": "JUNGLE",
@@ -53,32 +59,38 @@
         "tr": "Jungle",
         "id": "Jungle"
       },
+      "spotlight": "nocturne",
       "splus": [
         {
           "key": "nocturne",
           "name": "Nocturne",
           "winRate": 55.26,
-          "pickRate": 9.22
+          "pickRate": 9.22,
+          "score": 0.945
         },
         {
           "key": "rammus",
           "name": "Rammus",
           "winRate": 57.57,
-          "pickRate": 5.14
+          "pickRate": 5.14,
+          "score": 0.83
         },
         {
           "key": "ekko",
           "name": "Ekko",
           "winRate": 53.28,
-          "pickRate": 7.26
+          "pickRate": 7.26,
+          "score": 0.628
         },
         {
           "key": "amumu",
           "name": "Amumu",
           "winRate": 56.4,
-          "pickRate": 3.05
+          "pickRate": 3.05,
+          "score": 0.634
         }
-      ]
+      ],
+      "spotlightSpell": "R"
     },
     {
       "role": "MID",
@@ -89,38 +101,45 @@
         "tr": "Mid Lane",
         "id": "Mid Lane"
       },
+      "spotlight": "hwei",
       "splus": [
         {
           "key": "hwei",
           "name": "Hwei",
           "winRate": 55.98,
-          "pickRate": 8.62
+          "pickRate": 8.62,
+          "score": 1
         },
         {
           "key": "syndra",
           "name": "Syndra",
           "winRate": 51.22,
-          "pickRate": 6.66
+          "pickRate": 6.66,
+          "score": 0.598
         },
         {
           "key": "brand",
           "name": "Brand",
           "winRate": 52.11,
-          "pickRate": 10.51
+          "pickRate": 10.51,
+          "score": 0.58
         },
         {
           "key": "morgana",
           "name": "Morgana",
           "winRate": 52.08,
-          "pickRate": 6.7
+          "pickRate": 6.7,
+          "score": 0.593
         },
         {
           "key": "galio",
           "name": "Galio",
           "winRate": 51.41,
-          "pickRate": 11.49
+          "pickRate": 11.49,
+          "score": 0.577
         }
-      ]
+      ],
+      "spotlightSpell": "R"
     },
     {
       "role": "ADC",
@@ -131,20 +150,24 @@
         "tr": "ADC / Dragon Lane",
         "id": "ADC / Dragon Lane"
       },
+      "spotlight": "senna",
       "splus": [
         {
           "key": "senna",
           "name": "Senna",
           "winRate": 55.58,
-          "pickRate": 3.16
+          "pickRate": 3.16,
+          "score": 0.989
         },
         {
           "key": "yunara",
           "name": "Yunara",
           "winRate": 51.24,
-          "pickRate": 15.95
+          "pickRate": 15.95,
+          "score": 0.775
         }
-      ]
+      ],
+      "spotlightSpell": "R"
     },
     {
       "role": "SUPPORT",
@@ -155,26 +178,31 @@
         "tr": "Support",
         "id": "Support"
       },
+      "spotlight": "senna",
       "splus": [
         {
           "key": "senna",
           "name": "Senna",
           "winRate": 54.18,
-          "pickRate": 12.35
+          "pickRate": 12.35,
+          "score": 0.937
         },
         {
           "key": "malphite",
           "name": "Malphite",
           "winRate": 51.07,
-          "pickRate": 7.68
+          "pickRate": 7.68,
+          "score": 0.637
         },
         {
           "key": "hwei",
           "name": "Hwei",
           "winRate": 55.36,
-          "pickRate": 1.52
+          "pickRate": 1.52,
+          "score": 0.638
         }
-      ]
+      ],
+      "spotlightSpell": "Q"
     }
   ],
   "moves": {
@@ -231,5 +259,27 @@
         "delta": -1
       }
     ]
+  },
+  "clips": {
+    "malphite-R": {
+      "src": "clips/malphite-R.webm",
+      "start": 0.6
+    },
+    "nocturne-R": {
+      "src": "clips/nocturne-R.webm",
+      "start": 4.6
+    },
+    "hwei-R": {
+      "src": "clips/hwei-R.webm",
+      "start": 0.4
+    },
+    "senna-R": {
+      "src": "clips/senna-R.webm",
+      "start": 0.4
+    },
+    "senna-Q": {
+      "src": "clips/senna-Q.webm",
+      "start": 0.4
+    }
   }
 }

@@ -32,16 +32,18 @@ const meta = json('assets/data/meta_current.json');
 const statsFor = (role, key) =>
   (computed.roles[role.toUpperCase()] || []).find((c) => norm(c.champKey) === norm(key))?.breakdown;
 
+const scoreFor = (role, key) =>
+  (computed.roles[role.toUpperCase()] || []).find((c) => norm(c.champKey) === norm(key))?.score ?? 0;
+
 const roles = ROLES.map((role) => {
   const t = json(`tierslist/${role}.json`);
-  return {
-    role: role.toUpperCase(),
-    label: t.laneLabel,
-    splus: (t.tiers.S_PLUS || []).map((c) => {
-      const b = statsFor(role, c.champKey);
-      return { key: norm(c.name), name: c.name, winRate: b?.winRate ?? null, pickRate: b?.pickRate ?? null };
-    }),
-  };
+  const splus = (t.tiers.S_PLUS || []).map((c) => {
+    const b = statsFor(role, c.champKey);
+    return { key: norm(c.name), name: c.name, winRate: b?.winRate ?? null, pickRate: b?.pickRate ?? null, score: scoreFor(role, c.champKey) };
+  });
+  // Vedette du rôle : le S+ au meilleur score calculé — c'est son ultime qui passe en fond.
+  const spotlight = [...splus].sort((a, b) => b.score - a.score)[0]?.key ?? null;
+  return { role: role.toUpperCase(), label: t.laneLabel, spotlight, splus };
 });
 
 // Derniers mouvements : le passage le plus récent du journal (le site n'affiche que le net du patch,
@@ -99,4 +101,40 @@ const heroRes = heroArt && (await fetch(heroArt));
 if (heroRes?.ok) fs.writeFileSync(path.join(ROOT, `public/hero-${heroKey}.jpg`), Buffer.from(await heroRes.arrayBuffer()));
 else console.warn(`! pas de splash pour ${heroKey}`);
 
+// Clips d'action : aperçus OFFICIELS des sorts publiés par Riot (le même CDN que la page de chaque
+// champion sur leagueoflegends.com), couverts par la politique fan-content « Legal Jibber Jabber ».
+// Jamais de clip de créateur repris sans son accord (décision du 2026-10-15). Visuel LoL PC, comme
+// les icônes. Les clips ne sont pas versionnés (public/clips/ est dans .gitignore) : ce script les recrée.
+const summary = await (await fetch('https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json')).json();
+const idFor = (key) => summary.find((c) => norm(c.alias) === key || norm(c.name) === key)?.id;
+const clipDir = path.join(ROOT, 'public/clips');
+fs.mkdirSync(clipDir, { recursive: true });
+// Un champion vedette de deux rôles (Senna ADC + support) montre l'ultime puis le Q au second passage.
+const used = new Set();
+const clipJobs = [];
+// Instant (s) où l'action commence dans chaque clip, relevé sur une planche à 2 i/s
+// (ffmpeg -vf "fps=2,tile=8x2"). Défaut 0,4 s : la plupart des aperçus lancent le sort tout de suite.
+const CLIP_START = { 'nocturne-R': 4.6, 'malphite-R': 0.6 };
+for (const r of roles) {
+  if (!r.spotlight) continue;
+  r.spotlightSpell = used.has(r.spotlight) ? 'Q' : 'R';
+  used.add(r.spotlight);
+  clipJobs.push({ key: r.spotlight, spell: r.spotlightSpell });
+}
+data.clips = {};
+for (const { key, spell } of clipJobs) {
+  const id = idFor(key);
+  const out = path.join(clipDir, `${key}-${spell}.webm`);
+  if (id == null) { console.warn(`! pas d'id Riot pour ${key}`); continue; }
+  if (!fs.existsSync(out)) {
+    const pad = String(id).padStart(4, '0');
+    const res = await fetch(`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${pad}/ability_${pad}_${spell}1.webm`);
+    if (!res.ok || !String(res.headers.get('content-type')).startsWith('video/')) { console.warn(`! clip ${key} : ${res.status}`); continue; }
+    fs.writeFileSync(out, Buffer.from(await res.arrayBuffer()));
+  }
+  data.clips[`${key}-${spell}`] = { src: `clips/${key}-${spell}.webm`, start: CLIP_START[`${key}-${spell}`] ?? 0.4 };
+}
+fs.writeFileSync(path.join(ROOT, 'src/data/tierlist.json'), JSON.stringify(data, null, 2) + '\n');
+
+console.log(`clips : ${Object.keys(data.clips).join(', ')}`);
 console.log(`patch ${data.patch} · ${keys.size} icônes · héros ${heroKey} · mouvements du ${lastRun.date} : ${ups.length}▲ ${downs.length}▼`);
