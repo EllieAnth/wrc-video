@@ -1,0 +1,407 @@
+{
+  "patch": "7.3b",
+  "week": {
+    "start": "2026-10-12",
+    "end": "2026-10-18"
+  },
+  "rank": "Master+",
+  "syncedAt": "2026-10-15",
+  "version": "7.3a",
+  "date": "2026-09-29",
+  "notesVersion": "7.3b",
+  "buffs": [
+    {
+      "key": "volibear",
+      "name": "Volibear",
+      "type": "buff",
+      "summary": "Frenzied Maul goes to 110% AD (176% empowered) and heals 5/8/11/14% of missing health instead of 5/6/7/8%.",
+      "abilities": [
+        {
+          "slot": "W",
+          "name": "Frenzied Maul"
+        }
+      ],
+      "palette": [
+        "#89a3f0",
+        "#8fafde"
+      ]
+    },
+    {
+      "key": "tryndamere",
+      "name": "Tryndamere",
+      "type": "buff",
+      "summary": "Every Fury point grants 0.5% critical strike chance at all levels, and Spinning Slash goes up to 80/130/180/230 (+110% bonus AD).",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Battle Fury"
+        },
+        {
+          "slot": "E",
+          "name": "Spinning Slash"
+        }
+      ],
+      "palette": [
+        "#e1a893",
+        "#7cdcc4"
+      ]
+    },
+    {
+      "key": "jhin",
+      "name": "Jhin",
+      "type": "buff",
+      "summary": "Jhin's crits deal 85% of normal critical damage instead of 80%, and his fourth shot's missing-health bonus reaches its cap at level 10 instead of 15.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Whisper"
+        }
+      ],
+      "palette": [
+        "#ff3ba6",
+        "#9db5c9"
+      ]
+    },
+    {
+      "key": "yasuo",
+      "name": "Yasuo",
+      "type": "buff",
+      "summary": "Yasuo's crits deal 95% of normal critical damage instead of 90%, and the Way of the Wanderer shield goes up to 77–630.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Way of the Wanderer"
+        }
+      ],
+      "palette": [
+        "#56acff",
+        "#dd90b0"
+      ]
+    }
+  ],
+  "nerfs": [
+    {
+      "key": "hwei",
+      "name": "Hwei",
+      "type": "nerf",
+      "summary": "Signature of the Visionary drops to 30–280 (+25% AP), Serenity's shields and damage go down, and Crushing Maw loses range (7.5 → 7) and 10 damage per rank.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Signature of the Visionary"
+        },
+        {
+          "slot": "W",
+          "name": "Subject: Serenity"
+        },
+        {
+          "slot": "E",
+          "name": "Subject: Torment"
+        }
+      ],
+      "palette": [
+        "#58cff6",
+        "#e790a5"
+      ]
+    },
+    {
+      "key": "nocturne",
+      "name": "Nocturne",
+      "type": "nerf",
+      "summary": "Nocturne loses 6 HP per level, Duskbringer loses 10 base damage and grants less AD at early ranks, and Paranoia comes back 10 s later at every rank (120/100/80 s).",
+      "abilities": [
+        {
+          "slot": "Q",
+          "name": "Duskbringer"
+        },
+        {
+          "slot": "R",
+          "name": "Paranoia"
+        }
+      ],
+      "palette": [
+        "#857aff",
+        "#6395ff"
+      ]
+    },
+    {
+      "key": "yunara",
+      "name": "Yunara",
+      "type": "nerf",
+      "summary": "Cultivation of Spirit's passive and active damage lose 5 per rank (5/10/15/20), and Transcend One's Self comes back later at ranks 2 and 3 (70/65/60 s).",
+      "abilities": [
+        {
+          "slot": "Q",
+          "name": "Cultivation of Spirit"
+        },
+        {
+          "slot": "R",
+          "name": "Transcend One's Self"
+        }
+      ],
+      "palette": [
+        "#8f5eff",
+        "#eba48d"
+      ]
+    },
+    {
+      "key": "senna",
+      "name": "Senna",
+      "type": "nerf",
+      "summary": "Each Mist stack now grants 0.9 AD instead of 1.25, her crits drop to 80% of normal critical damage and Piercing Darkness loses 20 base damage per rank.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Absolution"
+        },
+        {
+          "slot": "Q",
+          "name": "Piercing Darkness"
+        }
+      ],
+      "palette": [
+        "#d78db8",
+        "#5ebcff"
+      ]
+    }
+  ],
+  "adjustments": [],
+  "items": [
+    {
+      "key": "youmuus-ghostblade",
+      "name": "Youmuu's Ghostblade",
+      "type": "buff",
+      "summary": "Youmuu's Ghostblade now costs 2,900 gold instead of 3,000.",
+      "image": "/assets/images/newItems/youmuus_ghostblade.webp"
+    },
+    {
+      "key": "locket-of-the-iron-solari",
+      "name": "Locket of the Iron Solari",
+      "type": "buff",
+      "summary": "Locket of the Iron Solari goes to 2,500 gold and 300 HP, from 2,600 gold and 200 HP.",
+      "image": "/assets/images/items-cn/locket-of-the-iron-solari.webp"
+    },
+    {
+      "key": "statikk-shiv",
+      "name": "Statikk Shiv",
+      "type": "buff",
+      "summary": "Statikk Shiv now costs 2,900 gold instead of 3,000, and each attack grants 7 bonus Energized stacks instead of 5.",
+      "image": "/assets/images/newItems/statikk_shiv.webp"
+    },
+    {
+      "key": "yun-tal-wildarrows",
+      "name": "Yun Tal Wildarrows",
+      "type": "buff",
+      "summary": "Yun Tal Wildarrows now costs 3,000 gold instead of 3,100.",
+      "image": "/assets/images/newItems/yun_tal_wildarrows.webp"
+    },
+    {
+      "key": "thornmail",
+      "name": "Thornmail",
+      "type": "nerf",
+      "summary": "Thornmail now costs 2,850 gold instead of 2,700.",
+      "image": "/assets/images/newItems/thornmail.webp"
+    },
+    {
+      "key": "warmogs-armor",
+      "name": "Warmog's Armor",
+      "type": "nerf",
+      "summary": "Warmog's Heart now needs 1,250 bonus health to trigger, up from 900.",
+      "image": "/assets/images/newItems/warmogs_armor.webp"
+    }
+  ],
+  "effects": [
+    {
+      "key": "samira",
+      "name": "Samira",
+      "type": "buff",
+      "wrBefore": 45.43,
+      "wrAfter": 51.5,
+      "wrDelta": 6.07,
+      "days": 10,
+      "pickBefore": 3.81,
+      "pickAfter": 10.37,
+      "pickDelta": 6.56,
+      "palette": [
+        "#f69790",
+        "#b08fdd"
+      ]
+    },
+    {
+      "key": "syndra",
+      "name": "Syndra",
+      "type": "nerf",
+      "wrBefore": 53.9,
+      "wrAfter": 51.01,
+      "wrDelta": -2.89,
+      "days": 10,
+      "pickBefore": 12.68,
+      "pickAfter": 7.14,
+      "pickDelta": -5.54,
+      "palette": [
+        "#ae82ec",
+        "#ce95b8"
+      ]
+    },
+    {
+      "key": "malphite",
+      "name": "Malphite",
+      "type": "nerf",
+      "wrBefore": 57.91,
+      "wrAfter": 55.56,
+      "wrDelta": -2.35,
+      "days": 10,
+      "pickBefore": 20.63,
+      "pickAfter": 8.3,
+      "pickDelta": -12.33,
+      "palette": [
+        "#f69e88",
+        "#f39b8e"
+      ]
+    },
+    {
+      "key": "caitlyn",
+      "name": "Caitlyn",
+      "type": "nerf",
+      "wrBefore": 51.57,
+      "wrAfter": 49.56,
+      "wrDelta": -2.01,
+      "days": 10,
+      "pickBefore": 36.1,
+      "pickAfter": 19.96,
+      "pickDelta": -16.14,
+      "palette": [
+        "#e69e98",
+        "#863fff"
+      ]
+    },
+    {
+      "key": "senna",
+      "name": "Senna",
+      "type": "adjust",
+      "wrBefore": 55.94,
+      "wrAfter": 54.13,
+      "wrDelta": -1.81,
+      "days": 10,
+      "pickBefore": 11.66,
+      "pickAfter": 12.18,
+      "pickDelta": 0.52,
+      "palette": [
+        "#d78db8",
+        "#5ebcff"
+      ]
+    },
+    {
+      "key": "tristana",
+      "name": "Tristana",
+      "type": "buff",
+      "wrBefore": 46.23,
+      "wrAfter": 47.93,
+      "wrDelta": 1.7,
+      "days": 10,
+      "pickBefore": 2.56,
+      "pickAfter": 10.34,
+      "pickDelta": 7.78,
+      "palette": [
+        "#9289ff",
+        "#ff7489"
+      ]
+    },
+    {
+      "key": "swain",
+      "name": "Swain",
+      "type": "adjust",
+      "wrBefore": 48.19,
+      "wrAfter": 49.34,
+      "wrDelta": 1.15,
+      "days": 10,
+      "pickBefore": 3.06,
+      "pickAfter": 2.91,
+      "pickDelta": -0.15,
+      "palette": [
+        "#ff8375",
+        "#c3c990"
+      ]
+    },
+    {
+      "key": "hwei",
+      "name": "Hwei",
+      "type": "nerf",
+      "wrBefore": 56.27,
+      "wrAfter": 55.34,
+      "wrDelta": -0.93,
+      "days": 10,
+      "pickBefore": 12.95,
+      "pickAfter": 9.34,
+      "pickDelta": -3.61,
+      "palette": [
+        "#58cff6",
+        "#e790a5"
+      ]
+    },
+    {
+      "key": "yuumi",
+      "name": "Yuumi",
+      "type": "nerf",
+      "wrBefore": 48.36,
+      "wrAfter": 49.21,
+      "wrDelta": 0.85,
+      "days": 10,
+      "pickBefore": 17.31,
+      "pickAfter": 11.42,
+      "pickDelta": -5.89,
+      "palette": [
+        "#87a1f3",
+        "#fbac75"
+      ]
+    },
+    {
+      "key": "draven",
+      "name": "Draven",
+      "type": "buff",
+      "wrBefore": 47.91,
+      "wrAfter": 47.07,
+      "wrDelta": -0.84,
+      "days": 10,
+      "pickBefore": 3.5,
+      "pickAfter": 5.41,
+      "pickDelta": 1.91,
+      "palette": [
+        "#2fff13",
+        "#ff5b53"
+      ]
+    },
+    {
+      "key": "viego",
+      "name": "Viego",
+      "type": "buff",
+      "wrBefore": 45.8,
+      "wrAfter": 46,
+      "wrDelta": 0.2,
+      "days": 10,
+      "pickBefore": 3.05,
+      "pickAfter": 4.6,
+      "pickDelta": 1.55,
+      "palette": [
+        "#94b8d1",
+        "#b09bd2"
+      ]
+    },
+    {
+      "key": "rammus",
+      "name": "Rammus",
+      "type": "nerf",
+      "wrBefore": 57.05,
+      "wrAfter": 57.06,
+      "wrDelta": 0.01,
+      "days": 10,
+      "pickBefore": 9.53,
+      "pickAfter": 5.73,
+      "pickDelta": -3.8,
+      "palette": [
+        "#ffa63f",
+        "#bae37f"
+      ]
+    }
+  ]
+}

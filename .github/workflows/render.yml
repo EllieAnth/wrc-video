@@ -1,0 +1,82 @@
+# Rend les cinq formats chaque lundi (après la tier list de nexus-core) et les publie en release.
+# Secret requis : NEXUS_CORE_TOKEN — PAT à lecture seule (Contents: read) sur EllieAnth/nexus-core (privé).
+# Les clips de créateurs (yt-dlp) peuvent échouer sur les IP GitHub : la vidéo se replie alors sur le splash.
+name: Render weekly videos
+
+on:
+  schedule:
+    - cron: '30 9 * * 1' # lundi 09:30 UTC — la tier list du site est régénérée avant
+  workflow_dispatch:
+    inputs:
+      formats:
+        description: 'Formats à rendre (séparés par des espaces), vide = tous'
+        required: false
+        default: ''
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone nexus-core (origin/main only, blobs on demand)
+        run: |
+          git clone --filter=blob:none --no-checkout --depth=1 --branch main \
+            "https://x-access-token:${{ secrets.NEXUS_CORE_TOKEN }}@github.com/EllieAnth/nexus-core.git" ../nexus-core
+          git -C ../nexus-core show origin/main:assets/data/meta_current.json | head -c 200
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: System tools (ffmpeg, yt-dlp)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          sudo curl -sL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+          sudo chmod a+rx /usr/local/bin/yt-dlp
+          ffmpeg -version | head -1 && yt-dlp --version
+
+      - run: npm ci
+      - run: npx remotion browser ensure
+
+      - name: Data, visuals, Riot spell previews
+        run: npm run sync
+
+      - name: Creator clips (best effort)
+        run: node scripts/fetch-clips.mjs --cache=/tmp/yt || echo "::warning::creator clips failed, splash fallback"
+
+      - name: Sound cues, soundtrack, voice text
+        run: npm run cues && npm run audio && npm run voice
+
+      - name: Render
+        run: |
+          FORMATS="${{ github.event.inputs.formats }}"
+          [ -z "$FORMATS" ] && FORMATS="$(node scripts/formats.mjs | tr '\n' ' ')"
+          for f in $FORMATS; do
+            npx remotion render src/index.ts "$f" "out/$f.mp4" --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k --log=error
+          done
+          ls -la out
+
+      - name: Week tag
+        id: week
+        run: echo "tag=week-$(node -e 'console.log(require("./src/data/tierlist.json").week.start)')" >> "$GITHUB_OUTPUT"
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.week.outputs.tag }}
+          name: Videos — ${{ steps.week.outputs.tag }}
+          body: |
+            Five English shorts rendered from the week's data. Voice-over text per scene in the `*-voice.md` files (paste into TikTok text-to-speech).
+          files: |
+            out/*.mp4
+            out/*-voice.md
+            src/data/clips-creators.json

@@ -1,4 +1,9 @@
 node_modules/
 out/
 .DS_Store
+# Téléchargé ou généré par `npm run render` — jamais versionné (dépôt public)
 public/clips/
+public/champions/
+public/splash/
+public/audio/
+public/hero-*.jpg

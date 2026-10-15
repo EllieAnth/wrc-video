@@ -1,14 +1,28 @@
 # wrc-video
 
-Vidéos courtes de Wild Rift Core générées en code (Remotion), à partir des données publiées du site
-(`../nexus-core`, lues sur `origin/main`, jamais modifiées). Décision V1/V2 de
-`nexus-core/docs/second-brain/roadmap-axes-amelioration.md` § Vidéo.
+Short vertical videos (TikTok / YouTube Shorts / Instagram Reels, 1080×1920, 30 fps) for
+[Wild Rift Core](https://wildriftcore.com), rendered with [Remotion](https://www.remotion.dev)
+from the site's weekly data. English only.
+
+| Composition | What it shows |
+|---|---|
+| `meta-movers` | Tier list of the week: live board, who moved up or down, why |
+| `duel` | The #1 of a role vs its counter — key interaction, verdict |
+| `hidden-pick` | A strong, rarely played pick, with its 30-day curve |
+| `patch` | Buffs, nerfs, items — then "did it work?" before/after |
+| `draft-report` | Drafts analyzed in 30 days: most faced, most picked, pair of the month |
 
 ```bash
-npm run sync      # tier list + mouvements + visuels → src/data/, public/
-npm run studio    # aperçu interactif
-npm run render    # sync puis MP4 FR et EN dans out/
+npm ci
+npm run sync      # data + visuals from ../nexus-core (origin/main)
+npm run clips     # creator clips (yt-dlp + ffmpeg), channel credited on screen
+npm run cues && npm run audio && npm run voice
+npm run studio    # preview
+npm run render:all
 ```
 
-Format : 1080×1920, 30 i/s, ~20 s. La mention fan-content de Riot (texte imposé, en anglais) figure dans
-l'outro. Aucun logo Riot/Wild Rift ; ne pas utiliser ces vidéos en publicité payante (droits Riot, V3).
+Soundtrack and sound effects are synthesized (`scripts/synth-audio.mjs`), no licensed audio.
+Voice-over is TikTok's free text-to-speech: `out/<id>-voice.md` gives the text per scene with timings.
+
+Wild Rift Core was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by
+Riot Games. Riot Games does not endorse or sponsor this project.

@@ -1,25 +1,41 @@
 {
   "name": "wrc-video",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Wild Rift Core — short vertical videos (TikTok / Shorts / Reels) rendered from the site's weekly data with Remotion. English only.",
   "scripts": {
     "sync": "node scripts/sync-data.mjs",
-    "audio": "node scripts/synth-audio.mjs",
+    "clips": "node scripts/fetch-clips.mjs",
+    "cues": "for f in $(node scripts/formats.mjs); do npx tsx scripts/cues.mts --format=$f; done",
+    "audio": "for f in $(node scripts/formats.mjs); do node scripts/synth-audio.mjs --format=$f; done",
+    "voice": "for f in $(node scripts/formats.mjs); do npx tsx scripts/export-voice.mts --format=$f; done",
+    "stills": "for f in $(node scripts/formats.mjs); do npx tsx scripts/stills.mts --format=$f; done",
     "studio": "remotion studio src/index.ts",
-    "render": "npm run sync && npm run audio && remotion render src/index.ts TierListPatch out/tierlist-en.mp4 --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k"
+    "render:one": "remotion render src/index.ts",
+    "render:all": "for f in $(node scripts/formats.mjs); do npx remotion render src/index.ts $f out/$f.mp4 --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k --log=error || exit 1; done",
+    "render": "npm run sync && npm run clips && npm run cues && npm run audio && npm run voice && npm run render:all",
+    "typecheck": "tsc --noEmit -p ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@remotion/bundler": "^4.0.535",
     "@remotion/cli": "^4.0.535",
     "@remotion/google-fonts": "^4.0.535",
+    "@remotion/noise": "^4.0.535",
+    "@remotion/paths": "^4.0.535",
+    "@remotion/renderer": "^4.0.535",
+    "@remotion/shapes": "^4.0.535",
+    "@remotion/transitions": "^4.0.535",
     "@types/react": "^18.3.31",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remotion": "^4.0.535",
     "typescript": "^7.0.2"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
 }
