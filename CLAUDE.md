@@ -73,3 +73,34 @@ Chaînes exclues : Riot / Wild Rift officiel. Anthony juge les clips et demande 
   champion, icônes/splashs = CommunityDragon.
 - Le dépôt est **public** (rendu par GitHub Actions) : il ne versionne ni les clips, ni les images
   téléchargées, ni les sons générés (`.gitignore`) — seulement le code et les JSON de données.
+
+## Format `champion-35s` — une vidéo par champion (chantier du 16/10, arbitrage de deux agents)
+
+Décisions : `docs/second-brain/avis-video-guides-champion-2026-10-16.md` et
+`debat-video-champion-2026-10-16-reponse.md` (nexus-core). **Pas de voix** : le texte à l'écran est le
+script. Six scènes, 35 s (`src/formats/champion-35s/timeline.ts`) : hook 3 s · décision clé 5 s ·
+build + sorts 7 s · exécution 10 s · plan + matchup 7 s · outro 3 s. Aperçus Riot des sorts seuls
+(pas de clips de créateurs sur ce format). Mention Riot : ligne courte dans l'outro, notice complète
+dans la description de chaque publication (politique § 6 : « conspicuously, e.g. on your website »).
+
+Chaîne (0 appel IA ; les lignes s'écrivent en session) :
+1. `npm run champions:sync [-- --slugs=a,b]` → `public/data/champions/<slug>.json` (faits, lus sur
+   origin/main de nexus-core : build moteur, tier list, sorts, combos, plan, ledger des matchups ;
+   **un champ français vaut absent**) + `src/data/champions-index.json` (versionné : lacunes par champion).
+   Aperçus (≈ 1,7 Go) dans `public/clips-champ` → lien vers `/Volumes/T7/wrc-video-cache/clips-champ`.
+2. `npm run champions:draft -- --slugs=…` → `src/data/champion-lines/<slug>.json` en `status: draft`
+   (brouillon déterministe). Un agent le réécrit champ par champ (`docs/lines-brief.md`), `validated`.
+   **Jamais `--force` sur un fichier validé** : c'est un travail éditorial versionné.
+3. `npm run champions:validate` (budgets, langue, noms coupés, patch/hash périmés, décision clé
+   dupliquée) puis `npm run champions:measure` (Chromium : lignes réellement rendues, Playwright de
+   ../nexus-core — local seulement). Les deux doivent être verts avant tout rendu.
+4. `npm run champions:audio` (une seule bande de bruitages pour tous), `npm run champions:stills --
+   --slugs=…` (planche-contact sur le T7 = juge final de la lisibilité).
+5. `npm run champions:render -- --slugs=…` → master 1080×1920 crf 18 + `.web.mp4` 720×1280 ≈ 1,5 Mbit/s
+   + affiche, manifeste `renders/manifest.json` (hash, taille, durée). Sorties sur le T7. Mesuré : ≈ 80 s
+   par champion sur ce Mac ; GitHub (4 vCPU) ≈ 2-3 min → matrice de lots, jamais 142 en séquence.
+   Props = `scripts/champion-props.mjs` (données + lignes résolues en Node) : pas de fetch au rendu.
+
+Le contrat des lignes vit dans `scripts/lines-contract.mjs` (budgets dérivés des largeurs mesurées :
+`champions:measure --calibrate`). Changer une taille de police dans `index.tsx` = recalibrer et
+mettre `STYLE` de `measure-lines.mjs` en phase.
