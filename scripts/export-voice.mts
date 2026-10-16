@@ -3,11 +3,11 @@
 // Chaque ligne donne l'instant (s) où afficher/déclencher le texte et la durée de la scène.
 import fs from 'node:fs';
 import path from 'node:path';
-import { FORMATS } from '../src/formats/registry';
+import { CHAMPION_FORMAT, FORMATS } from '../src/formats/registry';
 
 const arg = (n: string, d: string) => { const h = process.argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.split('=')[1] : d; };
 const id = arg('format', 'meta-movers');
-if (!FORMATS.includes(id)) throw new Error(`format inconnu : ${id}`);
+if (!FORMATS.includes(id as never) && id !== CHAMPION_FORMAT) throw new Error(`format inconnu : ${id}`);
 const { timeline } = await import(`../src/formats/${id}/timeline.ts`);
 const { voice, title } = await import(`../src/formats/${id}/voice.ts`);
 const fmt = (f: number) => (f / timeline.fps).toFixed(1).replace('.', ',') + ' s';
