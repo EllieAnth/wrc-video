@@ -127,7 +127,9 @@ const Build: React.FC<{ d: ChampionData }> = ({ d }) => {
 const Execution: React.FC<{ d: ChampionData; l: ChampionLines }> = ({ d, l }) => {
   const f = useCurrentFrame();
   const combo = l.lines.combo || (d.combos[0] ? { name: d.combos[0].name, inputs: d.combos[0].inputs } : null);
-  const chips = combo ? combo.inputs.split(/\s*(?:→|->|>)\s*/).filter(Boolean) : [];
+  // Sans combo dans les données (12 champions le 16/10) : la scène montre l'ultime seul, le « pourquoi » l'explique.
+  const ult = d.spells.find((s) => s.key === 'R');
+  const chips = combo ? combo.inputs.split(/\s*(?:→|->|>)\s*/).filter(Boolean) : ult ? [`R ${ult.name}`] : [];
   const spell = l.lines.execution.spell || chips.map((c) => c.match(/^([QWER])\b/)?.[1]).find(Boolean) || 'R';
   return (
     <AbsoluteFill style={useSceneInOut(T.EXECUTION)}>
