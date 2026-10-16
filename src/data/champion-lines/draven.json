@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "draven",
+ "patch": "7.3b",
+ "dataHash": "c77d0cec3681",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "crit DPS dragon lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Level 2 first = all-in window.",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Keep W for gluing OR for taking out: don't burn both uses on the same",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "W after the first AA to secure the 2nd axe and emerge before the",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Spike level 2 then 5: short trade and",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Group up, play around the ult of your",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Protect yourself first: back catch",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "caitlyn",
+   "line": {
+    "text": "Caitlyn can place Yordle Snap Traps directly on Draven's axe landing",
+    "source": "matchups.hard[0] (caitlyn)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Trade short (2 axes)",
+   "inputs": "Prepare 2x Q → AA → W → AA (catch) → output",
+   "source": "combos[0]"
+  }
+ }
+}

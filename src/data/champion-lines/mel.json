@@ -1,0 +1,70 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "mel",
+ "patch": "7.3b",
+ "dataHash": "5aa0040a0408",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "burst mid lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Play around Golden Eclipse",
+    "source": "gamePlan.early",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "key rank-up",
+    "source": "gamePlan.mid",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Detonates Overwhelm on every affected enemy regardless of range",
+    "source": "spells.R.desc",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Farm safely until Luden's Echo",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Spike on Infinity Orb",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Group and fight around objectives",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "yasuo",
+   "line": {
+    "text": "Yasuo can block Mel's core projectile spells with Wind Wall (W) while",
+    "source": "matchups.hard[0] (yasuo)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": null
+ }
+}

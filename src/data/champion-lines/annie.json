@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "annie",
+ "patch": "7.3b",
+ "dataHash": "d3cac5fab052",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "burst mid lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Last-hit at Q to save money; spades",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Push-reset and play around the jungler to force short 2v2s.",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Always with P loaded to lock; Stase if you engage the heart of the team.",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Waveclear at Q, short trades with P.",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Roam with jungler; angle threat on",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Teamfights on choke points, defensive",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "kassadin",
+   "line": {
+    "text": "Kassadin's Null Sphere magic shield and passive magic damage reduction",
+    "source": "matchups.hard[0] (kassadin)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Instant pick",
+   "inputs": "Flash → R → W → Q",
+   "source": "combos[0]"
+  }
+ }
+}

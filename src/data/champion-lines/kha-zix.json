@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "kha-zix",
+ "patch": "7.3b",
+ "dataHash": "80e0f2fcef9b",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "lethality jungle",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Crab/river = easy isolation: plays",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Invade the spawn side (buffs) against slow clears; lay deep wards to",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Always apply passive/W slow before Q to secure isolation damage.",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Track jungler and steal his isolated",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Set deep vision and play around",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Look for the carry without Zhonya's",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "poppy",
+   "line": {
+    "text": "Poppy can block Kha'Zix's Leap with her defensive barrier, leaving him",
+    "source": "matchups.hard[0] (poppy)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Isolate One-Shot",
+   "inputs": "Approach (R) → W → AA (passive) → Q → E (finish/reset)",
+   "source": "combos[0]"
+  }
+ }
+}

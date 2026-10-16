@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "lux",
+ "patch": "7.3b",
+ "dataHash": "4a0e45345574",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "burst mid lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Push carefully, then move with your",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Against assassins, priority Zhonya's Hourglass and play further away",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Keep E as long as possible to keep the threat alive and force a bad",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Farm safe, poke E and look for a",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Roam mid→bot; convert each pick into a",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Keep R to execute or cut a retreat",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "ahri",
+   "line": {
+    "text": "Once Lux misses her Light Binding, Ahri can freely dash forward with",
+    "source": "matchups.hard[0] (ahri)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Fog pick",
+   "inputs": "Q → E (restrained) → R → E (explosion) → AA",
+   "source": "combos[0]"
+  }
+ }
+}

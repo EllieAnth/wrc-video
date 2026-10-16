@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "xayah",
+ "patch": "7.3b",
+ "dataHash": "d7fe5e7104b7",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "crit DPS dragon lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Prepare your feathers before",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Keep R for real threats (assassin ulti, unavoidable engage).",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Place enough feathers before pressing E to secure the root.",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Short trades around W, clean wave",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Groups for objectives; prepare a",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Front-to-back play: R defensive, E to",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "varus",
+   "line": {
+    "text": "Varus can safely poke Xayah from outside her feather recall range with",
+    "source": "matchups.hard[0] (varus)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Trade standard",
+   "inputs": "W → Q → AA ×3 → E",
+   "source": "combos[0]"
+  }
+ }
+}

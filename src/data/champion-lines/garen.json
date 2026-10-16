@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "garen",
+ "patch": "7.3b",
+ "dataHash": "3588b9687ca0",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "bruiser baron lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Level 1-3 aggressive if favorable",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Post-Cleaver, force 1v1 side and take deep vision for secure TP/roam.",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "You win at chip damage: force the opponent's key cooldown then reset.",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Trades short Q→E, deny cs against",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Split with Hullbreaker/Dead Man's, side",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Teamfights: engage Glorious if",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "vayne",
+   "line": {
+    "text": "Vayne can easily push Garen away with Condemn whenever he uses Decisive",
+    "source": "matchups.hard[0] (vayne)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Trade court standard",
+   "inputs": "AA → Q (reset) → E (2-3 ticks) → back",
+   "source": "combos[0]"
+  }
+ }
+}

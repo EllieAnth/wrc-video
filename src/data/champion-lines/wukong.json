@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "wukong",
+ "patch": "7.3b",
+ "dataHash": "4eb1bf6e8a80",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "bruiser baron lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Grasp short trades: AA→Q then W to",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Think angles and CDtimings: clone for bait, E for glue, R for lock.",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Proc Grasp/Conqueror quickly, then disappear with the clone to reset.",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Grasp trades, wave control and plates",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Side control; TP for reaching targets",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Frontline/peel; seeks multi-target R",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "poppy",
+   "line": {
+    "text": "Poppy's Steadfast Presence completely blocks Wukong's Nimbus Strike",
+    "source": "matchups.hard[0] (poppy)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Short trade (lane)",
+   "inputs": "E → AA → Q → W (withdrawal)",
+   "source": "combos[0]"
+  }
+ }
+}

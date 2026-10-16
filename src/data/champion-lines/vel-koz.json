@@ -1,0 +1,70 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "vel-koz",
+ "patch": "7.3b",
+ "dataHash": "39ae4c73e5ce",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "burst mid lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Play around Life Form",
+    "source": "gamePlan.early",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Luden's Echo",
+    "source": "gamePlan.mid",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Channels a beam in a line that deals magic damage, converted to true",
+    "source": "spells.R.desc",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Farm safely until Luden's Echo",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Spike on Infinity Orb",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Group and fight around objectives",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "kassadin",
+   "line": {
+    "text": "Vel'Koz has no reliable way to hit his skillshots once Kassadin begins",
+    "source": "matchups.hard[0] (kassadin)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": null
+ }
+}

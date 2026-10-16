@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "viego",
+ "patch": "7.3b",
+ "dataHash": "4614cb38363f",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "crit DPS jungle",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Safe pathing level 1-3; challenges",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Viego excels at counter-gank: wait for the enemy's entrance to turn the",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Charge little W: the short stun is enough if your allies follow, keep R",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Clear healthy (red > opportunistic gank",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Dragon/Herald: mist (E) to force a pick",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Plays front-to-back: executes target",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "poppy",
+   "line": {
+    "text": "Poppy's Steadfast Presence blocks both Viego's Spectral Maw dash and",
+    "source": "matchups.hard[0] (poppy)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Standard wall-mounted gank",
+   "inputs": "E (Way) > approach from the wall > W (short) > AA > Q > AA > R (execute)",
+   "source": "combos[0]"
+  }
+ }
+}

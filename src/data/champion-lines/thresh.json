@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "thresh",
+ "patch": "7.3b",
+ "dataHash": "2711c3d8cedb",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "engage/peel support",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Vision tempo: reset bot-river",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Don't over-tank: Zeke + Vow are often enough, play utility.",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Hold the Q lightly to bring your allies closer; E towards them to",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Trade short on E, hook threats; reset",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Manages rotations, plays walls for free",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Front-to-back: protects first, engages",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "janna",
+   "line": {
+    "text": "Howling Gale can interrupt Thresh's Death Sentence dash or Flay",
+    "source": "matchups.hard[0] (janna)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Hook guaranteed (wall/choke)",
+   "inputs": "Ward > Q (hold 0.3-0.5s) > reactivate Q > E to team > R",
+   "source": "combos[0]"
+  }
+ }
+}

@@ -1,0 +1,1091 @@
+{
+ "schema": "wrc.champions-index/1",
+ "patch": "7.3b",
+ "syncedAt": "2026-10-16",
+ "champions": [
+  {
+   "slug": "aatrox",
+   "name": "Aatrox",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "ahri",
+   "name": "Ahri",
+   "role": "MID",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "akali",
+   "name": "Akali",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "akshan",
+   "name": "Akshan",
+   "role": "MID",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "alistar",
+   "name": "Alistar",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": [
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "ambessa",
+   "name": "Ambessa",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "amumu",
+   "name": "Amumu",
+   "role": "JUNGLE",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "annie",
+   "name": "Annie",
+   "role": "MID",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "ashe",
+   "name": "Ashe",
+   "role": "ADC",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "aurelion-sol",
+   "name": "Aurelion Sol",
+   "role": "MID",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "aurora",
+   "name": "Aurora",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "bard",
+   "name": "Bard",
+   "role": "SUPPORT",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "blitzcrank",
+   "name": "Blitzcrank",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "brand",
+   "name": "Brand",
+   "role": "MID",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "braum",
+   "name": "Braum",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "caitlyn",
+   "name": "Caitlyn",
+   "role": "ADC",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "camille",
+   "name": "Camille",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": [
+    "skill",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "cho-gath",
+   "name": "Cho'Gath",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "corki",
+   "name": "Corki",
+   "role": "MID",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "darius",
+   "name": "Darius",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "diana",
+   "name": "Diana",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "dr-mundo",
+   "name": "Dr. Mundo",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "draven",
+   "name": "Draven",
+   "role": "ADC",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "ekko",
+   "name": "Ekko",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "evelynn",
+   "name": "Evelynn",
+   "role": "JUNGLE",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "ezreal",
+   "name": "Ezreal",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": [
+    "skill",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "fiddlesticks",
+   "name": "Fiddlesticks",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "fiora",
+   "name": "Fiora",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "fizz",
+   "name": "Fizz",
+   "role": "MID",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "galio",
+   "name": "Galio",
+   "role": "MID",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "garen",
+   "name": "Garen",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "gnar",
+   "name": "Gnar",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "gragas",
+   "name": "Gragas",
+   "role": "JUNGLE",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "graves",
+   "name": "Graves",
+   "role": "JUNGLE",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "gwen",
+   "name": "Gwen",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "hecarim",
+   "name": "Hecarim",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "heimerdinger",
+   "name": "Heimerdinger",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "hwei",
+   "name": "Hwei",
+   "role": "MID",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "irelia",
+   "name": "Irelia",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "janna",
+   "name": "Janna",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "jarvan-iv",
+   "name": "Jarvan IV",
+   "role": "JUNGLE",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "jax",
+   "name": "Jax",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "jayce",
+   "name": "Jayce",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "jhin",
+   "name": "Jhin",
+   "role": "ADC",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "jinx",
+   "name": "Jinx",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "k-sante",
+   "name": "K'Santé",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "kai-sa",
+   "name": "Kai'Sa",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "kalista",
+   "name": "Kalista",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "karma",
+   "name": "Karma",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "kassadin",
+   "name": "Kassadin",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "katarina",
+   "name": "Katarina",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "kayle",
+   "name": "Kayle",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "kayn",
+   "name": "Kayn",
+   "role": "JUNGLE",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "kennen",
+   "name": "Kennen",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "kha-zix",
+   "name": "Kha'Zix",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "kindred",
+   "name": "Kindred",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "kog-maw",
+   "name": "Kog'Maw",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": [
+    "skill",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "lee-sin",
+   "name": "Lee Sin",
+   "role": "JUNGLE",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "leona",
+   "name": "Leona",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "lillia",
+   "name": "Lillia",
+   "role": "JUNGLE",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "lissandra",
+   "name": "Lissandra",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "lucian",
+   "name": "Lucian",
+   "role": "ADC",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "lulu",
+   "name": "Lulu",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "lux",
+   "name": "Lux",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "malphite",
+   "name": "Malphite",
+   "role": "TOP",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "maokai",
+   "name": "Maokai",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "master-yi",
+   "name": "Master Yi",
+   "role": "JUNGLE",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "mel",
+   "name": "Mel",
+   "role": "MID",
+   "tier": "C",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "milio",
+   "name": "Milio",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "miss-fortune",
+   "name": "Miss Fortune",
+   "role": "ADC",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "mordekaiser",
+   "name": "Mordekaiser",
+   "role": "TOP",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "morgana",
+   "name": "Morgana",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "nami",
+   "name": "Nami",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "nasus",
+   "name": "Nasus",
+   "role": "TOP",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "nautilus",
+   "name": "Nautilus",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "nidalee",
+   "name": "Nidalee",
+   "role": "JUNGLE",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "nilah",
+   "name": "Nilah",
+   "role": "ADC",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "nocturne",
+   "name": "Nocturne",
+   "role": "JUNGLE",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "norra",
+   "name": "Norra",
+   "role": "MID",
+   "tier": "A",
+   "gaps": [
+    "previewR"
+   ]
+  },
+  {
+   "slug": "nunu-willump",
+   "name": "Nunu & Willump",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "olaf",
+   "name": "Olaf",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "orianna",
+   "name": "Orianna",
+   "role": "MID",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "ornn",
+   "name": "Ornn",
+   "role": "TOP",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "pantheon",
+   "name": "Pantheon",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "poppy",
+   "name": "Poppy",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "pyke",
+   "name": "Pyke",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "rakan",
+   "name": "Rakan",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "rammus",
+   "name": "Rammus",
+   "role": "JUNGLE",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "rell",
+   "name": "Rell",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "renekton",
+   "name": "Renekton",
+   "role": "TOP",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "rengar",
+   "name": "Rengar",
+   "role": "JUNGLE",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "riven",
+   "name": "Riven",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "rumble",
+   "name": "Rumble",
+   "role": "TOP",
+   "tier": "C",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "ryze",
+   "name": "Ryze",
+   "role": "MID",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "samira",
+   "name": "Samira",
+   "role": "ADC",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "senna",
+   "name": "Senna",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "seraphine",
+   "name": "Seraphine",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "sett",
+   "name": "Sett",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "shen",
+   "name": "Shen",
+   "role": "TOP",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "shyvana",
+   "name": "Shyvana",
+   "role": "JUNGLE",
+   "tier": "C",
+   "gaps": [
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "singed",
+   "name": "Singed",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "sion",
+   "name": "Sion",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "sivir",
+   "name": "Sivir",
+   "role": "ADC",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "skarner",
+   "name": "Skarner",
+   "role": "JUNGLE",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "smolder",
+   "name": "Smolder",
+   "role": "ADC",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "sona",
+   "name": "Sona",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "soraka",
+   "name": "Soraka",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "swain",
+   "name": "Swain",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "syndra",
+   "name": "Syndra",
+   "role": "MID",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "taliyah",
+   "name": "Taliyah",
+   "role": "MID",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "talon",
+   "name": "Talon",
+   "role": "MID",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "teemo",
+   "name": "Teemo",
+   "role": "TOP",
+   "tier": "S_PLUS",
+   "gaps": []
+  },
+  {
+   "slug": "thresh",
+   "name": "Thresh",
+   "role": "SUPPORT",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "tristana",
+   "name": "Tristana",
+   "role": "ADC",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "tryndamere",
+   "name": "Tryndamere",
+   "role": "TOP",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "twisted-fate",
+   "name": "Twisted Fate",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "twitch",
+   "name": "Twitch",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "urgot",
+   "name": "Urgot",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "varus",
+   "name": "Varus",
+   "role": "ADC",
+   "tier": "S",
+   "gaps": []
+  },
+  {
+   "slug": "vayne",
+   "name": "Vayne",
+   "role": "ADC",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "veigar",
+   "name": "Veigar",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "vel-koz",
+   "name": "Vel'Koz",
+   "role": "MID",
+   "tier": "A",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan"
+   ]
+  },
+  {
+   "slug": "vex",
+   "name": "Vex",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "vi",
+   "name": "Vi",
+   "role": "JUNGLE",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "viego",
+   "name": "Viego",
+   "role": "JUNGLE",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "viktor",
+   "name": "Viktor",
+   "role": "MID",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "vladimir",
+   "name": "Vladimir",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "volibear",
+   "name": "Volibear",
+   "role": "TOP",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "warwick",
+   "name": "Warwick",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "wukong",
+   "name": "Wukong",
+   "role": "TOP",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "xayah",
+   "name": "Xayah",
+   "role": "ADC",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "xin-zhao",
+   "name": "Xin Zhao",
+   "role": "JUNGLE",
+   "tier": "A",
+   "gaps": [
+    "previewR"
+   ]
+  },
+  {
+   "slug": "yasuo",
+   "name": "Yasuo",
+   "role": "MID",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "yone",
+   "name": "Yone",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "yunara",
+   "name": "Yunara",
+   "role": "ADC",
+   "tier": "S",
+   "gaps": [
+    "skill",
+    "combo",
+    "gamePlan",
+    "matchup"
+   ]
+  },
+  {
+   "slug": "yuumi",
+   "name": "Yuumi",
+   "role": "SUPPORT",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "zed",
+   "name": "Zed",
+   "role": "MID",
+   "tier": "A",
+   "gaps": []
+  },
+  {
+   "slug": "zeri",
+   "name": "Zeri",
+   "role": "ADC",
+   "tier": "B",
+   "gaps": []
+  },
+  {
+   "slug": "ziggs",
+   "name": "Ziggs",
+   "role": "MID",
+   "tier": "C",
+   "gaps": []
+  },
+  {
+   "slug": "zilean",
+   "name": "Zilean",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": [
+    "matchup"
+   ]
+  },
+  {
+   "slug": "zoe",
+   "name": "Zoe",
+   "role": "MID",
+   "tier": null,
+   "gaps": [
+    "stats"
+   ]
+  },
+  {
+   "slug": "zyra",
+   "name": "Zyra",
+   "role": "SUPPORT",
+   "tier": "A",
+   "gaps": [
+    "matchup"
+   ]
+  }
+ ]
+}

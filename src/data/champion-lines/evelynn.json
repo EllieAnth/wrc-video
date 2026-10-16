@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "evelynn",
+ "patch": "7.3b",
+ "dataHash": "7bb0d8dce08c",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "AP burst jungle",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Pathing safe to 6 (full clear or 3",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Early W placement out of sight; approach from the sides to avoid",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Patient, out-of-sight W pose: the MR + slow debuff makes for a clean",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Full clear around 6, avoiding duelists",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Lens-side vision control, plays catch",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Angle of flank + Zhonya's Hourglass",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "ambessa",
+   "line": {
+    "text": "Repudiation can be timed to block the charm from Allure, leaving",
+    "source": "matchups.hard[0] (ambessa)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Standard pick (with charm)",
+   "inputs": "W (wait for purple heart) > Stealth approach > E > Q spam > AA",
+   "source": "combos[0]"
+  }
+ }
+}

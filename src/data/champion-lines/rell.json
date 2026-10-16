@@ -1,0 +1,70 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "rell",
+ "patch": "7.3b",
+ "dataHash": "5189b0af3362",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "engage/peel support",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Play around Magnet Storm",
+    "source": "gamePlan.early",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "key rank-up",
+    "source": "gamePlan.mid",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Unleashes a magnetic storm that pulls nearby enemies towards her and",
+    "source": "spells.R.desc",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Farm safely until Bulwark of the",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Spike on Zeke's Convergence",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Group and fight around objectives",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "janna",
+   "line": {
+    "text": "Janna can easily react to Rell's engage dash with a quick Howling Gale",
+    "source": "matchups.hard[0] (janna)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": null
+ }
+}

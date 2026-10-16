@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "aatrox",
+ "patch": "7.3b",
+ "dataHash": "1e335ab80cfb",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "bruiser baron lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Freeze close to your tower against",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Anticipate all-ins: Bone Plating/anti-heal early make your trades",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "W forces a return; uses E to correct sweetspot alignment and guarantee",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Wave management + anti-heal; seeks",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Split short if ahead, otherwise group",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Peel/engage according to threat; Q3 to",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "fiora",
+   "line": {
+    "text": "Fiora can react to Aatrox's highly telegraphed Q3 with Riposte to stun",
+    "source": "matchups.hard[0] (fiora)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Standard pick (sweetspot)",
+   "inputs": "W → (wait for zone) → Q1 (edge) → E → Q2 → Q3",
+   "source": "combos[0]"
+  }
+ }
+}

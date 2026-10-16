@@ -1,0 +1,65 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "zyra",
+ "patch": "7.3b",
+ "dataHash": "d8760de7e9fd",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "poke & pressure support",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Lane: poke at the Q through the",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Goals: turn the area into a 'no-go' zone with 2-3 active plants before",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Root first to guarantee the Q and hatch at least one plant at a",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Harass + wave priority; avoids opposing",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Roam with jungler, prepares vision and",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Zoning front-to-back: you convert space",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Safe control (E→Q)",
+   "inputs": "W (seed) → E (root) → Q on the seed",
+   "source": "combos[0]"
+  }
+ }
+}

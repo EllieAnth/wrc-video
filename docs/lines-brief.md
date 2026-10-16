@@ -19,7 +19,7 @@ The video has no voice: the text IS the script, read on a phone in ≤ 2.5 s per
 | `decision.title` | 36 | 2 | THE decision that wins games with this champion, as a headline (« Trade only when Q is up ») |
 | `decision.sub` | 72 | 2 | why / when, one concrete sentence, ability names allowed |
 | `execution.why` | 72 | 2 | what the combo achieves and the timing that matters |
-| `plan.early` / `mid` / `late` | 40 | 1 | one imperative priority per phase, ≤ 7 words |
+| `plan.early` / `mid` / `late` | 36 | 1 | one imperative priority per phase, ≤ 7 words |
 | `matchup.line` | 72 | 2 | how to survive `matchup.vs`, one sentence (rewrite the ledger's key interaction) |
 
 Rules that `scripts/validate-lines.mjs` enforces mechanically: budgets above; English only (a French

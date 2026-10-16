@@ -1,0 +1,65 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "zilean",
+ "patch": "7.3b",
+ "dataHash": "be341ebeca40",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "heal/shield support",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Control lane: poke at the bomb, win",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "R guard for lost fights: use it on carry/engage, not on a useless front.",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "If the target remains within range, the explosion of the second bomb",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Warde the river entrances, poke at the",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Fast rotations thanks to E, force 5v5",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Positioned behind two lines, R on",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Instant double-bomb",
+   "inputs": "Q → W → Q",
+   "source": "combos[0]"
+  }
+ }
+}

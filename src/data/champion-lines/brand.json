@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "brand",
+ "patch": "7.3b",
+ "dataHash": "680f2b605cb8",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "sustained DPS mid lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Poke before 5, then force 2v2s",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "Guard Zhonya's Hourglass against Zed/Fizz/Akali and avoid narrow paths",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "E puts on Blaze and increases the W's damage; retreats immediately",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Waveclear safe, deny opposing roams",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Spike Liandry + Rylai: tight 5v5 group",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Protect yourself (Zhonya's Hourglass)",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "ahri",
+   "line": {
+    "text": "Ahri can use Spirit Rush to dodge Pillar of Flame and easily land Charm",
+    "source": "matchups.hard[0] (ahri)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Trade court",
+   "inputs": "(E) → (W) → (auto)",
+   "source": "combos[0]"
+  }
+ }
+}

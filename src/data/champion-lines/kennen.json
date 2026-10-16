@@ -1,0 +1,74 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "kennen",
+ "patch": "7.3b",
+ "dataHash": "b75f10cc48f2",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "burst baron lane",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Against bruisers, short trades: Q→W",
+    "source": "tips[0]",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "If ahead, force groupings on Herald/Dragon to convert your lead via R.",
+    "source": "tips[1]",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Flash is used to reach the backline; Zhonya's Hourglass guarantees",
+    "source": "combos[0].tip",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Short trades, smart backs to complement",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "If ahead, force Herald/Dragon and wombo",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Teamfight to zone; avoid prolonged",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "malphite",
+   "line": {
+    "text": "Malphite's Q (Seismic Shard) out-pokes Kennen while stealing his",
+    "source": "matchups.hard[0] (malphite)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": {
+   "name": "Classic engagement (teamfight)",
+   "inputs": "E → Flash → R → Zhonya's Hourglass → W → Q",
+   "source": "combos[0]"
+  }
+ }
+}

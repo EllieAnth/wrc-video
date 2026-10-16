@@ -15,7 +15,7 @@
 //     un champ français est traité comme absent — jamais de fuite FR dans une vidéo EN)
 //   - matchups : counters-matchup-ledger.json (edge miroité du point de vue du champion)
 //   - visuels : icône/splash CommunityDragon, aperçus Riot des sorts (cloudfront, id LoL)
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -96,7 +96,8 @@ const matchupsFor = (slug, role) => {
 
 async function one(entry) {
   const slug = entry.slug; const key = compact(slug);
-  const b = build(slug); const role = b.role;
+  // Le moteur nomme la botlane `BOT`, la tier list et champions.enriched `ADC`, le ledger `DRAGON` (ROLE_LEDGER).
+  const b = build(slug); const role = b.role === 'BOT' ? 'ADC' : b.role;
   const e = enrichedByKey.get(key) || null; const av = avatarByKey.get(key) || avatarByKey.get(compact(LOL_ALIAS[slug] || slug)) || null;
   const name = av?.name || e?.name || slug;
   const t = tierByKey[`${key}|${role}`] || null;
@@ -123,6 +124,19 @@ async function one(entry) {
     const iconUrl = av?.icon && /^https?:/.test(av.icon) ? av.icon : `https://cdn.communitydragon.org/latest/champion/${av?.slug || key}/square`;
     if (await fetchTo(iconUrl.replace(/\/square$/, '/tile'), path.join(ROOT, `public/champions/${slug}.jpg`))) data.media.icon = `champions/${slug}.jpg`;
     if (await fetchTo(iconUrl.replace(/\/square$/, '/splash-art/centered'), path.join(ROOT, `public/splash/${slug}.jpg`))) data.media.splash = `splash/${slug}.jpg`;
+    // Champion trop récent pour CommunityDragon (Norra, 16/10) : le portrait du site remplace icône et splash.
+    // SplashPanel/ChampCard lisent `<slug>.jpg` : le webp du site est converti par ffmpeg.
+    for (const dir of ['champions-portrait', 'champions-cutout']) {
+      if (data.media.icon && data.media.splash) break;
+      const rel = `assets/images/${dir}/${slug}.webp`; const tmp = path.join(ROOT, `public/splash/.${slug}.webp`);
+      if (!copyFromRepo(rel, tmp)) continue;
+      for (const [kind, out] of [['splash', `public/splash/${slug}.jpg`], ['icon', `public/champions/${slug}.jpg`]]) {
+        if (data.media[kind]) continue;
+        const r = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', tmp, '-q:v', '3', path.join(ROOT, out)]);
+        if (r.status === 0) data.media[kind] = out.replace(/^public\//, '');
+      }
+      fs.rmSync(tmp, { force: true });
+    }
     for (const it of items) { if (it.icon && copyFromRepo(it.icon, path.join(ROOT, `public/items/${it.slug}${path.extname(it.icon)}`))) it.icon = `items/${it.slug}${path.extname(it.icon)}`; else it.icon = null; }
     const prefix = spellPrefix.get(key) || spellPrefix.get(compact(LOL_ALIAS[slug] || slug));
     for (const k of ['P', 'Q', 'W', 'E', 'R']) {

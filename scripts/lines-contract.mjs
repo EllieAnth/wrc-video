@@ -14,9 +14,10 @@ export const FIELDS = {
   'decision.title': { max: 36, lines: 2, hint: 'The one decision that wins games with this champion, as a headline (≤ 6 words).' },
   'decision.sub': { max: 72, lines: 2, hint: 'Why / when, one sentence, concrete (ability names allowed).' },
   'execution.why': { max: 72, lines: 2, hint: 'What the combo achieves and the timing that matters.' },
-  'plan.early': { max: 40, lines: 1, hint: 'Early game priority, imperative, ≤ 7 words.' },
-  'plan.mid': { max: 40, lines: 1, hint: 'Mid game priority, imperative, ≤ 7 words.' },
-  'plan.late': { max: 40, lines: 1, hint: 'Late game priority, imperative, ≤ 7 words.' },
+  // 36 et non 40 : mesuré le 16/10, 32 brouillons à 37-40 caractères passaient sur deux lignes (majuscules, →).
+  'plan.early': { max: 36, lines: 1, hint: 'Early game priority, imperative, ≤ 7 words.' },
+  'plan.mid': { max: 36, lines: 1, hint: 'Mid game priority, imperative, ≤ 7 words.' },
+  'plan.late': { max: 36, lines: 1, hint: 'Late game priority, imperative, ≤ 7 words.' },
   'matchup.line': { max: 72, lines: 2, hint: 'How to survive the hardest matchup, one sentence.' },
 };
 export const STATUSES = ['draft', 'validated', 'rendered', 'ready', 'stale'];

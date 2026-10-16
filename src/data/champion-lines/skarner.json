@@ -1,0 +1,70 @@
+{
+ "schema": "wrc.champion-lines/1",
+ "slug": "skarner",
+ "patch": "7.3b",
+ "dataHash": "88c172dff953",
+ "status": "draft",
+ "writtenAt": "2026-10-16",
+ "writtenBy": "draft-lines.mjs",
+ "reviewedBy": null,
+ "lines": {
+  "tagline": {
+   "text": "frontline jungle",
+   "source": "build.label",
+   "why": "draft: archetype of the engine build",
+   "confidence": 0.4
+  },
+  "decision": {
+   "title": {
+    "text": "Play around Empalement",
+    "source": "gamePlan.early",
+    "why": "draft: first play tip",
+    "confidence": 0.4
+   },
+   "sub": {
+    "text": "W rank 1",
+    "source": "gamePlan.mid",
+    "why": "draft: second play tip",
+    "confidence": 0.4
+   }
+  },
+  "execution": {
+   "why": {
+    "text": "Strikes in front of him to suppress enemy champions and drag them along",
+    "source": "spells.R.desc",
+    "why": "draft: combo tip",
+    "confidence": 0.4
+   }
+  },
+  "plan": {
+   "early": {
+    "text": "Farm safely until Heartsteel",
+    "source": "gamePlan.early",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "mid": {
+    "text": "Spike on Unending Despair",
+    "source": "gamePlan.mid",
+    "why": "draft",
+    "confidence": 0.4
+   },
+   "late": {
+    "text": "Group and fight around objectives",
+    "source": "gamePlan.late",
+    "why": "draft",
+    "confidence": 0.4
+   }
+  },
+  "matchup": {
+   "vs": "gwen",
+   "line": {
+    "text": "Gwen's A Thousand Cuts passive melts Skarner's high health pool, while",
+    "source": "matchups.hard[0] (gwen)",
+    "why": "draft: ledger key interaction",
+    "confidence": 0.4
+   }
+  },
+  "combo": null
+ }
+}
