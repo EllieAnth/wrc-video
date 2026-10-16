@@ -3,66 +3,68 @@
  "slug": "blitzcrank",
  "patch": "7.3b",
  "dataHash": "e1ba6bb3a5fd",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "engage/peel support",
+   "text": "Hook-and-lockdown support",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Wave 2-3: searches for a Q angle",
+    "text": "Vary your Q timing, hide in fog",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Roam mid after bot reset: a hook mid is often worth a dragon.",
+    "text": "Play the fog and walls to find a grab angle, not your shoulders.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "Shifting behind the target during the knock-up sends it back to your",
+    "text": "Walk behind after the grab so E knocks them into your team.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Q pressure in lane; play reset/roam if",
+    "text": "Pressure with Q, reset if no angle",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Look for grab angles to force short",
+    "text": "Find grab angles at objectives",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Protect your carries with E/R after the",
+    "text": "Protect carries with E and R",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "morgana",
    "line": {
-    "text": "Morgana can reactively cast Black Shield to completely block Rocket",
+    "text": "Black Shield blocks Rocket Grab, so make Morgana waste it first.",
     "source": "matchups.hard[0] (morgana)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

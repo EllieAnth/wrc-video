@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "kai-sa",
  "patch": "7.3b",
- "dataHash": "6b3b2ff70df4",
+ "dataHash": "95f0d41ebdf0",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Priority farm; trade short to post-E",
+    "text": "Priority farm; trade short to",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "2 items: looking for skirmishes 3v3/4v4.",
+    "text": "2 items: looking for skirmishes",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Stay behind your frontline, Runaan to",
+    "text": "Stay behind your frontline, Runaan",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

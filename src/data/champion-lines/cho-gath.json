@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "cho-gath",
  "patch": "7.3b",
- "dataHash": "b439223c97e9",
- "status": "draft",
+ "dataHash": "ed821101d9bc",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "frontline baron lane",
+   "text": "Growing frontline tank",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "frontline build label; R stacks permanent health; data gaps",
+   "confidence": 0.6
   },
   "decision": {
    "title": {
-    "text": "Take Teleport by default: his",
+    "text": "Stack R on minions when no kill",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[2]: ultimate is a scaling resource, not an execute",
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Never trade into true damage (Fiora, Vayne, Gwen): your health is an",
+    "text": "Feast is a scaling resource: permanent max health, not an execute.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[2] and R description",
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Devours a target for heavy true damage on champions, and stacks",
+    "text": "Feast: heavy true damage on champions, plus permanent max health.",
     "source": "spells.R.desc",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "R description; no combos in data",
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Farm safely until Heartsteel",
+    "text": "Rush W at 3, Feast at level 5",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "spikes L3 W rank 1, L5 Ultimate; no gamePlan",
+    "confidence": 0.6
    },
    "mid": {
-    "text": "Spike on Hollow Radiance",
+    "text": "Hollow Radiance at 9, R rank 2",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "spike L9; no gamePlan",
+    "confidence": 0.6
    },
    "late": {
-    "text": "Group and fight around objectives",
+    "text": "Teleport in, silence with W",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "tips[0] Teleport and tips[4] W silence; no gamePlan",
+    "confidence": 0.6
    }
   },
   "matchup": {
-   "vs": "fiora",
+   "vs": "vayne",
    "line": {
-    "text": "Fiora can easily react to the highly telegraphed Rupture animation with",
+    "text": "Vayne tumbles out of Rupture: wait for her dash, then cast.",
     "source": "matchups.hard[0] (fiora)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[2] plus tips[3] on dash champions",
+    "confidence": 0.8
    }
   },
   "combo": null

@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "ahri",
  "patch": "7.3b",
- "dataHash": "c76af0eed98f",
- "status": "draft",
+ "dataHash": "e85896129dbb",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "AP burst mid lane",
+   "text": "Pick-hunting AP burst mid",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build.label + tips",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Controlled push: Q for priority",
+    "text": "Hold Charm for a pick, not poke",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[3]: E is your victory button for picks",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Strong roams after 5: shift as soon as the wave is under the opponent's",
+    "text": "Charm is your pick button: use Q to push, keep mana for E and R.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[0], tips[3]",
+    "confidence": 0.7
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "As soon as E hits, immediately follow up to take advantage of the",
+    "text": "Follow Charm instantly with Q, W and AA while damage is amplified.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[0].tip + abilities.E",
+    "confidence": 0.9
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Take the priority via Q, save E for",
+    "text": "Take priority with Q, hold E",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Synchronize your roam windows with your",
+    "text": "Roam with your jungler for 3v2s",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Plays front-to-back; engages only with",
+    "text": "Fight front-to-back, keep R ready",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
-   "vs": "galio",
+   "vs": "irelia",
    "line": {
-    "text": "Galio can absorb Ahri's Charm (E) combo with Shield of Durand (W)",
+    "text": "Don't Charm through minions: Irelia's Bladesurge dodges it.",
     "source": "matchups.hard[0] (galio)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[1] (irelia)",
+    "confidence": 0.9
    }
   },
   "combo": {

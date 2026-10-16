@@ -44,7 +44,7 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Herald/Drake in every R+Smite+Q window.",
+    "text": "Herald/Drake in every R+Smite+Q",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

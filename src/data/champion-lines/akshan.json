@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "akshan",
  "patch": "7.3b",
- "dataHash": "49abca17a976",
- "status": "draft",
+ "dataHash": "b10d2eed2239",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "crit DPS mid lane",
+   "text": "Wall-swinging crit mid",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build.label + abilities.E",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Poke to Q then shift through the",
+    "text": "Never swing without vision",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[2]: don't slam E without vision",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Stase or Vif-Argent according to threats; you're fragile to hard CCs.",
+    "text": "Heroic Swing is your only long mobility: keep an exit wall ready.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[2]",
+    "confidence": 0.9
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "Enter through a wall, poke/lock with Q in swing and finish at R to",
+    "text": "Enter through a wall, Q mid-swing, then R to secure E's reset.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[0].tip",
+    "confidence": 0.9
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Wave control then roam minute 3-5 via",
+    "text": "Roam at minute 3-5 using W",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Setup deep vision and work your jungler",
+    "text": "Ward deep, work walls with jungler",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Choose flanks, GA ready before dive",
+    "text": "Take flanks, keep GA ready",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
-   "vs": "irelia",
+   "vs": "lissandra",
    "line": {
-    "text": "Irelia can use Defiant Dance to absorb your burst, then easily catch",
+    "text": "Don't swing near Lissandra: Ring of Frost or Frozen Tomb locks you.",
     "source": "matchups.hard[0] (irelia)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[1] (lissandra)",
+    "confidence": 0.9
    }
   },
   "combo": {

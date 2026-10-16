@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "caitlyn",
  "patch": "7.3b",
- "dataHash": "37689dbb823e",
+ "dataHash": "e9e386311ff1",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

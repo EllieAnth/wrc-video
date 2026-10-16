@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "rakan",
  "patch": "7.3b",
- "dataHash": "9b6a835e3555",
+ "dataHash": "3adb39c430bf",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Clean front-to-back: engage on carry",
+    "text": "Clean front-to-back: engage on",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

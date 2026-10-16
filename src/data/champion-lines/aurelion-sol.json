@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "aurelion-sol",
  "patch": "7.3b",
- "dataHash": "4137e1215d2d",
- "status": "draft",
+ "dataHash": "8b7eac3b8ca8",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "sustained DPS mid lane",
+   "text": "Sustained DPS star mage",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Don't force trades before your",
+    "text": "Place E before you channel Q",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Against assassins: Exhaust + Zhonya's Hourglass, defensive R guard.",
+    "text": "Anchor first, then channel Q from a safe range.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "E anchor/ralentit, you keep the ray in contact without exposing",
+    "text": "E slows, so the Q beam stays on target while you auto-kite.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "plan": {
    "early": {
-    "text": "Waveclear safe, lateral wards, deny the",
+    "text": "Clear safely, deny their level 6",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Spike 2 items: force 4v4 objectives",
+    "text": "Spike two items, force 4v4s",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Protect your carries, give priority to",
+    "text": "Peel with R, skip deep engages",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
-   "vs": "akali",
+   "vs": "jayce",
    "line": {
-    "text": "Aurelion Sol is highly vulnerable to Shuriken Flip while channeling",
+    "text": "Don't channel Q while Jayce has Thundering Blow up; stay by turret.",
     "source": "matchups.hard[0] (akali)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

@@ -3,72 +3,74 @@
  "slug": "alistar",
  "patch": "7.3b",
  "dataHash": "93b244dd290c",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "engage/peel support",
+   "text": "Engage and peel tank",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build.label",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Play around Unbreakable Will",
+    "text": "Pre-cast E before every engage",
     "source": "gamePlan.early",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "combos[2].tip",
+    "confidence": 0.7
    },
    "sub": {
-    "text": "W rank 1",
+    "text": "Five champion hits arm a stunning auto: W then Q load the stacks.",
     "source": "gamePlan.mid",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "abilities.E + combos[2]",
+    "confidence": 0.7
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "Throws the first target into the second, then Q to lift both. Ideal",
+    "text": "Chain W, Q, then the reinforced auto to lock the target.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[2]",
+    "confidence": 0.9
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Farm safely until Bulwark of the",
+    "text": "Rank W at 2, Q again at 4",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "skill spikes (no gamePlan)",
+    "confidence": 0.5
    },
    "mid": {
-    "text": "Spike on Zeke's Convergence",
+    "text": "Hit level 6 with Bulwark first",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "skill spikes L6 (no gamePlan)",
+    "confidence": 0.5
    },
    "late": {
-    "text": "Group and fight around objectives",
+    "text": "Engage or peel, R clears your CC",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "abilities.R + build.label (no gamePlan)",
+    "confidence": 0.5
    }
   },
   "matchup": {
-   "vs": "morgana",
+   "vs": "poppy",
    "line": {
-    "text": "Morgana's Black Shield completely absorbs the crowd control of",
+    "text": "Don't Headbutt into Poppy: Steadfast Presence blocks the dash.",
     "source": "matchups.hard[0] (morgana)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[2] (poppy)",
+    "confidence": 0.9
    }
   },
   "combo": {
-   "name": "Double target - Knock up chain",
-   "inputs": "W (project A to B) → Q at contact → AA",
-   "source": "combos[0]"
+   "name": "Long CC chain",
+   "inputs": "E (pre-activated) → W → Q → AA (stun E)",
+   "source": "combos[2]"
   }
  }
 }

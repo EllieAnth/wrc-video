@@ -44,13 +44,13 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Level 5+ synchronized roams; convert",
+    "text": "Level 5+ synchronized roams",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Priority peel if the enemy plays dive",
+    "text": "Priority peel if the enemy plays",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

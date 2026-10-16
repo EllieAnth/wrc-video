@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "xin-zhao",
  "patch": "7.3b",
- "dataHash": "f8ac9debc52c",
+ "dataHash": "718b84c9bf51",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,7 +44,7 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Dragon/Herald: force the fight during",
+    "text": "Dragon/Herald: force the fight",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

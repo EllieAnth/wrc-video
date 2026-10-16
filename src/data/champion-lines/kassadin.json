@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "kassadin",
  "patch": "7.3b",
- "dataHash": "b14b71c3a7c0",
+ "dataHash": "73d9e9696576",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,7 +38,7 @@
   },
   "plan": {
    "early": {
-    "text": "Uses W for last-hit, avoids extended",
+    "text": "Uses W for last-hit, avoids",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4

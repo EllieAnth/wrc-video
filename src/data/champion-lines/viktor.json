@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "viktor",
  "patch": "7.3b",
- "dataHash": "45144f150f84",
+ "dataHash": "245b746eacf5",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,7 +38,7 @@
   },
   "plan": {
    "early": {
-    "text": "Prioritizes priority wave via E, avoids",
+    "text": "Prioritizes priority wave via E",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Teamfights around objectives: maximum",
+    "text": "Teamfights around objectives",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

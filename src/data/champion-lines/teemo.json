@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "teemo",
  "patch": "7.3b",
- "dataHash": "826ea33c40f9",
+ "dataHash": "54d8dc2d57f6",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "lissandra",
  "patch": "7.3b",
- "dataHash": "fc38eb994a19",
+ "dataHash": "53b6fe59a470",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Q for priority, E for threat; call your",
+    "text": "Q for priority, E for threat; call",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Constant roaming between mid and bot",
+    "text": "Constant roaming between mid and",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

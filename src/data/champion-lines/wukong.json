@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "wukong",
  "patch": "7.3b",
- "dataHash": "4eb1bf6e8a80",
+ "dataHash": "bdb9c439dd69",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Grasp trades, wave control and plates",
+    "text": "Grasp trades, wave control and",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Side control; TP for reaching targets",
+    "text": "Side control; TP for reaching",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Frontline/peel; seeks multi-target R",
+    "text": "Frontline/peel; seeks multi-target",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

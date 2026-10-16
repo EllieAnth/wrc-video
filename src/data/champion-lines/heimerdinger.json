@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "heimerdinger",
  "patch": "7.3b",
- "dataHash": "3c71537a648b",
+ "dataHash": "c57776f077e2",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,7 +38,7 @@
   },
   "plan": {
    "early": {
-    "text": "Push-reset → plates; guard E to deter",
+    "text": "Push-reset → plates; guard E to",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Position your turrets before engagement",
+    "text": "Position your turrets before",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "senna",
  "patch": "7.3b",
- "dataHash": "9bd73dd51140",
+ "dataHash": "cf4cc50b573f",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

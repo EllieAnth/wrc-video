@@ -3,72 +3,74 @@
  "slug": "amumu",
  "patch": "7.3b",
  "dataHash": "16ffaed4929e",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "frontline jungle",
+   "text": "Frontline engage jungler",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build.label",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Clear clean without wasting W",
+    "text": "Time every gank to R's return",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[1]",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Gank as soon as the R returns: each ulti must seek a kill or an",
+    "text": "Every R should seek a kill or objective: call its cooldown.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[1], tips[2]",
+    "confidence": 0.9
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Simple and reliable for forcing a Flash or preparing a gank.",
+    "text": "Flash into R to hit several targets, then Q the priority carry.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[1]",
+    "confidence": 0.9
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Power farm around 5, saving W mana.",
+    "text": "Farm to level 5, save W mana",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Synchronize your ganks with R's return",
+    "text": "Gank on R return, then objectives",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Engage decisively with Flash→R; if",
+    "text": "Flash into R, else counter-engage",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "olaf",
    "line": {
-    "text": "Olaf's Ragnarok makes him completely immune to Amumu's Bandage Toss and",
+    "text": "Don't Q or R into Olaf's Ragnarok: he is immune to both.",
     "source": "matchups.hard[0] (olaf)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] (olaf)",
+    "confidence": 0.9
    }
   },
   "combo": {
-   "name": "Standard engagement",
-   "inputs": "Q → W → E → auto",
-   "source": "combos[0]"
+   "name": "Wombo teamfight",
+   "inputs": "Flash → R → W → E → Q (on carry)",
+   "source": "combos[1]"
   }
  }
 }

@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "brand",
  "patch": "7.3b",
- "dataHash": "680f2b605cb8",
- "status": "draft",
+ "dataHash": "9ef3c3c5dfd2",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "sustained DPS mid lane",
+   "text": "Burning zone mage",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Poke before 5, then force 2v2s",
+    "text": "Set them ablaze, then Q stuns",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "Q stuns only a burning target; the agent's draft conflated the 3-stack explosion with the stun",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Guard Zhonya's Hourglass against Zed/Fizz/Akali and avoid narrow paths",
+    "text": "Q stuns a burning target, so ignite with E or W first.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "E puts on Blaze and increases the W's damage; retreats immediately",
+    "text": "E, W, then Q stuns the burning target; R bounces between champions.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Waveclear safe, deny opposing roams",
+    "text": "Clear safely, ward to deny roams",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Spike Liandry + Rylai: tight 5v5 group",
+    "text": "Spike Liandry and Rylai, group 5v5",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Protect yourself (Zhonya's Hourglass)",
+    "text": "Keep Zhonya's up, play W range",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "ahri",
    "line": {
-    "text": "Ahri can use Spirit Rush to dodge Pillar of Flame and easily land Charm",
+    "text": "Wait out Spirit Rush before you cast Pillar of Flame.",
     "source": "matchups.hard[0] (ahri)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Trade court",
-   "inputs": "(E) → (W) → (auto)",
-   "source": "combos[0]"
+   "name": "Pick guaranteed",
+   "inputs": "(E) → (W) → (Q) (stun) → (R)",
+   "source": "combos[1]"
   }
  }
 }

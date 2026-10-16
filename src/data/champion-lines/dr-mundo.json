@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "dr-mundo",
  "patch": "7.3b",
- "dataHash": "bfec2ab1b09d",
- "status": "draft",
+ "dataHash": "7d430039de10",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "juggernaut baron lane",
+   "text": "Self-healing juggernaut",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "juggernaut label, Q/W healing from abilities",
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Never take long trades against tank",
+    "text": "Pop R early in every fight",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[2]: activate R early for regeneration and space control",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Freeze near your tower against difficult matchups and demand gank at",
+    "text": "Maximum Dosage buys regen time and space before you commit.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[2] and R description",
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Scratch the opponent's bar without exposing yourself and recover your",
+    "text": "Land Q, then W detonates late: damage taken becomes healing.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[1] tip",
+    "confidence": 0.8
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Defensive wave management vs counters",
+    "text": "Defend the wave and poke with Q",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Heartsteel + Sunfire: take the priority",
+    "text": "Heartsteel + Sunfire, take priority",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Split if TP up otherwise group for",
+    "text": "Split with TP up, else group",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "fiora",
    "line": {
-    "text": "Fiora's Grand Challenge deals massive percent-max-health true damage",
+    "text": "Skip long trades: Fiora's Grand Challenge bypasses armor and health.",
     "source": "matchups.hard[0] (fiora)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] key interaction plus tips[0]",
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Safe poke",
-   "inputs": "Q → backwards",
-   "source": "combos[0]"
+   "name": "Trade flash",
+   "inputs": "Q → (during slow motion) E → W (detonates late)",
+   "source": "combos[1]"
   }
  }
 }

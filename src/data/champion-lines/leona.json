@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Bush control, short trade with W and",
+    "text": "Bush control, short trade with W",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Deep vision next lens side; engages on",
+    "text": "Deep vision next lens side; engages",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Frontline: cash in, force defensive CDs",
+    "text": "Frontline: cash in, force defensive",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

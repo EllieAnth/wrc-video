@@ -129,7 +129,8 @@ const Execution: React.FC<{ d: ChampionData; l: ChampionLines }> = ({ d, l }) =>
   const combo = l.lines.combo || (d.combos[0] ? { name: d.combos[0].name, inputs: d.combos[0].inputs } : null);
   // Sans combo dans les données (12 champions le 16/10) : la scène montre l'ultime seul, le « pourquoi » l'explique.
   const ult = d.spells.find((s) => s.key === 'R');
-  const chips = combo ? combo.inputs.split(/\s*(?:→|->|>)\s*/).filter(Boolean) : ult ? [`R ${ult.name}`] : [];
+  // Les données écrivent parfois « (E) → (W) » : la parenthèse autour d'une touche seule n'apporte rien à l'écran.
+  const chips = (combo ? combo.inputs.split(/\s*(?:→|->|>)\s*/).filter(Boolean) : ult ? [`R ${ult.name}`] : []).map((c) => c.replace(/^\((AA|[QWER]\d?)\)/, '$1'));
   const spell = l.lines.execution.spell || chips.map((c) => c.match(/^([QWER])\b/)?.[1]).find(Boolean) || 'R';
   return (
     <AbsoluteFill style={useSceneInOut(T.EXECUTION)}>

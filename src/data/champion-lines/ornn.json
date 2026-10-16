@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "ornn",
  "patch": "7.3b",
- "dataHash": "1844f1ba8e27",
+ "dataHash": "c8ae2fec3516",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,13 +44,13 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "TP/roams to targets; play the narrow",
+    "text": "TP/roams to targets; play the",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Frontline, zoning and ultimate engages",
+    "text": "Frontline, zoning and ultimate",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

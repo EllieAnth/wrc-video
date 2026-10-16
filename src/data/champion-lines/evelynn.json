@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "evelynn",
  "patch": "7.3b",
- "dataHash": "7bb0d8dce08c",
+ "dataHash": "5dea3a985bfe",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Full clear around 6, avoiding duelists",
+    "text": "Full clear around 6, avoiding",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Lens-side vision control, plays catch",
+    "text": "Lens-side vision control, plays",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

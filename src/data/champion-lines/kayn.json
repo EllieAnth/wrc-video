@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "kayn",
  "patch": "7.3b",
- "dataHash": "79eb0103c364",
+ "dataHash": "79e1beadf3e6",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "swain",
  "patch": "7.3b",
- "dataHash": "9f6af6576e39",
+ "dataHash": "306841b49bfd",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Waveclear safe, W for scouter. Punish",
+    "text": "Waveclear safe, W for scouter.",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Force jungle/river battles with your",
+    "text": "Force jungle/river battles with",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Position yourself in the center of the",
+    "text": "Position yourself in the center of",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

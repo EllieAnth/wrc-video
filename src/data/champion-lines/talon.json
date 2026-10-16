@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "talon",
  "patch": "7.3b",
- "dataHash": "c30b00a8d0e8",
+ "dataHash": "72da4d98a3e1",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

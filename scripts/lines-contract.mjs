@@ -25,7 +25,7 @@ export const STATUSES = ['draft', 'validated', 'rendered', 'ready', 'stale'];
 export const get = (obj, dotted) => dotted.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
 export const set = (obj, dotted, value) => { const ks = dotted.split('.'); let o = obj; for (const k of ks.slice(0, -1)) o = o[k] ??= {}; o[ks.at(-1)] = value; };
 
-const FR = /\b(le|la|les|des|une|pour|avec|sur|tes|ton|ta|est|et|ou|pas|si|dans|sans|puis|vers|contre|après|avant|très|plus|bouclier|dégâts|soin|sorts|objectif|couloir|adversaire|ennemi|gagne|tour|ultime|niveau)\b/i;
+const FR = /\b(le|la|les|des|une|pour|avec|sur|tes|ton|ta|est|et|ou|pas|si|dans|sans|puis|vers|contre|après|avant|très|bouclier|dégâts|soin|sorts|objectif|couloir|adversaire|ennemi|gagne|tour|ultime|niveau)\b/i;
 
 /** Problèmes d'une ligne : [] si elle passe. `names` = noms (champion, sorts, objets) qui ne doivent pas être coupés. */
 export function checkLine(field, entry, names = []) {

@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "draven",
  "patch": "7.3b",
- "dataHash": "c77d0cec3681",
- "status": "draft",
+ "dataHash": "a33ca5b1742c",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "crit DPS dragon lane",
+   "text": "Crit DPS axe juggler",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "crit DPS build label, Spinning Axe",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Level 2 first = all-in window.",
+    "text": "Level 2 first is your window",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[0]: level 2 first = all-in window",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Keep W for gluing OR for taking out: don't burn both uses on the same",
+    "text": "Count the first three casters to hit level 2 first, then all-in.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[0]: anticipate the level with the first 3 casters",
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "W after the first AA to secure the 2nd axe and emerge before the",
+    "text": "W after the first AA secures axe 2; step out before their return.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[0] tip",
+    "confidence": 0.9
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Spike level 2 then 5: short trade and",
+    "text": "Short trade at levels 2 and 5",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Group up, play around the ult of your",
+    "text": "Group and follow your support's ult",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Protect yourself first: back catch",
+    "text": "Catch axes backwards, no overchase",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late and tips[3]",
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "caitlyn",
    "line": {
-    "text": "Caitlyn can place Yordle Snap Traps directly on Draven's axe landing",
+    "text": "Check axe landing marks for traps; drop the axe over eating one.",
     "source": "matchups.hard[0] (caitlyn)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] key interaction rewritten as advice",
+    "confidence": 0.7
    }
   },
   "combo": {

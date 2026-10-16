@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "braum",
  "patch": "7.3b",
- "dataHash": "89bcae02cd2d",
- "status": "draft",
+ "dataHash": "233db3c4306c",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "engage/peel support",
+   "text": "Front-line peel support",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "archetype engage/peel from build label",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Pace the lane: short trades after Q",
+    "text": "Block the key projectile",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "restates tip: guard E for hook, root or ult",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "In teamfighting, prioritize the peel: W on your carry + E towards the",
+    "text": "Aim E at the hook, root or ult, not at small damage.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "restates tips[3]",
+    "confidence": 0.9
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "Leap onto the endangered ally, raise the shield, then slow down the",
+    "text": "Leap to your carry, shield the threat, then slow the attacker.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[0] tip",
+    "confidence": 0.9
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Peel and bush controls; deny hooks with",
+    "text": "Control bushes, deny hooks with E",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Zeke's + Locket of the Iron Solari to",
+    "text": "Buy Zeke's, force objective fights",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Position yourself in front of the",
+    "text": "Stand in front of your carry",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "senna",
    "line": {
-    "text": "Senna's basic attacks and Piercing Darkness are non-projectiles that",
+    "text": "Senna's shots ignore your E shield: peel with W and slow with Q.",
     "source": "matchups.hard[0] (senna)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] key interaction plus abilities",
+    "confidence": 0.7
    }
   },
   "combo": {

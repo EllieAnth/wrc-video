@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "katarina",
  "patch": "7.3b",
- "dataHash": "2836dcae992b",
+ "dataHash": "dbc3be6e4ab8",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Your role is to catch isolated carries",
+    "text": "Your role is to catch isolated",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Warde the river entrances, poke at the",
+    "text": "Warde the river entrances, poke at",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Fast rotations thanks to E, force 5v5",
+    "text": "Fast rotations thanks to E, force",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

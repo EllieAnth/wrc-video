@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "irelia",
  "patch": "7.3b",
- "dataHash": "2de537618597",
+ "dataHash": "0268b04c670d",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Split if pressure; otherwise group and",
+    "text": "Split if pressure; otherwise group",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

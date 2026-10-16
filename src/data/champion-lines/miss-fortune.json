@@ -44,13 +44,13 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "RF Cannon completed: look for flanking",
+    "text": "RF Cannon completed: look for",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Protect your position, peel ready to",
+    "text": "Protect your position, peel ready",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

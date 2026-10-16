@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "aurora",
  "patch": "7.3b",
- "dataHash": "fd7e90334f49",
- "status": "draft",
+ "dataHash": "3066014b2227",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "AP burst mid lane",
+   "text": "AP burst skirmisher",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Against assassins, play Zhonya's",
+    "text": "Wait for Q to hit before recasting",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Your level 9 Infinity Orb + pick allows you to force picks around the",
+    "text": "The recast hits harder on missing health, so land the first one.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "Maximize Electrocute and passive without exposing yourself, then exit",
+    "text": "Electrocute and passive burst, then E's recoil pulls you out.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Wave control + lateral vision; punish",
+    "text": "Control the wave, punish cooldowns",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Highlights 5/9 + 2 AP items; picks",
+    "text": "Hit levels 5 and 9, force picks",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Protect your Zhonya's Hourglass",
+    "text": "Time Zhonya's, engage from an angle",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
-   "vs": "kassadin",
+   "vs": "vex",
    "line": {
-    "text": "Kassadin's Null Sphere (Q) magic shield and passive magic damage",
+    "text": "Avoid Across the Veil near Vex: her passive fears you.",
     "source": "matchups.hard[0] (kassadin)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

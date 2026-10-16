@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "bard",
  "patch": "7.3b",
- "dataHash": "3ab7325e8c6d",
- "status": "draft",
+ "dataHash": "db573620a0cd",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "poke & pressure support",
+   "text": "Roaming wall-stun support",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Spike level 1 very strong: short",
+    "text": "Make every Q hit a wall",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Always announce the R (ping + voice): many grievances stem from bad",
+    "text": "Q slows the first target and stuns on a wall or second enemy.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "Use the wall to turn a slow movement into a stun.",
+    "text": "Open a gate, then Q through the wall: the slow becomes a stun.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Rescue the lane with W, poke Meep +",
+    "text": "Poke with Meep and Q, roam",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Deep vision pose, fog picks via portals.",
+    "text": "Ward deep, pick through portals",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Protect the carry, look for angle R→Q",
+    "text": "Protect carry, angle R then Q",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "blitzcrank",
    "line": {
-    "text": "If Bard roams to collect chimes, Blitzcrank can easily dive or zone",
+    "text": "Roam for chimes only when your ADC is safe from Rocket Grab.",
     "source": "matchups.hard[0] (blitzcrank)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

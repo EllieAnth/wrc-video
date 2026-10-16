@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "norra",
  "patch": "7.3b",
- "dataHash": "7285983f1bef",
+ "dataHash": "ad5730d87e50",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Wave management + poke: impose space",
+    "text": "Wave management + poke: impose",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Short split if ahead, otherwise group",
+    "text": "Short split if ahead, otherwise",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Stay out of range, zone/cut: win fights",
+    "text": "Stay out of range, zone/cut: win",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

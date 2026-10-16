@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "corki",
  "patch": "7.3b",
- "dataHash": "dc8085f08374",
- "status": "draft",
+ "dataHash": "b76595a2a9ad",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "crit & caster mid lane",
+   "text": "Long-range crit mid",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "crit & caster build label, range from abilities",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Take the priority via Q + missiles",
+    "text": "Win priority, then shift sides",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[0]: priority via Q + missiles, then sides at the Package",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Against assassins: plays under vision, defensive W only.",
+    "text": "Push with Q and rockets, then use the Package to move to the sides.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[0] and gamePlan.early",
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "Exchange cleanly without exposing yourself; keep W to disengage.",
+    "text": "W through their team, then focus the E cone on the cut-off target.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[1] tip",
+    "confidence": 0.8
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "priority wave → lateral warding → deny",
+    "text": "Push priority wave, ward the sides",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Spike Manamune + Triforce: group and",
+    "text": "Group at Manamune and Trinity Force",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.8
    },
    "late": {
-    "text": "Protect yourself (Guardian Angel) and",
+    "text": "Buy Guardian Angel, use your range",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "irelia",
    "line": {
-    "text": "Irelia can easily reset Bladesurge on low-health minions to close the",
+    "text": "Irelia resets Bladesurge on minions: Valkyrie away before her stun.",
     "source": "matchups.hard[0] (irelia)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] key interaction rewritten as advice",
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Trade court poke",
-   "inputs": "auto → (Q) → (R) (if Big One) → back off",
-   "source": "combos[0]"
+   "name": "All-in Package",
+   "inputs": "(Package) W Special Delivery through team → (E) Gatling → (Q) → (R) chain",
+   "source": "combos[1]"
   }
  }
 }

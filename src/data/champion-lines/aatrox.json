@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "aatrox",
  "patch": "7.3b",
- "dataHash": "1e335ab80cfb",
- "status": "draft",
+ "dataHash": "197c359b4773",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "bruiser baron lane",
+   "text": "Bruiser baron laner",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "archetype of build.label",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Freeze close to your tower against",
+    "text": "Steer Q2 and Q3 onto the edge",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[3]: correct with E or Flash to hit the edge",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Anticipate all-ins: Bone Plating/anti-heal early make your trades",
+    "text": "Use E or Flash between swings: sweet spots knock up for more damage.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "abilities.Q + tips[3]",
+    "confidence": 0.7
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "W forces a return; uses E to correct sweetspot alignment and guarantee",
+    "text": "W forces a return; E realigns Q to guarantee the knock-up.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[0].tip",
+    "confidence": 0.9
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Wave management + anti-heal; seeks",
+    "text": "Manage waves, buy anti-heal",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Split short if ahead, otherwise group",
+    "text": "Split short if ahead, else group",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Peel/engage according to threat; Q3 to",
+    "text": "Use Q3 to cut the backline",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "fiora",
    "line": {
-    "text": "Fiora can react to Aatrox's highly telegraphed Q3 with Riposte to stun",
+    "text": "Don't throw Q3 into Fiora: Riposte stuns you and flips the trade.",
     "source": "matchups.hard[0] (fiora)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] (fiora)",
+    "confidence": 0.9
    }
   },
   "combo": {

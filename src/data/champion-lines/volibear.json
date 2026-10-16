@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "volibear",
  "patch": "7.3b",
- "dataHash": "380b22e6fd85",
+ "dataHash": "9a4cd69abf4c",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

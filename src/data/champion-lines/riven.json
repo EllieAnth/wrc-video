@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "riven",
  "patch": "7.3b",
- "dataHash": "f57ce573f73f",
+ "dataHash": "92e82c760e59",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Control the wave, harp on the last hits",
+    "text": "Control the wave, harp on the last",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Roams mid/bot as soon as the tower is",
+    "text": "Roams mid/bot as soon as the tower",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Flanks from the mist; if no angle, play",
+    "text": "Flanks from the mist; if no angle",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

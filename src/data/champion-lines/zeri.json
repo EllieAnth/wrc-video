@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "zeri",
  "patch": "7.3b",
- "dataHash": "8236fb4dc63f",
+ "dataHash": "be0b9f1e1d02",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,7 +38,7 @@
   },
   "plan": {
    "early": {
-    "text": "Lane careful, poke at W and farm clean.",
+    "text": "Lane careful, poke at W and farm",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Kite front-to-back, R early for long",
+    "text": "Kite front-to-back, R early for",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

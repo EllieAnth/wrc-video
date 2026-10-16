@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "rumble",
  "patch": "7.3b",
- "dataHash": "fea699da189b",
+ "dataHash": "fd390ad67ecb",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Short trades with E → Q. Don't expose",
+    "text": "Short trades with E → Q. Don't",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "place vision around the lenses, keep",
+    "text": "place vision around the lenses",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

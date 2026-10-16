@@ -38,7 +38,7 @@
   },
   "plan": {
    "early": {
-    "text": "Priority vision/roam short when wave is",
+    "text": "Priority vision/roam short when",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
@@ -50,7 +50,7 @@
     "confidence": 0.4
    },
    "late": {
-    "text": "Clean front-to-back, no all-in without",
+    "text": "Clean front-to-back, no all-in",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

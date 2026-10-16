@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "smolder",
  "patch": "7.3b",
- "dataHash": "6247867f1c5e",
+ "dataHash": "5fdeccf60672",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

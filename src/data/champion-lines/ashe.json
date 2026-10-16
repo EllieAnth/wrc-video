@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "ashe",
  "patch": "7.3b",
- "dataHash": "ecd05af56120",
- "status": "draft",
+ "dataHash": "bf909e4eea5e",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "crit DPS dragon lane",
+   "text": "Crit DPS, global arrow",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Never play without info: Hawkshot",
+    "text": "Hawkshot before you step forward",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Kite each car: Frost Shot offers 1-2 bonus shots if you manage the",
+    "text": "Info saves free deaths; kite so Frost Shot gives 1-2 bonus shots.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "Poke in cone, accumulate Q before engagement, then kiting back.",
+    "text": "Scout first, then max-range R: farther flight, longer stun.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Poke at W, keep wave manageable",
+    "text": "Poke with W, prepare Q",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Play around R to create numbers and",
+    "text": "Play around R for picks",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Teamfights front-to-back, kite behind",
+    "text": "Kite behind your front line",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
-   "vs": "draven",
+   "vs": "samira",
    "line": {
-    "text": "Draven's Spinning Axe damage heavily outclasses your early trades, and",
+    "text": "Fire R only after Samira has spent Blade Whirl.",
     "source": "matchups.hard[0] (draven)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Trade sure",
-   "inputs": "W → AA → AA → Q (gust) → kite",
-   "source": "combos[0]"
+   "name": "Pick mid-map",
+   "inputs": "Hawkshot (vision) → R (max range) → W → Q → AA",
+   "source": "combos[1]"
   }
  }
 }

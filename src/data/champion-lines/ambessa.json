@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "ambessa",
  "patch": "7.3b",
- "dataHash": "7d972d87317b",
- "status": "draft",
+ "dataHash": "6e42f1750ad6",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "bruiser baron lane",
+   "text": "Carry-hunting top bruiser",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "gamePlan.late + build.label",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Punish scaling matchups early",
+    "text": "Engage only when allies follow",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[2]",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Play river vision: your all-in depends on your own angles.",
+    "text": "Take river vision for angles, then announce the commit.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[1], tips[2]",
+    "confidence": 0.7
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Use R to insulate a carry; wedge the first Q at the outer edge then",
+    "text": "Cast W before entering, then finish with R when they flee.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[2].tip",
+    "confidence": 0.9
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Push-priority then threatens the dive",
+    "text": "Push priority, threaten a dive",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Side controlled, TP/roam to transform",
+    "text": "Hold side, TP in for 5v4 with R",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Join the team to execute a key target",
+    "text": "Join team, execute one key target",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "poppy",
    "line": {
-    "text": "Poppy's Steadfast Presence completely blocks your Drakehound's Step",
+    "text": "Poppy blocks your Feint dashes and passive: don't rely on them.",
     "source": "matchups.hard[0] (poppy)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] (poppy)",
+    "confidence": 0.9
    }
   },
   "combo": {
-   "name": "Pick back row",
-   "inputs": "R ► Q(1) ► E ► AA ► Q(2)",
-   "source": "combos[0]"
+   "name": "Engage protected",
+   "inputs": "W ► Q(1) ► E ► R",
+   "source": "combos[2]"
   }
  }
 }

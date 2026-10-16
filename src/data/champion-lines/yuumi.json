@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Wins the priority by poke + sustain and",
+    "text": "Wins the priority by poke + sustain",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Synchronize with your jungler to force",
+    "text": "Synchronize with your jungler to",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "galio",
  "patch": "7.3b",
- "dataHash": "9b24866920c1",
+ "dataHash": "0284168b0b65",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Controlled push then roam top/bot at",
+    "text": "Controlled push then roam top/bot",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Setup targets with allied flanks and TP.",
+    "text": "Setup targets with allied flanks",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

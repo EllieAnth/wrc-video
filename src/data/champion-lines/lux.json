@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "lux",
  "patch": "7.3b",
- "dataHash": "4a0e45345574",
+ "dataHash": "e38580701777",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,7 +44,7 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Roam mid→bot; convert each pick into a",
+    "text": "Roam mid→bot; convert each pick",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

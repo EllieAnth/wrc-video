@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "renekton",
  "patch": "7.3b",
- "dataHash": "50840cd0e634",
+ "dataHash": "2e5ca450dffd",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Zone with Q, force opposing TP/Flash",
+    "text": "Zone with Q, force opposing",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "TP to connect your windows; split if",
+    "text": "TP to connect your windows; split",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

@@ -47,6 +47,8 @@ const index = json('assets/data/build-engine/builds/index.json');
 const meta = json('assets/data/meta_current.json');
 const tier = json('assets/data/tierlist-computed.json');
 const display = json('assets/data/build-engine/item-display.json').items;
+// Les builds nomment la pierre angulaire par un slug compact (`fleetfootwork`) : le nom affiché vient de runes_wr.json.
+const runeName = Object.fromEntries(Object.values(json('assets/data/cdtb_wr/runes_wr.json')).map((r) => [compact(r.name?.en), r.name?.en]));
 const abilities = json('assets/data/champion-abilities.json').abilities;
 // Noms EN officiels des sorts : `spells_text.en.json` (titres seulement — ses descriptions mélangent du LoL PC,
 // frontière posée par scripts/lib/spell-names-en.mjs). `champion-abilities.json` porte des noms FR pour
@@ -120,7 +122,7 @@ async function one(entry) {
     schema: 'wrc.champion-data/1', slug, key, name, role, roleLabel: ROLE_LABEL[role] || role, patch: meta.patch.version, patchLabel: meta.patch.label?.en || meta.patch.version,
     rank: tier.danLabel, computedAt: tier.computedAt, palette: palettes[slug] || palettes[key] || null, lolId: id,
     stats: t ? { tier: t.computedTier, winRate: t.breakdown?.winRate ?? null, pickRate: t.breakdown?.pickRate ?? null, banRate: t.breakdown?.banRate ?? null } : null,
-    build: { label: b.variants[0].label?.en || 'Standard', items, keystone: display[b.runes?.keystone]?.en || b.runes?.keystone || null, spikes },
+    build: { label: b.variants[0].label?.en || 'Standard', items, keystone: runeName[compact(b.runes?.keystone)] || display[b.runes?.keystone]?.en || b.runes?.keystone || null, spikes },
     skill: e?.skillOrder?.priority ? { priority: e.skillOrder.priority, levels: (e.skillOrder.levels || []).slice(0, 15) } : null,
     spells, combos, gamePlan: gp ? { early: en(gp.early_en), mid: en(gp.mid_en), late: en(gp.late_en) } : null, tips,
     matchups: { hard, easy },

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "jarvan-iv",
  "patch": "7.3b",
- "dataHash": "3794d2836c42",
+ "dataHash": "7de3a3196a66",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,13 +38,13 @@
   },
   "plan": {
    "early": {
-    "text": "Clear to priority, gank level 3, ward",
+    "text": "Clear to priority, gank level 3",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Herald/Drake, pick on fog with Flash-R.",
+    "text": "Herald/Drake, pick on fog with",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

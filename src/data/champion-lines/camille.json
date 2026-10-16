@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "camille",
  "patch": "7.3b",
- "dataHash": "77ca0fcaa858",
- "status": "draft",
+ "dataHash": "1d80164cc638",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "bruiser baron lane",
+   "text": "Wall-hopping bruiser",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build label bruiser plus E Hookshot; data gaps",
+   "confidence": 0.6
   },
   "decision": {
    "title": {
-    "text": "Play around The Hextech Ultimatum",
+    "text": "Engage off a wall for the stun",
     "source": "gamePlan.early",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "E hooks a wall then stuns on impact; combo 1; no gamePlan in data",
+    "confidence": 0.6
    },
    "sub": {
-    "text": "Trinity Force",
+    "text": "The stun guarantees the burst: land Q1, W, then Q2.",
     "source": "gamePlan.mid",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "combos[1] tip; data gaps (skill, gamePlan)",
+    "confidence": 0.6
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "Proc shield + sustain, then drop Q2 as they try to disengage.",
+    "text": "The E stun guarantees burst; W while CC'd lands the outer hit.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[1] tip",
+    "confidence": 0.7
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Farm safely until Trinity Force",
+    "text": "Farm safe to Trinity Force",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "derived from spike L6 Trinity Force; no gamePlan",
+    "confidence": 0.5
    },
    "mid": {
-    "text": "Spike on Sterak's Gage",
+    "text": "Spike Death's Dance at level 11",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "build spike L11; no gamePlan",
+    "confidence": 0.5
    },
    "late": {
-    "text": "Group and fight around objectives",
+    "text": "Pick a carry with R at level 13",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "spike L13 Hullbreaker + R rank 3; combos[2]",
+    "confidence": 0.5
    }
   },
   "matchup": {
    "vs": "poppy",
    "line": {
-    "text": "Poppy's Steadfast Presence active completely blocks Camille's Hookshot",
+    "text": "Hold Hookshot until Poppy has used Steadfast Presence.",
     "source": "matchups.hard[0] (poppy)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] key interaction rewritten as advice",
+    "confidence": 0.7
    }
   },
   "combo": {
-   "name": "Classic trade",
-   "inputs": "AA → Q1 → W (outer) → Q2",
-   "source": "combos[0]"
+   "name": "Guaranteed wall engage",
+   "inputs": "E → (stun) → Q1 → W → Q2",
+   "source": "combos[1]"
   }
  }
 }

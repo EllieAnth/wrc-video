@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "varus",
  "patch": "7.3b",
- "dataHash": "6708c1490faa",
+ "dataHash": "08465b4293cb",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,13 +44,13 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Plays objectives and choke points: E",
+    "text": "Plays objectives and choke points",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Siege methodically; protect yourself",
+    "text": "Siege methodically; protect",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

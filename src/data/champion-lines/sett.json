@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "sett",
  "patch": "7.3b",
- "dataHash": "4cb5824288ed",
+ "dataHash": "cacf41ab251f",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "shyvana",
  "patch": "7.3b",
- "dataHash": "b1d6f6287037",
+ "dataHash": "79001a1d7cfd",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -16,7 +16,7 @@
   },
   "decision": {
    "title": {
-    "text": "Play around Descente du dragon",
+    "text": "Play around Dragon's Descent",
     "source": "gamePlan.early",
     "why": "draft: first play tip",
     "confidence": 0.4

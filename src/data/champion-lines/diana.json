@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "diana",
  "patch": "7.3b",
- "dataHash": "1aaecd40f4f4",
- "status": "draft",
+ "dataHash": "27a5cf3ba7ed",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 3 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "AP burst jungle",
+   "text": "Burst AP jungler",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build label AP burst jungle",
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Pathing early to the most priority",
+    "text": "Never dash without Moonlight",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[2]: Q must precede entry; E needs the mark",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Invade only with mid/bot priority; avoid Lee/Olaf before 2 items.",
+    "text": "Crescent Strike marks the target: Q must come before Lunar Rush.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "Q/E descriptions, combos[0] tip",
+    "confidence": 0.9
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "Always Q before E to consume Moonlight.",
+    "text": "Q marks and frees the dash, then W shield and AA finish the burst.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[0] and Q description",
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Clear controlled, gank level 3 or 5",
+    "text": "Gank at level 3 or 5",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Moonfall + engage ally for 5v5 wins.",
+    "text": "Pair Moonfall with an engage ally",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Join by the flank, aim for 2+ targets",
+    "text": "Flank in and R 2+ targets",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "poppy",
    "line": {
-    "text": "Poppy's Steadfast Presence blocks Diana's Lunar Rush, stopping her",
+    "text": "Don't dive Poppy: Steadfast Presence blocks your Lunar Rush.",
     "source": "matchups.hard[0] (poppy)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] key interaction rewritten as advice",
+    "confidence": 0.8
    }
   },
   "combo": {

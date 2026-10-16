@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "pyke",
  "patch": "7.3b",
- "dataHash": "db4d73f21642",
+ "dataHash": "508e2b459349",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,13 +44,13 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Synchronized roams, deny vision with",
+    "text": "Synchronized roams, deny vision",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Side panels, Protobelt/Quicksilver to",
+    "text": "Side panels, Protobelt/Quicksilver",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

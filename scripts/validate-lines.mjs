@@ -13,6 +13,9 @@ const arg = (n, d) => { const h = process.argv.find((a) => a.startsWith(`--${n}=
 const DIR = path.join(ROOT, 'src/data/champion-lines');
 const slugs = arg('slugs', '') ? arg('slugs', '').split(',') : fs.readdirSync(DIR).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5));
 const minStatus = arg('status', 'draft'); const QUIET = process.argv.includes('--quiet');
+// --restamp : après un changement de données purement cosmétique (ex. nom affiché d'une rune, 16/10), re-tamponne
+// le dataHash des fichiers validés SANS relire les lignes. À n'utiliser qu'après avoir lu le diff des données.
+const RESTAMP = process.argv.includes('--restamp');
 
 const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\b(the|a|an|your|you|to|and|of|on|in|with|for)\b/g, '').replace(/\s+/g, ' ').trim();
 const decisions = new Map();
@@ -22,6 +25,7 @@ for (const slug of slugs) {
   const dataPath = path.join(ROOT, `public/data/champions/${slug}.json`);
   const data = fs.existsSync(dataPath) ? JSON.parse(fs.readFileSync(dataPath, 'utf8')) : null;
   const issues = checkFile(file, data);
+  if (RESTAMP && data && file.dataHash && file.dataHash !== dataHash(data) && file.status !== 'draft') { file.dataHash = dataHash(data); fs.writeFileSync(path.join(DIR, `${slug}.json`), JSON.stringify(file, null, 1) + '\n'); }
   if (data && file.dataHash && file.dataHash !== dataHash(data)) issues.push(`dataHash périmé (${file.dataHash} ≠ ${dataHash(data)}) : données changées, relire`);
   if (STATUSES.indexOf(file.status) < STATUSES.indexOf(minStatus)) issues.push(`status ${file.status} < ${minStatus}`);
   const key = norm(file.lines?.decision?.title?.text);

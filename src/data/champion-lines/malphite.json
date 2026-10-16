@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "malphite",
  "patch": "7.3b",
- "dataHash": "10be314868f2",
+ "dataHash": "bd19e47f11a9",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Short trades, defensive wave management.",
+    "text": "Short trades, defensive wave",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "First Herald/Dragon groupings, flash-R",
+    "text": "First Herald/Dragon groupings",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Frontline and engage on exposed carries.",
+    "text": "Frontline and engage on exposed",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

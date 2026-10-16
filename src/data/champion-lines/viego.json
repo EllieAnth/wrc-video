@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "viego",
  "patch": "7.3b",
- "dataHash": "4614cb38363f",
+ "dataHash": "16bdc194a381",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Clear healthy (red > opportunistic gank",
+    "text": "Clear healthy (red > opportunistic",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Dragon/Herald: mist (E) to force a pick",
+    "text": "Dragon/Herald: mist (E) to force a",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Plays front-to-back: executes target",
+    "text": "Plays front-to-back: executes",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

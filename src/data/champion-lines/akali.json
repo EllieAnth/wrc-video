@@ -2,73 +2,75 @@
  "schema": "wrc.champion-lines/1",
  "slug": "akali",
  "patch": "7.3b",
- "dataHash": "7a665af4c27a",
- "status": "draft",
+ "dataHash": "fe3d74a647b3",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 1 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "AP burst mid lane",
+   "text": "AP burst flanker mid",
    "source": "build.label",
-   "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "why": "build.label + gamePlan.late",
+   "confidence": 0.7
   },
   "decision": {
    "title": {
-    "text": "Push-and-roam: shove then roame on",
+    "text": "Shove the wave, then roam",
     "source": "tips[0]",
-    "why": "draft: first play tip",
-    "confidence": 0.4
+    "why": "tips[0]",
+    "confidence": 0.9
    },
    "sub": {
-    "text": "Avoid frontliner in 5v5: play flank/vision then pick on isolated carry.",
+    "text": "Roam when R or Protobelt is up; in 5v5, flank for isolated carries.",
     "source": "tips[1]",
-    "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "why": "tips[0], tips[1]",
+    "confidence": 0.9
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Abuse the passive to scratch without exposing yourself.",
+    "text": "R1 locks the target down; hold R2 to finish.",
     "source": "combos[0].tip",
-    "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "why": "combos[1].tip",
+    "confidence": 0.9
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Wave management for priority, deny",
+    "text": "Control the wave, deny roams",
     "source": "gamePlan.early",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.early",
+    "confidence": 0.9
    },
    "mid": {
-    "text": "Fast bot/top roams, picks on vision.",
+    "text": "Roam bot/top fast, pick on vision",
     "source": "gamePlan.mid",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.mid",
+    "confidence": 0.9
    },
    "late": {
-    "text": "Discreet flanks, don't engage the front",
+    "text": "Flank quietly, skip the frontline",
     "source": "gamePlan.late",
-    "why": "draft",
-    "confidence": 0.4
+    "why": "gamePlan.late",
+    "confidence": 0.9
    }
   },
   "matchup": {
    "vs": "annie",
    "line": {
-    "text": "Annie can hold her Pyromania passive to instantly stun Akali with",
+    "text": "Wait until Annie's stun passive is spent before you engage.",
     "source": "matchups.hard[0] (annie)",
-    "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "why": "matchups.hard[0] (annie)",
+    "confidence": 0.9
    }
   },
   "combo": {
-   "name": "Short lane trade",
-   "inputs": "Q (center) > circle off > AA (passive) > back",
-   "source": "combos[0]"
+   "name": "All-in standard",
+   "inputs": "E1 (mark) > R1 > E2 (follow) > Q > AA (passive) > R2 (execute)",
+   "source": "combos[1]"
   }
  }
 }

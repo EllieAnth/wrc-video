@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "nocturne",
  "patch": "7.3b",
- "dataHash": "f62aebf178b9",
+ "dataHash": "2d87a4629531",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,7 +44,7 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Plays synchronized with mid/support",
+    "text": "Plays synchronized with",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4

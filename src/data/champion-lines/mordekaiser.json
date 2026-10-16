@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "mordekaiser",
  "patch": "7.3b",
- "dataHash": "9c629744d4ee",
+ "dataHash": "712ece21b2d1",
  "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",

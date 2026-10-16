@@ -2,67 +2,69 @@
  "schema": "wrc.champion-lines/1",
  "slug": "annie",
  "patch": "7.3b",
- "dataHash": "d3cac5fab052",
- "status": "draft",
+ "dataHash": "6f709822c9a5",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "agent Sonnet lot 2 (16/10), revue Fable",
  "lines": {
   "tagline": {
-   "text": "burst mid lane",
+   "text": "Stun-loaded burst mage",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Last-hit at Q to save money; spades",
+    "text": "Flash-R only with Pyromania loaded",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Push-reset and play around the jungler to force short 2v2s.",
+    "text": "Cast 4 spells to charge the stun, then lock the target.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Always with P loaded to lock; Stase if you engage the heart of the team.",
+    "text": "Flash in, R lands the stun, then W and Q finish the lock.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Waveclear at Q, short trades with P.",
+    "text": "Waveclear with Q, trade short",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Roam with jungler; angle threat on",
+    "text": "Roam with your jungler",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Teamfights on choke points, defensive",
+    "text": "Fight at chokes, R defensively",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
-   "vs": "kassadin",
+   "vs": "morgana",
    "line": {
-    "text": "Kassadin's Null Sphere magic shield and passive magic damage reduction",
+    "text": "Make Morgana waste Black Shield before you spend your stun.",
     "source": "matchups.hard[0] (kassadin)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

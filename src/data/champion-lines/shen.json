@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "shen",
  "patch": "7.3b",
- "dataHash": "7abee69a7ec6",
+ "dataHash": "5733053f721c",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -38,19 +38,19 @@
   },
   "plan": {
    "early": {
-    "text": "Secures levels 1-5 without feeder. Back",
+    "text": "Secures levels 1-5 without feeder.",
     "source": "gamePlan.early",
     "why": "draft",
     "confidence": 0.4
    },
    "mid": {
-    "text": "Controlled split and ultimate to force",
+    "text": "Controlled split and ultimate to",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Anchor front line, don't engage without",
+    "text": "Anchor front line, don't engage",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4

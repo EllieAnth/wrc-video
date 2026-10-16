@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "taliyah",
  "patch": "7.3b",
- "dataHash": "ea2414257e19",
+ "dataHash": "5ecef5a8fdce",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -16,7 +16,7 @@
   },
   "decision": {
    "title": {
-    "text": "Play around Mur de la tisseuse",
+    "text": "Play around Weaver's Wall",
     "source": "gamePlan.early",
     "why": "draft: first play tip",
     "confidence": 0.4

@@ -2,7 +2,7 @@
  "schema": "wrc.champion-lines/1",
  "slug": "vex",
  "patch": "7.3b",
- "dataHash": "b00da16c6e23",
+ "dataHash": "f49eff99233e",
  "status": "draft",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
@@ -44,13 +44,13 @@
     "confidence": 0.4
    },
    "mid": {
-    "text": "Looking for a pick to convert into a",
+    "text": "Looking for a pick to convert into",
     "source": "gamePlan.mid",
     "why": "draft",
     "confidence": 0.4
    },
    "late": {
-    "text": "Play front-to-back: QE on carry, R to",
+    "text": "Play front-to-back: QE on carry, R",
     "source": "gamePlan.late",
     "why": "draft",
     "confidence": 0.4
