@@ -3,66 +3,68 @@
  "slug": "sett",
  "patch": "7.3b",
  "dataHash": "4cb5824288ed",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "juggernaut baron lane",
+   "text": "Brawler with true damage",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Freezes wave on tower side against",
+    "text": "Angle W at the carries",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Power Spike on Couperet + Sterak: forces a 2nd hero or target.",
+    "text": "Haymaker's center is true damage: stand slightly off-axis to line it up.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "W"
   },
   "execution": {
    "why": {
-    "text": "Use Q to reset the AA and set the W's true zone at peak damage.",
+    "text": "Q resets the punch and times W's true zone at peak Grit.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "plan": {
    "early": {
-    "text": "Wave management, tower side freezing vs",
+    "text": "Freeze near tower, hit on last hits",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Couperet + Sterak: force",
+    "text": "Cleaver online: force Herald, flank",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Frontline and threat zone W. R to bring",
+    "text": "R their tank onto their carries",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "teemo",
    "line": {
-    "text": "Teemo's Blinding Dart completely neutralizes Sett's Knuckle Down",
+    "text": "Blinding Dart erases Knuckle Down: wait it out, then E into W.",
     "source": "matchups.hard[0] (teemo)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

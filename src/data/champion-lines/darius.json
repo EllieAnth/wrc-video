@@ -3,72 +3,74 @@
  "slug": "darius",
  "patch": "7.3b",
  "dataHash": "6b03a8749109",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "bruiser baron lane",
+   "text": "Five stacks and a guillotine",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Freeze tower side vs ranged",
+    "text": "Walk back on Q impact",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Ghost = go/kite button; forces a kill before the objective.",
+    "text": "Only the axe edge heals and hits hard: step back as Decimate lands.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "3 fast stacks + healing; exit if the enemy keeps his CDs.",
+    "text": "E, W reset, five stacks, then R: an early Guillotine wastes the execute.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
     "text": "Freeze vs ranged, slow push vs melee",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "2 items → side + group on objectives.",
+    "text": "Two items: side pressure, objectives",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Narrow fights (jungle, pit) to stick to",
+    "text": "Fight in pits where E catches",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "kennen",
    "line": {
-    "text": "Kennen can easily react to Darius's Apprehend by using Lightning Rush",
+    "text": "Lightning Rush leaves Apprehend range: trade only when his E is down.",
     "source": "matchups.hard[0] (kennen)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Safe short trade",
-   "inputs": "AA → W (reset) → side pitch → Q (blade)",
-   "source": "combos[0]"
+   "name": "All-in 5 stacks",
+   "inputs": "E → AA → W → Q (blade) → AA → R",
+   "source": "combos[1]"
   }
  }
 }

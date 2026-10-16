@@ -3,72 +3,74 @@
  "slug": "teemo",
  "patch": "7.3b",
  "dataHash": "826ea33c40f9",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "sustained DPS baron lane",
+   "text": "Poison, blinds and shrooms",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Keep the wave on your side to limit",
+    "text": "Blind the auto, then back off",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Fast defensive boots by matchup (Steelcaps/Mercury).",
+    "text": "Q makes melee attacks miss: hit, blind, step back, let the poison tick.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "You deny the enemy AA and let the poison nibble away.",
+    "text": "Mushrooms on jungle paths and chokes turn every fight into your choice.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "plan": {
    "early": {
-    "text": "Punish mixed with Q, keep wave short.",
+    "text": "Punish melee with Q, keep wave short",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Two items = strong window; forces",
+    "text": "Two items: force choke-point fights",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Split short, no 5v5 without vision.",
+    "text": "Split short, no 5v5 without vision",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "akali",
    "line": {
-    "text": "Teemo's Blinding Dart (Q) does not affect the damage of your Five Point",
+    "text": "Blinding Dart misses her Q and E: respect level 6, hug your shrooms.",
     "source": "matchups.hard[0] (akali)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Safe trade (poke)",
-   "inputs": "AA → Q → backwards",
-   "source": "combos[0]"
+   "name": "Choke point",
+   "inputs": "R (ground) → kite in → Q → AA",
+   "source": "combos[2]"
   }
  }
 }

@@ -3,66 +3,68 @@
  "slug": "mordekaiser",
  "patch": "7.3b",
  "dataHash": "9c629744d4ee",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "sustained DPS baron lane",
+   "text": "Iron juggernaut, 1v1 realm",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Wave management: slow push to dive",
+    "text": "Save E for a dash, not a trade",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Against bruisers, be patient: an isolated Q is worth more than a messy",
+    "text": "Death's Grasp punishes a forward step; thrown for free, you lose tempo.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "execution": {
    "why": {
-    "text": "Flash-E reduces the reaction window; activate W early to absorb the",
+    "text": "Flash-E removes the reaction window; W early soaks the counter burst.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Punish the immobile ones, keep the wave",
+    "text": "Punish immobile foes, keep wave near",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "TP tempo on targets; force tight fights",
+    "text": "TP on picks, fight in tight spaces",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Secondary frontliner: hold the space",
+    "text": "Hold space, R the backline carry",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "olaf",
    "line": {
-    "text": "Olaf's Ragnarok grants him crowd control immunity, allowing him to",
+    "text": "Ragnarok ignores Realm of Death: ult him only after it is spent.",
     "source": "matchups.hard[0] (olaf)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

@@ -3,72 +3,74 @@
  "slug": "senna",
  "patch": "7.3b",
  "dataHash": "9bd73dd51140",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "crit & caster support",
+   "text": "Scaling poke support",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Harasses through henchmen to avoid",
+    "text": "Poke through minions, not past them",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Pose deep vision, then E to escort your jungler without revealing",
+    "text": "Q heals allies and hits through the wave: never walk up to trade.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "Q"
   },
   "execution": {
    "why": {
-    "text": "Q through a henchman/ally to touch and heal you, then AA to force the",
+    "text": "Root first, then Q: the lock-in guarantees the trade and a free soul.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "W"
   },
   "plan": {
    "early": {
-    "text": "Poke and sustain lanes, hook angle",
+    "text": "Poke with Q, deny the hook angle",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Tempo vision + rotations; shines on",
+    "text": "Ward deep, rotate on R timings",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Peel/anti-dive priority, Serpent's if",
+    "text": "Peel first, R on their engage",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "blitzcrank",
    "line": {
-    "text": "Senna's long attack windup on her basic attacks makes her temporarily",
+    "text": "Your attack windup is a Rocket Grab window: poke from behind minions.",
     "source": "matchups.hard[0] (blitzcrank)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Safe poke",
-   "inputs": "Q → AA",
-   "source": "combos[0]"
+   "name": "Lane pick",
+   "inputs": "W (root) → Q → AA",
+   "source": "combos[1]"
   }
  }
 }

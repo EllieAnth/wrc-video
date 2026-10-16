@@ -3,66 +3,68 @@
  "slug": "kayn",
  "patch": "7.3b",
  "dataHash": "79eb0103c364",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "lethality jungle",
+   "text": "Wall-walking shapeshifter",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Flexible pathing: if the enemy",
+    "text": "Transform before you fight",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Transform yourself early: force fights on the target that gives you the",
+    "text": "Pick Blue vs 3+ squishies, Rhaast vs tanks, and farm that essence first.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "R"
   },
   "execution": {
    "why": {
-    "text": "Arrive from a wall to reduce reaction time; R is used to finish and",
+    "text": "Arrive through a wall to cut reaction time; R finishes and exits safely.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Read enemy jungle, counter-path and",
+    "text": "Counter-path, gank through walls",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Create local superiorities around",
+    "text": "Win numbers around objectives",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Play around enemy CDs (Zhonya's",
+    "text": "Wait out Zhonya and Flash, then go",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "poppy",
    "line": {
-    "text": "Poppy's Steadfast Presence blocks both Kayn's Reaping Slash and his",
+    "text": "Steadfast Presence stops Q and E: never engage her near a wall.",
     "source": "matchups.hard[0] (poppy)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {

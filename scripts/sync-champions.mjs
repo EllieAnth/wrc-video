@@ -48,6 +48,11 @@ const meta = json('assets/data/meta_current.json');
 const tier = json('assets/data/tierlist-computed.json');
 const display = json('assets/data/build-engine/item-display.json').items;
 const abilities = json('assets/data/champion-abilities.json').abilities;
+// Noms EN officiels des sorts : `spells_text.en.json` (titres seulement — ses descriptions mélangent du LoL PC,
+// frontière posée par scripts/lib/spell-names-en.mjs). `champion-abilities.json` porte des noms FR pour
+// une partie des champions (Hwei, Teemo, Yone, Volibear… mesuré le 16/10) : il ne sert que de repli.
+const spellsText = json('assets/data/spells_text.en.json');
+const spellTitles = new Map(Object.entries(spellsText).map(([name, v]) => [compact(name), Object.fromEntries([['passive', 'P'], ['Q', 'Q'], ['W', 'W'], ['E', 'E'], ['R', 'R']].map(([slot, k]) => [k, String(v?.[slot]?.title || '').replace(/\s*\([^)]*\)\s*$/, '').trim() || null]))]));
 const enriched = json('assets/data/champions.enriched.json');
 const palettes = json('assets/data/champion-palettes.json');
 const avatars = json('assets/data/champions-avatar-index.json');
@@ -102,7 +107,8 @@ async function one(entry) {
   const name = av?.name || e?.name || slug;
   const t = tierByKey[`${key}|${role}`] || null;
   const items = [...b.variants[0].items, b.boots].map((s) => ({ slug: s, name: display[s]?.en || s, icon: display[s]?.icon || null }));
-  const spells = (abilities[key] || abilities[slug] || []).map((a) => ({ key: a.k, name: a.n, desc: a.de || null }));
+  const titles = spellTitles.get(key) || spellTitles.get(compact(name)) || {};
+  const spells = (abilities[key] || abilities[slug] || []).map((a) => ({ key: a.k, name: titles[a.k] || a.n, desc: en(a.de) }));
   const gp = e?.gamePlan?.[role] || e?.gamePlan?.ALL || null;
   const combos = (e?.combos || []).filter((c) => en(c.inputs_en) && en(c.tip_en)).map((c) => ({ name: en(c.name_en) || en(c.name) || null, difficulty: c.difficulty || null, inputs: c.inputs_en, tip: c.tip_en }));
   const spikes = (b.power?.spikes || []).map((s) => ({ level: s.level, label: s.en })).filter((s) => s.label);

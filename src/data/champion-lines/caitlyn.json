@@ -3,72 +3,74 @@
  "slug": "caitlyn",
  "patch": "7.3b",
  "dataHash": "37689dbb823e",
- "status": "draft",
+ "status": "validated",
  "writtenAt": "2026-10-16",
  "writtenBy": "draft-lines.mjs",
- "reviewedBy": null,
+ "reviewedBy": "Fable 5.1, session du 16/10 (lot 0, top 10 GSC)",
  "lines": {
   "tagline": {
-   "text": "crit DPS dragon lane",
+   "text": "Longest range in the lane",
    "source": "build.label",
    "why": "draft: archetype of the engine build",
-   "confidence": 0.4
+   "confidence": 0.8
   },
   "decision": {
    "title": {
-    "text": "Play choke points: traps placed",
+    "text": "Trap the choke before the fight",
     "source": "tips[0]",
     "why": "draft: first play tip",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "sub": {
-    "text": "Abuses AA range to scratch before each fight.",
+    "text": "Traps around objectives turn every step into a free Headshot.",
     "source": "tips[1]",
     "why": "draft: second play tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "W"
   },
   "execution": {
    "why": {
-    "text": "Take advantage of the range to scratch without being hired.",
+    "text": "E knocks you back and slows them: Headshot and Q land before they close.",
     "source": "combos[0].tip",
     "why": "draft: combo tip",
-    "confidence": 0.4
-   }
+    "confidence": 0.8
+   },
+   "spell": "E"
   },
   "plan": {
    "early": {
-    "text": "Poke/reach for priority, set defensive",
+    "text": "Poke for priority, trap your flanks",
     "source": "gamePlan.early",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "mid": {
-    "text": "Play objectives: traps + poke before",
+    "text": "Trap and poke before every objective",
     "source": "gamePlan.mid",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    },
    "late": {
-    "text": "Front-to-back behind your frontline",
+    "text": "Back line, punish every step up",
     "source": "gamePlan.late",
     "why": "draft",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "matchup": {
    "vs": "sivir",
    "line": {
-    "text": "Sivir can use Spell Shield to safely step on Caitlyn's Yordle Snap",
+    "text": "Spell Shield eats traps and R: bait it with Q before you commit.",
     "source": "matchups.hard[0] (sivir)",
     "why": "draft: ledger key interaction",
-    "confidence": 0.4
+    "confidence": 0.8
    }
   },
   "combo": {
-   "name": "Trade poke",
-   "inputs": "AA → Q → backwards",
-   "source": "combos[0]"
+   "name": "Defensive kite",
+   "inputs": "E (recoil) → AA Headshot → Q",
+   "source": "combos[2]"
   }
  }
 }
