@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Rendu vidéo hebdomadaire avec clips de créateurs, sur le Mac. Installer :
+     cp docs/com.wildriftcore.video-weekly.plist ~/Library/LaunchAgents/ &&
+     launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.wildriftcore.video-weekly.plist
+     Lancer à la main : launchctl kickstart gui/$(id -u)/com.wildriftcore.video-weekly -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.wildriftcore.video-weekly</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/antony/dev/wrc-video/scripts/local-weekly.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key><integer>1</integer>
+    <key>Hour</key><integer>12</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key><string>/Users/antony/Library/Logs/wrc-video-launchd.log</string>
+  <key>StandardErrorPath</key><string>/Users/antony/Library/Logs/wrc-video-launchd.log</string>
+  <key>ProcessType</key><string>Background</string>
+</dict>
+</plist>
