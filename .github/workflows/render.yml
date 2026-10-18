@@ -51,7 +51,7 @@ jobs:
         run: npm run sync
 
       - name: Creator clips (best effort)
-        run: node scripts/fetch-clips.mjs --cache=/tmp/yt || echo "::warning::creator clips failed, splash fallback"
+        run: node scripts/fetch-clips.mjs --cache=/tmp/yt --prune-missing || echo "::warning::creator clips failed, splash fallback"
 
       - name: Sound cues, soundtrack, voice text
         run: npm run cues && npm run audio && npm run voice

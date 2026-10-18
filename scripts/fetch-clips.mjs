@@ -14,6 +14,7 @@
 //   node scripts/fetch-clips.mjs [--replace]                 # champions de tierlist.json + vedette du patch
 //   node scripts/fetch-clips.mjs --reframe                   # ré-encode les clips existants depuis le cache, sans re-télécharger
 //   node scripts/fetch-clips.mjs --champ=yasuo,samira --window=8
+//   node scripts/fetch-clips.mjs --prune-missing             # CI : retire les entrées sans fichier (repli splash)
 // Sorties : public/clips/<key>-creator.mp4 (gitignoré) + src/data/clips-creators.json (versionné).
 import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -51,6 +52,9 @@ const data = fs.existsSync(DATA) ? JSON.parse(fs.readFileSync(DATA, 'utf8')) : {
 // s'accumulent dans clips-rejected.json pour ne jamais revenir sur une vidéo écartée.
 const REPLACE = process.argv.includes('--replace');
 const REFRAME = process.argv.includes('--reframe');
+// CI : YouTube refuse les IP GitHub (« Sign in to confirm you're not a bot », mesuré le 2026-10-18) ; une entrée
+// versionnée dont le fichier manque ferait échouer le rendu (404) au lieu du repli splash. Jamais en local : on y perdrait le choix des clips.
+const PRUNE = process.argv.includes('--prune-missing');
 const REJECTED = path.join(ROOT, 'src/data/clips-rejected.json');
 const rejected = fs.existsSync(REJECTED) ? JSON.parse(fs.readFileSync(REJECTED, 'utf8')) : {};
 
@@ -170,5 +174,6 @@ for (const key of (REFRAME && !arg('champ') ? Object.keys(data) : wanted)) {
   }
   if (!done) console.warn(`! ${key} : aucun clip utilisable`);
 }
+if (PRUNE) for (const k of Object.keys(data)) if (!fs.existsSync(path.join(OUT_DIR, `${k}-creator.mp4`))) { delete data[k]; console.log(`- ${k} : fichier absent, repli splash`); }
 fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n');
 console.log(`${Object.keys(data).length} clips dans src/data/clips-creators.json`);
