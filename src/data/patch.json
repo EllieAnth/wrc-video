@@ -5,9 +5,9 @@
     "end": "2026-10-18"
   },
   "rank": "Master+",
-  "syncedAt": "2026-10-15",
-  "version": "7.3a",
-  "date": "2026-09-29",
+  "syncedAt": "2026-10-18",
+  "version": "7.3b",
+  "date": "2026-10-14",
   "notesVersion": "7.3b",
   "buffs": [
     {
@@ -212,195 +212,131 @@
   ],
   "effects": [
     {
-      "key": "samira",
-      "name": "Samira",
-      "type": "buff",
-      "wrBefore": 45.43,
-      "wrAfter": 51.5,
-      "wrDelta": 6.07,
-      "days": 10,
-      "pickBefore": 3.81,
-      "pickAfter": 10.37,
-      "pickDelta": 6.56,
-      "palette": [
-        "#f69790",
-        "#b08fdd"
-      ]
-    },
-    {
-      "key": "syndra",
-      "name": "Syndra",
-      "type": "nerf",
-      "wrBefore": 53.9,
-      "wrAfter": 51.01,
-      "wrDelta": -2.89,
-      "days": 10,
-      "pickBefore": 12.68,
-      "pickAfter": 7.14,
-      "pickDelta": -5.54,
-      "palette": [
-        "#ae82ec",
-        "#ce95b8"
-      ]
-    },
-    {
-      "key": "malphite",
-      "name": "Malphite",
-      "type": "nerf",
-      "wrBefore": 57.91,
-      "wrAfter": 55.56,
-      "wrDelta": -2.35,
-      "days": 10,
-      "pickBefore": 20.63,
-      "pickAfter": 8.3,
-      "pickDelta": -12.33,
-      "palette": [
-        "#f69e88",
-        "#f39b8e"
-      ]
-    },
-    {
-      "key": "caitlyn",
-      "name": "Caitlyn",
-      "type": "nerf",
-      "wrBefore": 51.57,
-      "wrAfter": 49.56,
-      "wrDelta": -2.01,
-      "days": 10,
-      "pickBefore": 36.1,
-      "pickAfter": 19.96,
-      "pickDelta": -16.14,
-      "palette": [
-        "#e69e98",
-        "#863fff"
-      ]
-    },
-    {
       "key": "senna",
       "name": "Senna",
-      "type": "adjust",
-      "wrBefore": 55.94,
-      "wrAfter": 54.13,
-      "wrDelta": -1.81,
-      "days": 10,
-      "pickBefore": 11.66,
-      "pickAfter": 12.18,
-      "pickDelta": 0.52,
+      "type": "nerf",
+      "wrBefore": 53.98,
+      "wrAfter": 49.47,
+      "wrDelta": -4.51,
+      "days": 4,
+      "pickBefore": 12.22,
+      "pickAfter": 7.75,
+      "pickDelta": -4.47,
       "palette": [
         "#d78db8",
         "#5ebcff"
       ]
     },
     {
-      "key": "tristana",
-      "name": "Tristana",
-      "type": "buff",
-      "wrBefore": 46.23,
-      "wrAfter": 47.93,
-      "wrDelta": 1.7,
-      "days": 10,
-      "pickBefore": 2.56,
-      "pickAfter": 10.34,
-      "pickDelta": 7.78,
-      "palette": [
-        "#9289ff",
-        "#ff7489"
-      ]
-    },
-    {
-      "key": "swain",
-      "name": "Swain",
-      "type": "adjust",
-      "wrBefore": 48.19,
-      "wrAfter": 49.34,
-      "wrDelta": 1.15,
-      "days": 10,
-      "pickBefore": 3.06,
-      "pickAfter": 2.91,
-      "pickDelta": -0.15,
-      "palette": [
-        "#ff8375",
-        "#c3c990"
-      ]
-    },
-    {
       "key": "hwei",
       "name": "Hwei",
       "type": "nerf",
-      "wrBefore": 56.27,
-      "wrAfter": 55.34,
-      "wrDelta": -0.93,
-      "days": 10,
-      "pickBefore": 12.95,
-      "pickAfter": 9.34,
-      "pickDelta": -3.61,
+      "wrBefore": 55.62,
+      "wrAfter": 52.13,
+      "wrDelta": -3.49,
+      "days": 4,
+      "pickBefore": 8.71,
+      "pickAfter": 6.94,
+      "pickDelta": -1.77,
       "palette": [
         "#58cff6",
         "#e790a5"
       ]
     },
     {
-      "key": "yuumi",
-      "name": "Yuumi",
+      "key": "nocturne",
+      "name": "Nocturne",
       "type": "nerf",
-      "wrBefore": 48.36,
-      "wrAfter": 49.21,
-      "wrDelta": 0.85,
-      "days": 10,
-      "pickBefore": 17.31,
-      "pickAfter": 11.42,
-      "pickDelta": -5.89,
+      "wrBefore": 55.81,
+      "wrAfter": 52.58,
+      "wrDelta": -3.23,
+      "days": 4,
+      "pickBefore": 9.86,
+      "pickAfter": 6.87,
+      "pickDelta": -2.99,
       "palette": [
-        "#87a1f3",
-        "#fbac75"
+        "#857aff",
+        "#6395ff"
       ]
     },
     {
-      "key": "draven",
-      "name": "Draven",
-      "type": "buff",
-      "wrBefore": 47.91,
-      "wrAfter": 47.07,
-      "wrDelta": -0.84,
-      "days": 10,
-      "pickBefore": 3.5,
-      "pickAfter": 5.41,
-      "pickDelta": 1.91,
-      "palette": [
-        "#2fff13",
-        "#ff5b53"
-      ]
-    },
-    {
-      "key": "viego",
-      "name": "Viego",
-      "type": "buff",
-      "wrBefore": 45.8,
-      "wrAfter": 46,
-      "wrDelta": 0.2,
-      "days": 10,
-      "pickBefore": 3.05,
-      "pickAfter": 4.6,
-      "pickDelta": 1.55,
-      "palette": [
-        "#94b8d1",
-        "#b09bd2"
-      ]
-    },
-    {
-      "key": "rammus",
-      "name": "Rammus",
+      "key": "yunara",
+      "name": "Yunara",
       "type": "nerf",
-      "wrBefore": 57.05,
-      "wrAfter": 57.06,
-      "wrDelta": 0.01,
-      "days": 10,
-      "pickBefore": 9.53,
-      "pickAfter": 5.73,
-      "pickDelta": -3.8,
+      "wrBefore": 51.36,
+      "wrAfter": 48.97,
+      "wrDelta": -2.39,
+      "days": 4,
+      "pickBefore": 16.36,
+      "pickAfter": 7.85,
+      "pickDelta": -8.51,
       "palette": [
-        "#ffa63f",
-        "#bae37f"
+        "#8f5eff",
+        "#eba48d"
+      ]
+    },
+    {
+      "key": "volibear",
+      "name": "Volibear",
+      "type": "buff",
+      "wrBefore": 47.62,
+      "wrAfter": 48.51,
+      "wrDelta": 0.89,
+      "days": 4,
+      "pickBefore": 4.73,
+      "pickAfter": 9.02,
+      "pickDelta": 4.29,
+      "palette": [
+        "#89a3f0",
+        "#8fafde"
+      ]
+    },
+    {
+      "key": "jhin",
+      "name": "Jhin",
+      "type": "buff",
+      "wrBefore": 48.63,
+      "wrAfter": 49.45,
+      "wrDelta": 0.82,
+      "days": 4,
+      "pickBefore": 9.57,
+      "pickAfter": 18.81,
+      "pickDelta": 9.24,
+      "palette": [
+        "#ff3ba6",
+        "#9db5c9"
+      ]
+    },
+    {
+      "key": "tryndamere",
+      "name": "Tryndamere",
+      "type": "buff",
+      "wrBefore": 44.71,
+      "wrAfter": 45.46,
+      "wrDelta": 0.75,
+      "days": 4,
+      "pickBefore": 1.82,
+      "pickAfter": 2.73,
+      "pickDelta": 0.91,
+      "palette": [
+        "#e1a893",
+        "#7cdcc4"
+      ]
+    },
+    {
+      "key": "yasuo",
+      "name": "Yasuo",
+      "type": "buff",
+      "wrBefore": 46.73,
+      "wrAfter": 47.3,
+      "wrDelta": 0.57,
+      "days": 4,
+      "pickBefore": 8.27,
+      "pickAfter": 9.12,
+      "pickDelta": 0.85,
+      "palette": [
+        "#56acff",
+        "#dd90b0"
       ]
     }
   ]

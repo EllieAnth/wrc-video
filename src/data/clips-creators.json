@@ -361,5 +361,16 @@
     "start": 23.3,
     "duration": 7,
     "source": "1920x858"
+  },
+  "ashe": {
+    "src": "clips/ashe-creator.mp4",
+    "creator": "Rebengga",
+    "channel": "https://www.youtube.com/channel/UCkMQiW_cWYX3g6A0B5Mxoag",
+    "url": "https://www.youtube.com/watch?v=stKHIDkrWp8",
+    "title": "WILD RIFT ASHE COMBO TUTORIAL 101 #wildrift #rebengga",
+    "kind": "short",
+    "start": 38.6,
+    "duration": 7,
+    "source": "1080x1920"
   }
 }
