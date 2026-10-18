@@ -12,9 +12,15 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT" || exit 1
 LOG_DIR="/Volumes/T7/wrc-video-cache"
 CACHE="$LOG_DIR/yt"
-# T7 absent : jamais de mkdir sous /Volumes (il créerait le dossier sur le disque natif).
-if [ ! -d "$LOG_DIR" ]; then LOG_DIR="$HOME/Library/Logs/wrc-video"; CACHE="$HOME/Library/Caches/wrc-video-yt"; fi
+# Sous launchd, TCC refuse l'écriture sur le T7 (« Operation not permitted », mesuré le 2026-10-18) alors que
+# `[ -d ]` répond vrai : on ÉCRIT pour tester. T7 absent ou refusé → disque natif, cache vidé en fin de run.
+# Jamais de mkdir sous /Volumes (il créerait le dossier sur le disque natif).
+TMP_CACHE=0
+if ! { [ -d "$LOG_DIR" ] && touch "$LOG_DIR/.probe" 2>/dev/null && mkdir -p "$CACHE" 2>/dev/null; }; then
+  LOG_DIR="$HOME/Library/Logs/wrc-video"; CACHE="$HOME/Library/Caches/wrc-video-yt"; TMP_CACHE=1
+fi
 mkdir -p "$LOG_DIR" "$CACHE"
+trap '[ "$TMP_CACHE" = 1 ] && rm -rf "$CACHE"' EXIT
 LOG="$LOG_DIR/weekly-$(date +%F).log"
 exec >>"$LOG" 2>&1 </dev/null
 echo "=== $(date) — rendu local"
