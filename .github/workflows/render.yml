@@ -1,6 +1,6 @@
 # Rend les deux formats chaque lundi (après la tier list de nexus-core) et les publie en release.
-# Filet de secours : sans clips de créateurs (YouTube bloque les IP GitHub). La version avec clips vient du Mac
-# (scripts/local-weekly.sh, launchd) ; si elle est déjà publiée, cette release n'est pas réécrite.
+# YouTube bloque les IP GitHub : les clips de créateurs viennent du Mac (scripts/clips-weekly.sh, launchd, lundi
+# 12:00), déposés dans la pré-release `clips-cache` ; le Mac lance ensuite ce workflow. Sans eux : splash.
 # Secret requis : NEXUS_CORE_TOKEN — PAT à lecture seule (Contents: read) sur EllieAnth/nexus-core (privé).
 # Les clips de créateurs (yt-dlp) peuvent échouer sur les IP GitHub : la vidéo se replie alors sur le splash.
 name: Render weekly videos
@@ -52,6 +52,14 @@ jobs:
       - name: Data, visuals, Riot spell previews
         run: npm run sync
 
+      - name: Creator clips from the Mac (release clips-cache)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p public/clips
+          gh release download clips-cache -p '*-creator.mp4' -D public/clips --clobber || echo "::warning::no clips-cache, splash fallback"
+          ls public/clips | wc -l
+
       - name: Creator clips (best effort)
         run: node scripts/fetch-clips.mjs --cache=/tmp/yt --prune-missing || echo "::warning::creator clips failed, splash fallback"
 
@@ -71,19 +79,7 @@ jobs:
         id: week
         run: echo "tag=week-$(node -e 'console.log(require("./src/data/tierlist.json").week.start)')" >> "$GITHUB_OUTPUT"
 
-      # Le Mac rend la même semaine AVEC les clips (scripts/local-weekly.sh) et dépose local-render.txt :
-      # ne jamais réécrire ses mp4 par cette version sans clips (cron GitHub souvent en retard de plusieurs heures).
-      - name: Local render already published?
-        id: local
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if gh release view "${{ steps.week.outputs.tag }}" --json assets -q '.assets[].name' 2>/dev/null | grep -qx local-render.txt; then
-            echo "done=true" >> "$GITHUB_OUTPUT"; echo "::notice::rendu local déjà publié, release laissée intacte"
-          fi
-
       - name: Release
-        if: steps.local.outputs.done != 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.week.outputs.tag }}
