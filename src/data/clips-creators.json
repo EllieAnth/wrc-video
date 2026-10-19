@@ -372,5 +372,16 @@
     "start": 38.6,
     "duration": 7,
     "source": "1080x1920"
+  },
+  "darius": {
+    "src": "clips/darius-creator.mp4",
+    "creator": "League's Daily Dose",
+    "channel": "https://www.youtube.com/channel/UC7rIT0IPthGzC4qL2ML49mA",
+    "url": "https://www.youtube.com/watch?v=-BYPa93P2tE",
+    "title": "Darius R = Penta Kill - Leauge of legend",
+    "kind": "search",
+    "start": 17.6,
+    "duration": 7,
+    "source": "1920x1080"
   }
 }
