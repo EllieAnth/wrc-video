@@ -105,10 +105,21 @@ const keys = new Set();
 const collect = (o) => { if (!o || typeof o !== 'object') return; if (Array.isArray(o)) return o.forEach(collect); if (typeof o.key === 'string' && o.key && 'name' in o && 'palette' in o) keys.add(o.key); for (const v of Object.values(o)) if (v && typeof v === 'object') collect(v); };
 collect([movers, patch]); keys.add(heroKey);
 
+// Coupure réseau (ECONNRESET sur CommunityDragon, run du 21/10) : 3 essais espacés avant d'abandonner — un
+// seul visuel ne doit pas faire tomber le rendu du lundi.
+const fetchRetry = async (url, tries = 3) => {
+  for (let i = 1; ; i++) {
+    try { return await fetch(url); } catch (e) {
+      if (i >= tries) throw e;
+      console.warn(`! ${url} : ${e.cause?.code || e.message}, nouvel essai ${i + 1}/${tries}`);
+      await new Promise((r) => setTimeout(r, 2000 * i));
+    }
+  }
+};
 const fetchTo = async (url, out, type = 'image/') => {
   if (fs.existsSync(out)) return true;
   if (!/^https?:\/\//.test(url)) { console.warn(`! pas une URL : ${url} (${path.basename(out)})`); return false; } // ex. Nidalee, icon: 'nidalee' dans l'index du site (15/10)
-  const res = await fetch(url);
+  const res = await fetchRetry(url);
   if (!res.ok || !String(res.headers.get('content-type')).startsWith(type)) { console.warn(`! ${url} : ${res.status}`); return false; }
   fs.writeFileSync(out, Buffer.from(await res.arrayBuffer())); return true;
 };
@@ -132,7 +143,7 @@ for (const key of keys) {
 const splashKeys = keys;
 for (const key of splashKeys) { const a = avatarByNorm.get(key); if (a) await fetchTo(a.icon.replace(/\/square$/, '/splash-art/centered'), path.join(splashDir, `${key}.jpg`)); }
 
-const summary = await (await fetch('https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json')).json();
+const summary = await (await fetchRetry('https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json')).json();
 const idFor = (key) => summary.find((c) => norm(c.alias) === key || norm(c.name) === key)?.id;
 const CLIP_START = { 'nocturne-R': 4.6, 'malphite-R': 0.6 }; // instant (s) où l'action commence, relevé sur une planche à 2 i/s
 const clips = {};
