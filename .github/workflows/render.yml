@@ -75,6 +75,19 @@ jobs:
           done
           ls -la out
 
+      # Version site (lue par nexus-core, scripts/publish-meta-movers-video.mjs → R2 → article, tier list, fiches) :
+      # 720×1280 à débit plafonné (≈ 5 Mo au lieu de ≈ 30), affiche, et chapitres (passage de chaque champion).
+      - name: Site versions (web encode, poster, chapters)
+        run: |
+          for m in out/*.mp4; do
+            case "$m" in *.web.mp4) continue ;; esac
+            b="${m%.mp4}"
+            ffmpeg -loglevel error -y -i "$m" -vf scale=720:1280 -c:v libx264 -preset slow -crf 24 -maxrate 1600k -bufsize 3200k -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart "$b.web.mp4"
+            ffmpeg -loglevel error -y -ss 1.5 -i "$m" -frames:v 1 -vf scale=720:1280 -q:v 3 "$b.jpg"
+          done
+          [ -f out/meta-movers.mp4 ] && npx tsx scripts/export-chapters.mts --format=meta-movers
+          ls -la out
+
       - name: Week tag
         id: week
         run: echo "tag=week-$(node -e 'console.log(require("./src/data/tierlist.json").week.start)')" >> "$GITHUB_OUTPUT"
@@ -88,5 +101,7 @@ jobs:
             English shorts rendered from the week's data (sound effects only: add music on TikTok). Voice-over text per scene in the `*-voice.md` files (paste into TikTok text-to-speech).
           files: |
             out/*.mp4
+            out/*.jpg
             out/*-voice.md
+            out/*-chapters.json
             src/data/clips-creators.json

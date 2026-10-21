@@ -35,6 +35,16 @@ Vérification visuelle sans rendu complet : `npx tsx scripts/stills.mts --format
 planche-contact `out/stills/<id>-sheet.jpg`. Les fichiers lourds (cache yt-dlp, logs) vont sur
 `/Volumes/T7/wrc-video-cache/`, jamais sur le disque natif.
 
+## Version site : la release porte aussi de quoi publier sur wildriftcore.com (2026-10-21)
+
+`render.yml` ajoute à chaque release, pour chaque format, `<id>.web.mp4` (720×1280, crf 24, ≤ 1,6 Mbit/s :
+≈ 6 Mo pour 38 s contre ≈ 31 Mo pour le master) et `<id>.jpg` (affiche, image à 1,5 s), plus
+`meta-movers-chapters.json` (`scripts/export-chapters.mts` : instant de chaque scène et passages de chaque
+champion, tirés de `timeline.ts`). nexus-core les publie (`scripts/publish-meta-movers-video.mjs`, workflow
+« Meta Movers Video » du lundi) sur R2 et les affiche en tête de l'article hebdo, sur la tier list et sur les
+fiches des champions cités, lancées à leur passage. Le schéma `wrc.video-chapters/1` est un contrat : renommer
+une scène ou retirer `champions[].moments` casse cette lecture côté site.
+
 ## Son : bruitages seulement, la musique vient de TikTok (décision du 2026-10-15)
 
 Aucune musique dans le rendu : `synth-audio.mjs` ne pose que les bruitages (impact d'ouverture, whoosh,
