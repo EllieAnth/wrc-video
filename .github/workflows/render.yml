@@ -75,17 +75,29 @@ jobs:
           done
           ls -la out
 
-      # Version site (lue par nexus-core, scripts/publish-meta-movers-video.mjs → R2 → article, tier list, fiches) :
-      # 720×1280 à débit plafonné (≈ 5 Mo au lieu de ≈ 30), affiche, et chapitres (passage de chaque champion).
-      - name: Site versions (web encode, poster, chapters)
+      # Musique de la version SITE seulement (décision du 21/10) : pistes déposées dans la pré-release
+      # `site-music` (<id>.mp3|wav|m4a pour un format, site.* pour tous). Sans piste : bruitages seuls, comme
+      # le master TikTok, qui ne reçoit jamais de musique (elle se pose dans TikTok à la publication).
+      - name: Site music (release site-music)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p music
+          gh release download site-music -D music --clobber || echo "::notice::no site-music release, site videos without music"
+          ls -la music
+
+      # Version site (lue par nexus-core, scripts/publish-meta-movers-video.mjs → R2 → article, tier list, /meta/,
+      # fiches) : 720×1280 à débit plafonné, affiche, musique si fournie (scripts/site-encode.sh), et chapitres
+      # (passage de chaque champion, scripts/export-chapters.mts).
+      - name: Site versions (web encode, poster, music, chapters)
         run: |
           for m in out/*.mp4; do
             case "$m" in *.web.mp4) continue ;; esac
-            b="${m%.mp4}"
-            ffmpeg -loglevel error -y -i "$m" -vf scale=720:1280 -c:v libx264 -preset slow -crf 24 -maxrate 1600k -bufsize 3200k -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart "$b.web.mp4"
-            ffmpeg -loglevel error -y -ss 1.5 -i "$m" -frames:v 1 -vf scale=720:1280 -q:v 3 "$b.jpg"
+            id="$(basename "${m%.mp4}")"
+            music="$(ls music/"$id".mp3 music/"$id".wav music/"$id".m4a music/site.mp3 music/site.wav music/site.m4a 2>/dev/null | head -1 || true)"
+            scripts/site-encode.sh "$m" "$music"
+            npx tsx scripts/export-chapters.mts --format="$id" || echo "::warning::no chapters for $id"
           done
-          [ -f out/meta-movers.mp4 ] && npx tsx scripts/export-chapters.mts --format=meta-movers
           ls -la out
 
       - name: Week tag

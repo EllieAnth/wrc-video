@@ -38,19 +38,29 @@ planche-contact `out/stills/<id>-sheet.jpg`. Les fichiers lourds (cache yt-dlp, 
 ## Version site : la release porte aussi de quoi publier sur wildriftcore.com (2026-10-21)
 
 `render.yml` ajoute à chaque release, pour chaque format, `<id>.web.mp4` (720×1280, crf 24, ≤ 1,6 Mbit/s :
-≈ 6 Mo pour 38 s contre ≈ 31 Mo pour le master) et `<id>.jpg` (affiche, image à 1,5 s), plus
-`meta-movers-chapters.json` (`scripts/export-chapters.mts` : instant de chaque scène et passages de chaque
-champion, tirés de `timeline.ts`). nexus-core les publie (`scripts/publish-meta-movers-video.mjs`, workflow
-« Meta Movers Video » du lundi) sur R2 et les affiche en tête de l'article hebdo, sur la tier list et sur les
-fiches des champions cités, lancées à leur passage. Le schéma `wrc.video-chapters/1` est un contrat : renommer
-une scène ou retirer `champions[].moments` casse cette lecture côté site.
+≈ 6 Mo pour 38 s contre ≈ 31 Mo pour le master), `<id>.jpg` (affiche, image à 1,5 s) et `<id>-chapters.json`
+(`scripts/export-chapters.mts`, meta-movers et patch : instant de chaque scène et passages de chaque champion,
+tirés de `timeline.ts`). Encodage : `scripts/site-encode.sh` (même commande en CI et sur le Mac). nexus-core
+les publie (`scripts/publish-meta-movers-video.mjs --format=<id>`, workflow « Meta Movers Video » du lundi) sur
+R2 : Meta Movers en tête de l'article hebdo, sur la tier list et sur les fiches des champions cités ; patch sur
+/meta/, l'article du patch et la tier list. Le schéma `wrc.video-chapters/1` est un contrat : renommer une
+scène ou retirer `champions[].moments` casse cette lecture côté site.
 
-## Son : bruitages seulement, la musique vient de TikTok (décision du 2026-10-15)
+## Son : bruitages seulement dans le master, musique dans la version site (15/10, puis 21/10)
 
-Aucune musique dans le rendu : `synth-audio.mjs` ne pose que les bruitages (impact d'ouverture, whoosh,
-pops, ticks, montée, impact de fin) calés sur les repères de `timeline.ts`. La musique est ajoutée dans
-TikTok au moment de publier (bibliothèque de la plateforme, droits couverts). `--music` remet
+Le master (`out/<id>.mp4`, TikTok) n'a aucune musique : `synth-audio.mjs` ne pose que les bruitages (impact
+d'ouverture, whoosh, pops, ticks, montée, impact de fin) calés sur les repères de `timeline.ts`, et la musique
+est ajoutée dans TikTok au moment de publier (bibliothèque de la plateforme, droits couverts). `--music` remet
 l'ancienne bande-son synthétisée pour un essai, jamais pour une publication.
+
+La **version site** (`<id>.web.mp4`) reçoit une musique sous les bruitages (demande d'Anthony, 21/10) : pistes
+déposées dans la **pré-release `site-music`** (`<id>.mp3|wav|m4a` pour un format, `site.*` pour tous ;
+jamais dans le dépôt, qui est public). `site-encode.sh` ramène la piste à `MUSIC_LUFS` (-21 par défaut), la
+coupe à la durée (`MUSIC_START` pour sauter une intro), fondu de sortie 1,5 s, limiteur à -1 dB. Mesuré :
+bruitages inchangés (-16,8 → -17,0 LUFS sur la chaîne seule), pic -0,6 dBFS. Le LUFS intégré du mixage BAISSE
+(-18,3) alors qu'il y a plus de son : la porte de mesure ne comptait que les bruitages, les blancs remplis par la
+musique entrent dans la moyenne — ce n'est pas une perte de niveau. Changer de piste = la redéposer dans
+`site-music` puis relancer `render.yml` (et le workflow nexus-core « Meta Movers Video » hors lundi).
 
 ## Voix : synthèse TikTok, pas de TTS payant (décision du 2026-10-15)
 

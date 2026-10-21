@@ -11,3 +11,6 @@ public/hero-*.jpg
 public/clips-champ
 public/data/
 public/spells/
+
+# Pistes de la version site (pré-release site-music), jamais versionnées : dépôt public
+music/
