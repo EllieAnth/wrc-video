@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // Clips de créateurs (YouTube Shorts / vidéos) pour illustrer les champions — avec le nom de la
-// chaîne, affiché à l'écran par la composition. Décision d'Anthony (2026-10-15) : les créateurs sont
-// d'accord, la vidéo leur fait de la publicité.
+// chaîne, affiché à l'écran par la composition. Décision d'Anthony (2026-10-27, remplace celle du 15/10) :
+// un créateur est RÉPUTÉ D'ACCORD une fois PRÉVENU (docs/creator-notice.md) et retiré s'il refuse — registre
+// src/data/creators.json, tenu ici : une nouvelle chaîne y entre en `pending`, une chaîne `refused` n'est plus
+// jamais téléchargée et ses clips sont retirés.
 //
 // Source des candidats : l'index vidéo du site (assets/data/champion_videos.json, shorts[] puis
 // youtube[], et champion-videos/<slug>.json, catégories highlights > ranked > meta), lu sur
@@ -48,6 +50,10 @@ const DATA = path.join(ROOT, 'src/data/clips-creators.json');
 fs.mkdirSync(OUT_DIR, { recursive: true });
 fs.mkdirSync(CACHE, { recursive: true });
 const data = fs.existsSync(DATA) ? JSON.parse(fs.readFileSync(DATA, 'utf8')) : {};
+const REGISTRY = path.join(ROOT, 'src/data/creators.json');
+const registry = JSON.parse(fs.readFileSync(REGISTRY, 'utf8'));
+const refused = (channel) => registry.channels[channel]?.status === 'refused';
+for (const k of Object.keys(data)) if (refused(data[k].channel)) { console.log(`- ${k} : ${data[k].creator} a refusé, clip retiré`); delete data[k]; }
 // --replace : refuse le clip retenu (Anthony l'a jugé mauvais) et en choisit un autre ; les refus
 // s'accumulent dans clips-rejected.json pour ne jamais revenir sur une vidéo écartée.
 const REPLACE = process.argv.includes('--replace');
@@ -162,6 +168,7 @@ for (const key of (REFRAME && !arg('champ') ? Object.keys(data) : wanted)) {
     if (c.duration && c.duration > 1500) continue; // > 25 min : trop long à sonder
     const d = probe(c.url);
     if (!d || !d.duration || d.duration > 1500) continue;
+    if (refused(d.channel)) continue; // créateur qui a refusé (src/data/creators.json)
     const start = d.duration <= WINDOW + 1 ? 0 : loudestWindow(d.audio, d.duration);
     const len = Math.min(WINDOW, d.duration - start);
     const seg = downloadSegment(d.id, c.url, start, len);
@@ -176,4 +183,12 @@ for (const key of (REFRAME && !arg('champ') ? Object.keys(data) : wanted)) {
 }
 if (PRUNE) for (const k of Object.keys(data)) if (!fs.existsSync(path.join(OUT_DIR, `${k}-creator.mp4`))) { delete data[k]; console.log(`- ${k} : fichier absent, repli splash`); }
 fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n');
+// Registre : toute chaîne utilisée y figure ; une nouvelle entre en `pending` (à prévenir avant les réseaux).
+for (const [k, v] of Object.entries(data)) {
+  const e = (registry.channels[v.channel] ||= { creator: v.creator, status: 'pending', notifiedAt: null, answeredAt: null, contact: null, note: null, champions: [] });
+  if (!e.champions.includes(k)) e.champions.push(k);
+}
+fs.writeFileSync(REGISTRY, JSON.stringify(registry, null, 2) + '\n');
+const pending = Object.values(registry.channels).filter((c) => c.status === 'pending').length;
+if (pending) console.log(`⚠ ${pending} créateur(s) à prévenir (status pending, docs/creator-notice.md) : leurs vidéos ne partent pas sur les réseaux`);
 console.log(`${Object.keys(data).length} clips dans src/data/clips-creators.json`);

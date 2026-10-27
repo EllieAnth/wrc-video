@@ -117,3 +117,4 @@ jobs:
             out/*-voice.md
             out/*-chapters.json
             src/data/clips-creators.json
+            src/data/creators.json

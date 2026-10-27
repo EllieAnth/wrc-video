@@ -3,10 +3,17 @@ import { Img, OffthreadVideo, interpolate, staticFile, useCurrentFrame, useVideo
 import { BODY, C, TITLE } from '../theme';
 import { clamp, ease, ramp, useSpring } from './util';
 import creators from '../data/clips-creators.json';
+import registry from '../data/creators.json';
 
 export type CreatorClip = { src: string; creator: string; channel: string; url: string; title: string; kind: string; start: number; duration: number; source: string };
 const clipAspect = (clip: CreatorClip) => { const [w, h] = clip.source.split('x').map(Number); return w > 0 && h > 0 ? w / h : 16 / 9; };
-export const creatorClip = (key: string): CreatorClip | null => (creators as Record<string, CreatorClip>)[key] || null;
+// Un créateur qui a REFUSÉ n'apparaît plus, même si clips-creators.json liste encore son clip (repli splash) —
+// registre src/data/creators.json, règle du 27/10 : réputé d'accord une fois prévenu, retiré s'il refuse.
+const REFUSED = new Set(Object.entries(registry.channels as Record<string, { status: string }>).filter(([, c]) => c.status === 'refused').map(([url]) => url));
+export const creatorClip = (key: string): CreatorClip | null => {
+  const clip = (creators as Record<string, CreatorClip>)[key];
+  return clip && !REFUSED.has(clip.channel) ? clip : null;
+};
 
 /** Panneau vidéo : la source est l'image ENTIÈRE du créateur (fetch-clips.mjs), `aspect` = son ratio l/h.
  *  Le clip net est recadré au plus de 25 % en largeur (source paysage : hauteur plafonnée à un cadre 4:3) ou de
