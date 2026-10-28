@@ -61,6 +61,9 @@ bruitages inchangés (-16,8 → -17,0 LUFS sur la chaîne seule), pic -0,6 dBFS.
 (-18,3) alors qu'il y a plus de son : la porte de mesure ne comptait que les bruitages, les blancs remplis par la
 musique entrent dans la moyenne — ce n'est pas une perte de niveau. Changer de piste = la redéposer dans
 `site-music` puis relancer `render.yml` (et le workflow nexus-core « Meta Movers Video » hors lundi).
+Piste en place depuis le 28/10 : `site.wav` = « Two Toned » (Suno), **déjà coupée à 21 s** (intro calme de
+−32 à −20 LUFS sur 20 s, le corps du morceau tient de 21 à 63 s), donc sans `MUSIC_START` en CI. Original
+complet (121 s) : `/Volumes/T7/wrc-video-cache/music/Two Toned.wav`.
 
 ## Voix : synthèse TikTok, pas de TTS payant (décision du 2026-10-15)
 
