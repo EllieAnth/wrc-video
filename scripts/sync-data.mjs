@@ -7,6 +7,7 @@
 //   node scripts/sync-data.mjs [--nexus=../nexus-core]
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 const arg = (name, def) => { const hit = process.argv.find((a) => a.startsWith(`--${name}=`)); return hit ? hit.split('=')[1] : def; };
@@ -134,14 +135,30 @@ for (const it of patch.items) {
   try { if (!fs.existsSync(out)) fs.writeFileSync(out, execFileSync('git', ['-C', NEXUS, 'show', `origin/main:${rel}`], { maxBuffer: 1e8, stdio: ['pipe', 'pipe', 'ignore'] })); it.image = `items/${path.basename(out)}`; }
   catch { console.warn(`! image d'objet absente : ${rel}`); it.image = null; }
 }
+// Champion exclusif à Wild Rift (Norra, rendu du 29/10 tombé sur une icône 404) : CommunityDragon ne l'a pas.
+// Repli sur la tuile HD du site (`assets/images/<key>TuileHd.webp`, 16:9), convertie en JPEG par ffmpeg :
+// carré central pour l'icône, 1280×720 pour le splash.
+const localTile = (key, out, vf) => {
+  const src = path.join(os.tmpdir(), `wrc-${key}-tuile.webp`);
+  try {
+    if (!fs.existsSync(src)) fs.writeFileSync(src, execFileSync('git', ['-C', NEXUS, 'show', `origin/main:assets/images/${key}TuileHd.webp`], { maxBuffer: 1e8, stdio: ['pipe', 'pipe', 'ignore'] }));
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', src, '-vf', vf, '-q:v', '3', out]);
+    console.warn(`! ${key} : visuel CommunityDragon absent, tuile du site utilisée (${path.basename(path.dirname(out))})`); return true;
+  } catch { console.warn(`! ${key} : ni CommunityDragon ni tuile du site`); return false; }
+};
 for (const key of keys) {
   const a = avatarByNorm.get(key);
   if (!a) { console.warn(`! pas d'icône pour ${key}`); continue; }
-  await fetchTo(a.icon.replace(/\/square$/, '/tile'), path.join(iconDir, `${key}.jpg`));
+  const out = path.join(iconDir, `${key}.jpg`);
+  if (!(await fetchTo(a.icon.replace(/\/square$/, '/tile'), out))) localTile(key, out, 'crop=ih:ih,scale=380:380');
 }
 // Tous les champions cités : CreatorPanel se replie sur le splash quand aucun clip de créateur n'existe.
 const splashKeys = keys;
-for (const key of splashKeys) { const a = avatarByNorm.get(key); if (a) await fetchTo(a.icon.replace(/\/square$/, '/splash-art/centered'), path.join(splashDir, `${key}.jpg`)); }
+for (const key of splashKeys) {
+  const a = avatarByNorm.get(key); if (!a) continue;
+  const out = path.join(splashDir, `${key}.jpg`);
+  if (!(await fetchTo(a.icon.replace(/\/square$/, '/splash-art/centered'), out))) localTile(key, out, 'scale=1280:720');
+}
 
 const summary = await (await fetchRetry('https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json')).json();
 const idFor = (key) => summary.find((c) => norm(c.alias) === key || norm(c.name) === key)?.id;
