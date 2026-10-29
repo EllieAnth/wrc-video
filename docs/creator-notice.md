@@ -1,7 +1,7 @@
 # Prévenir un créateur dont un clip est utilisé
 
-Règle (décision d'Anthony, 2026-10-27) : un créateur est **réputé d'accord une fois prévenu** ; on le
-**retire** s'il refuse. Registre : `src/data/creators.json` (une entrée par chaîne, clé = URL de la chaîne).
+Règle (décision d'Anthony, 2026-10-29, remplace celle du 27/10) : **accord tacite** — on publie, on prévient
+ensuite, on **retire** s'il refuse. Registre : `src/data/creators.json` (une entrée par chaîne, clé = URL de la chaîne).
 
 ## Processus
 
@@ -14,8 +14,9 @@ Règle (décision d'Anthony, 2026-10-27) : un créateur est **réputé d'accord 
    - non → `status: "refused"`, `answeredAt` : au rendu suivant, ses clips disparaissent du site comme des
      réseaux (repli splash). Relancer `render.yml` puis le workflow nexus-core « Meta Movers Video » pour que
      le site change le jour même ; **retirer à la main** les publications déjà parues sur les réseaux.
-5. Une vidéo dont un clip vient d'une chaîne `pending` ou `refused` **ne part pas sur les réseaux**
-   (`nexus-core/scripts/social-posts.mjs`) ; le site, lui, l'affiche dès le rendu.
+5. Une vidéo dont un clip vient d'une chaîne `refused` **ne part pas sur les réseaux**
+   (`nexus-core/scripts/social-posts.mjs`) ; une chaîne `pending` part, avec l'avertissement « à prévenir
+   après publication » dans l'issue de la semaine.
 
 ## Message (anglais)
 
