@@ -41,7 +41,11 @@ if (id === 'meta-movers') {
   // Même sélection que la composition (index.tsx) : les 4 plus gros écarts de win rate.
   [...data.effects].sort((a, b) => Math.abs(b.wrDelta) - Math.abs(a.wrDelta)).slice(0, 4)
     .forEach((e) => add(e, { t: sec(P.EFFECTS_START), scene: 'effects', kind: 'effect', wrDelta: e.wrDelta, days: e.days }));
-  head = { week: data.week, patch: data.version, patchDate: data.date, counts: { buffs: data.buffs.length, nerfs: data.nerfs.length, items: data.items.length } };
+  // `patch` = patch dont la vidéo montre les notes (notesVersion, « Patch 7.3d » à l'écran) ; l'effet mesuré peut porter
+  // sur un patch antérieur (patch-effect.json : 7.3b le 29/10) → effectPatch/effectDate. Avant le 29/10, `patch` valait la
+  // version de l'effet : le site titrait « Patch 7.3b » une vidéo des notes 7.3d et la chaîne sociale la jugeait périmée.
+  const notes = data.notesVersion || data.version;
+  head = { week: data.week, patch: notes, ...(notes === data.version ? { patchDate: data.date } : {}), effectPatch: data.version, effectDate: data.date, counts: { buffs: data.buffs.length, nerfs: data.nerfs.length, items: data.items.length } };
 } else {
   throw new Error(`chapitres non définis pour le format ${id}`);
 }
