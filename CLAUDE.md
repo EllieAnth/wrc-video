@@ -72,11 +72,15 @@ vidéo, `out/<id>-voice.md` donne **scène par scène** l'instant (s), la durée
 `voice.ts` porte des phrases courtes (≤ 4 s de parole par scène de 4 s) ; une phrase trop longue
 pour sa scène se raccourcit dans `voice.ts`, on n'allonge pas la scène pour elle.
 
-## Clips de créateurs (décision d'Anthony, 2026-10-15)
+## Clips de créateurs (décision d'Anthony, 2026-10-15, précisée le 2026-10-27)
 
-Les créateurs YouTube sont **réputés consentants** : on reprend des extraits de leurs vidéos pour
-illustrer un champion, **à condition d'afficher le nom de la chaîne en évidence** (`CreatorBadge`,
-« CLIP BY <chaîne> », jamais retiré ni réduit). `scripts/fetch-clips.mjs` : index
+Un créateur est **réputé d'accord une fois PRÉVENU**, et **retiré s'il refuse** (27/10). On reprend des
+extraits de ses vidéos pour illustrer un champion, **à condition d'afficher le nom de la chaîne en
+évidence** (`CreatorBadge`, « CLIP BY <chaîne> », jamais retiré ni réduit). Registre :
+`src/data/creators.json` (`pending` → `notified` → `agreed` | `refused`), tenu par `fetch-clips.mjs` ;
+message et processus : `docs/creator-notice.md`. Une chaîne `refused` n'est plus téléchargée et la
+composition refuse ses clips (repli splash). Le site affiche les clips dès le rendu ; nexus-core ne publie
+sur les réseaux **aucune** vidéo dont un clip vient d'une chaîne `pending` ou `refused`. `scripts/fetch-clips.mjs` : index
 `champion_videos.json` du site → repli recherche YouTube ; sonde audio pour trouver le passage le
 plus fort (ebur128), télécharge 4 à 8 s en 1080p, **garde l'image entière au ratio de la source**
 (16:9 → 1920×1080, Short → 1080×1920), sans son. Sorties : `public/clips/<key>-creator.mp4` +

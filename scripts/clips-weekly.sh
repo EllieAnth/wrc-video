@@ -31,7 +31,7 @@ git -C ../nexus-core fetch -q origin main || fail "git fetch nexus-core"
 npm run sync || fail "sync"
 node scripts/fetch-clips.mjs --cache="$CACHE" || echo "clips : échec partiel"
 
-git add src/data/clips-creators.json src/data/patch.json src/data/splash.json src/data/tierlist.json
+git add src/data/clips-creators.json src/data/creators.json src/data/patch.json src/data/splash.json src/data/tierlist.json
 git diff --cached --quiet || git commit -q -m "data: clips et données de la semaine (Mac)"
 git push -q origin master || fail "git push"
 

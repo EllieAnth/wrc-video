@@ -1,0 +1,350 @@
+{
+  "_doc": "Registre des créateurs dont un clip entre dans les vidéos (décision d’Anthony, 2026-10-27) : un créateur est RÉPUTÉ D’ACCORD une fois PRÉVENU, et retiré s’il refuse. status : pending (pas encore prévenu) | notified (prévenu, sans réponse = accord tacite) | agreed (accord explicite) | refused (retiré partout : site et réseaux, fetch-clips n’en télécharge plus, la composition refuse ses clips). Clé = URL de la chaîne telle que la rend yt-dlp (champ channel de clips-creators.json). Tenu par scripts/fetch-clips.mjs (une nouvelle chaîne entre en pending, une chaîne refused n'est plus téléchargée) ; notifiedAt/answeredAt/contact/note s’éditent à la main. nexus-core (scripts/social-posts.mjs) bloque la publication sur les réseaux d’une vidéo dont un clip vient d’une chaîne pending ou refused ; le site, lui, garde les clips pending (choix d’Anthony du 27/10). Message à envoyer : docs/creator-notice.md.",
+  "channels": {
+    "https://www.youtube.com/channel/UCktXvDyUpWqdvERQon0gsrw": {
+      "creator": "Mectard WR",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "malphite"
+      ]
+    },
+    "https://www.youtube.com/channel/UCgqe_bdpNRmCceH3CobLbCA": {
+      "creator": "ZARYNX",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "shen"
+      ]
+    },
+    "https://www.youtube.com/channel/UCVl23bJtVvs5LZjrzamIbpQ": {
+      "creator": "HellsDevil",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "mordekaiser",
+        "volibear"
+      ]
+    },
+    "https://www.youtube.com/channel/UCnIO3jX7cWbYb6wfQq1AjKg": {
+      "creator": "Kokotti",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "teemo"
+      ]
+    },
+    "https://www.youtube.com/channel/UCtgmoZ2HrYtKFaleARaB6uA": {
+      "creator": "Snaak",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "nocturne"
+      ]
+    },
+    "https://www.youtube.com/channel/UCESfavDOgkjQiHrLVQ7o5IA": {
+      "creator": "Sunfire cape",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "rammus"
+      ]
+    },
+    "https://www.youtube.com/channel/UCDbCg9iFLrkX8ZJaMwvpbOw": {
+      "creator": "Royal - Wild Rift Gameplay",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "ekko"
+      ]
+    },
+    "https://www.youtube.com/channel/UCkMQiW_cWYX3g6A0B5Mxoag": {
+      "creator": "Rebengga",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "amumu",
+        "ashe"
+      ]
+    },
+    "https://www.youtube.com/channel/UCg19EDNLIUCLCZ4IVoJTajA": {
+      "creator": "Power Spike",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "hwei"
+      ]
+    },
+    "https://www.youtube.com/channel/UCmVi2OTltg8eoVY0Vjn1ppA": {
+      "creator": "Mikey閔閔",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "syndra"
+      ]
+    },
+    "https://www.youtube.com/channel/UCPILYOnq1lF1h0WQJqtLFAg": {
+      "creator": "Dr. Curvy",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "brand"
+      ]
+    },
+    "https://www.youtube.com/channel/UCi3F_xBJShy6eA2vWH4v6bw": {
+      "creator": "Jeremy Hui",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "morgana"
+      ]
+    },
+    "https://www.youtube.com/channel/UCJC1TNXpRYi8zKkSFtg2-Uw": {
+      "creator": "Tiarty - China Wild Rift",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "galio"
+      ]
+    },
+    "https://www.youtube.com/channel/UCGnXCTZfumW3fagr0yoHc5Q": {
+      "creator": "HIGHLANDER WILD RIFIT",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "senna"
+      ]
+    },
+    "https://www.youtube.com/channel/UCU5F3hpVucGSUvknh-b1YLA": {
+      "creator": "Aria.",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "yunara"
+      ]
+    },
+    "https://www.youtube.com/channel/UCFsQuU5Fq2lt9fJmnA-hwVg": {
+      "creator": "Leonard",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "kennen"
+      ]
+    },
+    "https://www.youtube.com/channel/UCoOABNtnGcnLT-qDS_JI8CA": {
+      "creator": "LightZama | Wild Rift",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "vi"
+      ]
+    },
+    "https://www.youtube.com/channel/UCgHvdrvpWQQo-8BhYJsl7Yw": {
+      "creator": "Lovakkk",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "chogath"
+      ]
+    },
+    "https://www.youtube.com/channel/UCeNwb7fllTjx_MLRGHi84MQ": {
+      "creator": "【Wild Rift】 催眠nice",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "thresh"
+      ]
+    },
+    "https://www.youtube.com/channel/UCKTGOLnIm9TR_02lomxFk3g": {
+      "creator": "Vampire Katarina",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "sion"
+      ]
+    },
+    "https://www.youtube.com/channel/UCprjg04diqkyWSPAy4vyhdw": {
+      "creator": "League Lights",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "skarner"
+      ]
+    },
+    "https://www.youtube.com/channel/UC0dyk52FNHpUy4VbggvH-Tw": {
+      "creator": "Rift Focus",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "samira",
+        "caitlyn",
+        "jinx"
+      ]
+    },
+    "https://www.youtube.com/channel/UCq89xRUSdKt1A8dra6hjzfg": {
+      "creator": "Truong Loc",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "tristana"
+      ]
+    },
+    "https://www.youtube.com/channel/UChbFpApETcRzqgB8f-pwlkQ": {
+      "creator": "ZayedHeroPlays",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "tryndamere"
+      ]
+    },
+    "https://www.youtube.com/channel/UCB6lrkG3w7_o-AXHwec67SQ": {
+      "creator": "HaidvSC",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "jhin"
+      ]
+    },
+    "https://www.youtube.com/channel/UC8iUseZGyQyTy2_v1Twl_eg": {
+      "creator": "Night Challenger Wild Rift",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "yasuo"
+      ]
+    },
+    "https://www.youtube.com/channel/UCx8N8d1-J1cVr6lzUwMQwsw": {
+      "creator": "DM CorteX",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "missfortune"
+      ]
+    },
+    "https://www.youtube.com/channel/UCvDAn7CRhkHh5q0pN_9RZtg": {
+      "creator": "Hawlax ",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "draven"
+      ]
+    },
+    "https://www.youtube.com/channel/UChqFO0ZNnwjqjwnnRI6TvGA": {
+      "creator": "Targarion Wild Rift",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "jayce"
+      ]
+    },
+    "https://www.youtube.com/channel/UC8VOFgwn9QxnTzacq4pNbOw": {
+      "creator": "de todo porocho",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "ambessa"
+      ]
+    },
+    "https://www.youtube.com/channel/UC7rIT0IPthGzC4qL2ML49mA": {
+      "creator": "League's Daily Dose",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "darius"
+      ]
+    }
+  }
+}
