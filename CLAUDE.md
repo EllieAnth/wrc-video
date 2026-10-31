@@ -46,7 +46,7 @@ R2 : Meta Movers en tête de l'article hebdo, sur la tier list et sur les fiches
 /meta/, l'article du patch et la tier list. Le schéma `wrc.video-chapters/1` est un contrat : renommer une
 scène ou retirer `champions[].moments` casse cette lecture côté site.
 
-## Son : bruitages seulement dans le master, musique dans la version site (15/10, puis 21/10)
+## Son : bruitages seulement dans le master, musique dans les versions site et YouTube/Instagram (15/10, 21/10, 31/10)
 
 Le master (`out/<id>.mp4`, TikTok) n'a aucune musique : `synth-audio.mjs` ne pose que les bruitages (impact
 d'ouverture, whoosh, pops, ticks, montée, impact de fin) calés sur les repères de `timeline.ts`, et la musique
@@ -64,6 +64,15 @@ musique entrent dans la moyenne — ce n'est pas une perte de niveau. Changer de
 Piste en place depuis le 28/10 : `site.wav` = « Two Toned » (Suno), **déjà coupée à 21 s** (intro calme de
 −32 à −20 LUFS sur 20 s, le corps du morceau tient de 21 à 63 s), donc sans `MUSIC_START` en CI. Original
 complet (121 s) : `/Volumes/T7/wrc-video-cache/music/Two Toned.wav`.
+
+**Version réseaux YouTube/Instagram** (`<id>.social.mp4`, décision d'Anthony du 31/10 : « Two Toned » libre de
+droits) : produite par `site-encode.sh` dès qu'une piste existe, même mixage que la version site (fonction
+`mix_filter`, une seule chaîne), **image du master copiée au bit près** (`-c:v copy`, 1080×1920), AAC 192k 48 kHz,
+`moov` en tête. Le master `<id>.mp4` reste sans musique pour TikTok. Sans piste dans `site-music`, pas de
+`.social.mp4` : nexus-core bloque alors YouTube et Instagram plutôt que d'envoyer le master muet.
+
+**Couleur** : rendu Remotion en `--color-space=bt709` depuis le 31/10 (avant : `color_space` absent, transfert
+`iec61966-2-1`). À vérifier sur chaque release par `ffprobe -show_entries stream=color_space,color_transfer`.
 
 ## Voix : synthèse TikTok, pas de TTS payant (décision du 2026-10-15)
 

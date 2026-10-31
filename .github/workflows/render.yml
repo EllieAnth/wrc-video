@@ -71,13 +71,14 @@ jobs:
           FORMATS="${{ github.event.inputs.formats }}"
           [ -z "$FORMATS" ] && FORMATS="$(node scripts/formats.mjs | tr '\n' ' ')"
           for f in $FORMATS; do
-            npx remotion render src/index.ts "$f" "out/$f.mp4" --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k --log=error
+            npx remotion render src/index.ts "$f" "out/$f.mp4" --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k --color-space=bt709 --log=error
           done
           ls -la out
 
-      # Musique de la version SITE seulement (décision du 21/10) : pistes déposées dans la pré-release
-      # `site-music` (<id>.mp3|wav|m4a pour un format, site.* pour tous). Sans piste : bruitages seuls, comme
-      # le master TikTok, qui ne reçoit jamais de musique (elle se pose dans TikTok à la publication).
+      # Musique de la version site (21/10) et de la version réseaux YouTube/Instagram `<id>.social.mp4` (31/10) :
+      # pistes déposées dans la pré-release `site-music` (<id>.mp3|wav|m4a pour un format, site.* pour tous).
+      # Sans piste : bruitages seuls et PAS de `.social.mp4` (nexus-core bloque alors YouTube/Instagram, sans
+      # repli muet). Le master TikTok ne reçoit jamais de musique (elle se pose dans TikTok à la publication).
       - name: Site music (release site-music)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -89,10 +90,10 @@ jobs:
       # Version site (lue par nexus-core, scripts/publish-meta-movers-video.mjs → R2 → article, tier list, /meta/,
       # fiches) : 720×1280 à débit plafonné, affiche, musique si fournie (scripts/site-encode.sh), et chapitres
       # (passage de chaque champion, scripts/export-chapters.mts).
-      - name: Site versions (web encode, poster, music, chapters)
+      - name: Site and social versions (web encode, poster, music, chapters)
         run: |
           for m in out/*.mp4; do
-            case "$m" in *.web.mp4) continue ;; esac
+            case "$m" in *.web.mp4|*.social.mp4) continue ;; esac
             id="$(basename "${m%.mp4}")"
             music="$(ls music/"$id".mp3 music/"$id".wav music/"$id".m4a music/site.mp3 music/site.wav music/site.m4a 2>/dev/null | head -1 || true)"
             scripts/site-encode.sh "$m" "$music"
@@ -110,7 +111,7 @@ jobs:
           tag_name: ${{ steps.week.outputs.tag }}
           name: Videos — ${{ steps.week.outputs.tag }}
           body: |
-            English shorts rendered from the week's data (sound effects only: add music on TikTok). Voice-over text per scene in the `*-voice.md` files (paste into TikTok text-to-speech).
+            English shorts rendered from the week's data. `<id>.mp4`: sound effects only (TikTok, add music in the app). `<id>.social.mp4`: same picture with music (YouTube Shorts, Instagram Reels). `<id>.web.mp4`: website version. Voice-over text per scene in the `*-voice.md` files (paste into TikTok text-to-speech).
           files: |
             out/*.mp4
             out/*.jpg

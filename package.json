@@ -11,7 +11,7 @@
     "stills": "for f in $(node scripts/formats.mjs); do npx tsx scripts/stills.mts --format=$f; done",
     "studio": "remotion studio src/index.ts",
     "render:one": "remotion render src/index.ts",
-    "render:all": "for f in $(node scripts/formats.mjs); do npx remotion render src/index.ts $f out/$f.mp4 --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k --log=error || exit 1; done",
+    "render:all": "for f in $(node scripts/formats.mjs); do npx remotion render src/index.ts $f out/$f.mp4 --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=192k --color-space=bt709 --log=error || exit 1; done",
     "render": "npm run sync && npm run clips && npm run cues && npm run audio && npm run voice && npm run render:all",
     "typecheck": "tsc --noEmit -p .",
     "champions:sync": "node scripts/sync-champions.mjs",
