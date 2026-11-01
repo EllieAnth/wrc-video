@@ -46,14 +46,11 @@ export const ClipPanel: React.FC<{
   );
 };
 
-/** Bandeau « clip by » : nom de la chaîne en évidence, icône lecture, glisse depuis la gauche. */
+/** Bandeau « clip by » : nom de la chaîne en évidence, glisse depuis la gauche. Pas d'icône : le carré rouge lecture imitait le logo YouTube, et Instagram pénalise les logos d'autres applis (01/11). */
 export const CreatorBadge: React.FC<{ clip: CreatorClip; delay?: number; bottom?: number; left?: number }> = ({ clip, delay = 6, bottom = 40, left = 50 }) => {
   const s = useSpring(delay, { damping: 16 });
   return (
-    <div style={{ position: 'absolute', left, bottom, display: 'flex', alignItems: 'center', gap: 18, transform: `translateX(${(1 - s) * -160}px)`, opacity: s }}>
-      <div style={{ width: 54, height: 54, borderRadius: 14, background: '#ff0033', display: 'grid', placeItems: 'center', boxShadow: '0 6px 24px #0009' }}>
-        <div style={{ width: 0, height: 0, borderLeft: '20px solid #fff', borderTop: '12px solid transparent', borderBottom: '12px solid transparent', marginLeft: 4 }} />
-      </div>
+    <div style={{ position: 'absolute', left, bottom, display: 'flex', alignItems: 'center', transform: `translateX(${(1 - s) * -160}px)`, opacity: s }}>
       <div style={{ background: '#05060dd9', border: `2px solid ${C.cyan}`, borderRadius: 16, padding: '10px 22px' }}>
         <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 22, color: C.muted, letterSpacing: 3, textTransform: 'uppercase' }}>Clip by</div>
         <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 34, color: C.text, whiteSpace: 'nowrap', maxWidth: 760, overflow: 'hidden', textOverflow: 'ellipsis' }}>{clip.creator}</div>
