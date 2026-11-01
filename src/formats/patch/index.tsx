@@ -20,16 +20,18 @@ const headline = effects[0];
 const Intro: React.FC = () => {
   const f = useCurrentFrame();
   const shine = useShine(30, 60);
-  const s = useSpring(2, { damping: 11, stiffness: 150 });
+  const s = useSpring(0, { damping: 11, stiffness: 150 });
+  const titleScale = 0.9 + s * 0.1;
   const sub = ramp(f, 18, 30);
   return (
-    <AbsoluteFill style={useSceneInOut(T.INTRO, 1, 8)}>
+    // Titre lisible dès l'image 0 (accroche sans son, 01/11) : scène sans fondu d'entrée, titre sans opacité, flash léger.
+    <AbsoluteFill style={useSceneInOut(T.INTRO, 0, 8)}>
       <CreatorPanel champ={headline.key} top={0} height={1920} delay={0} durationFrames={T.INTRO} dim={0.6} badgeBottom={330} />
-      <Flash at={2} strength={0.7} />
+      <Flash at={2} strength={0.15} />
       <div style={{ position: 'absolute', top: 520, left: 0, right: 0, textAlign: 'center' }}>
         <Kicker>Wild Rift · {week}</Kicker>
-        <div style={{ marginTop: 20, fontFamily: TITLE, fontWeight: 900, fontSize: 92, color: C.text, lineHeight: 1, transform: `scale(${s})`, opacity: s, textShadow: '0 10px 50px #000' }}>PATCH</div>
-        <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 250, lineHeight: 1, transform: `scale(${s})`, opacity: s, textShadow: '0 20px 80px #000' }}><GoldText shine={shine}>{data.notesVersion}</GoldText></div>
+        <div style={{ marginTop: 20, fontFamily: TITLE, fontWeight: 900, fontSize: 92, color: C.text, lineHeight: 1, transform: `scale(${titleScale})`, textShadow: '0 10px 50px #000' }}>PATCH</div>
+        <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 250, lineHeight: 1, transform: `scale(${titleScale})`, textShadow: '0 20px 80px #000' }}><GoldText shine={shine}>{data.notesVersion}</GoldText></div>
         <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 20, opacity: sub }}>
           <span style={{ fontFamily: BODY, fontWeight: 700, fontSize: 48, color: C.text, letterSpacing: 4 }}>IN</span>
           <DropBadge delay={20} size={80}>30</DropBadge>

@@ -19,10 +19,10 @@ export const useSpring = (delay = 0, config: { damping?: number; mass?: number; 
   return spring({ frame: f - delay, fps, config: { damping: 14, mass: 0.8, stiffness: 120, ...config } });
 };
 
-/** Entrée (glissement + fondu) et sortie d'une scène. */
+/** Entrée (glissement + fondu) et sortie d'une scène. `inFrames = 0` : pleine dès l'image 0 (accroche des réseaux). */
 export const useSceneInOut = (duration: number, inFrames = 10, outFrames = 8) => {
   const f = useCurrentFrame();
-  const inP = ramp(f, 0, inFrames, ease.expo);
+  const inP = inFrames > 0 ? ramp(f, 0, inFrames, ease.expo) : 1;
   const outP = ramp(f, duration - outFrames, duration, ease.inOut);
   return { opacity: inP * (1 - outP), transform: `translateX(${(1 - inP) * 40 - outP * 90}px) scale(${1 - outP * 0.04})` };
 };

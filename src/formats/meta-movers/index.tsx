@@ -22,19 +22,20 @@ const findChamp = (key: string) => data.roles.flatMap((r) => r.splus).find((c) =
 const Intro: React.FC = () => {
   const f = useCurrentFrame();
   const hero = findChamp(data.hero);
-  const titleIn = useSpring(6, { damping: 13 });
+  const titleIn = useSpring(0, { damping: 13 });
   const shine = useShine(16, 50);
   const sub = ramp(f, 24, 40);
   return (
-    <AbsoluteFill style={useSceneInOut(T.INTRO, 1, 8)}>
+    // Titre lisible dès l'image 0 (accroche sans son, 01/11) : scène sans fondu d'entrée, titre sans opacité, flash léger.
+    <AbsoluteFill style={useSceneInOut(T.INTRO, 0, 8)}>
       <CreatorPanel champ={data.hero} top={0} height={1920} delay={0} durationFrames={T.INTRO} dim={0.45} badgeBottom={400} />
-      <Flash at={2} />
+      <Flash at={2} strength={0.15} />
       <div style={{ position: 'absolute', top: 330, left: 0, right: 0, textAlign: 'center' }}>
         <Kicker delay={10}>Wild Rift · {data.rank}</Kicker>
-        <div style={{ marginTop: 18, fontFamily: TITLE, fontWeight: 900, fontSize: 168, lineHeight: 1, transform: `scale(${0.7 + titleIn * 0.3})`, opacity: titleIn, textShadow: '0 20px 60px #000' }}>
+        <div style={{ marginTop: 18, fontFamily: TITLE, fontWeight: 900, fontSize: 168, lineHeight: 1, transform: `scale(${0.9 + titleIn * 0.1})`, textShadow: '0 20px 60px #000' }}>
           <GoldText shine={shine}>TIER LIST</GoldText>
         </div>
-        <div style={{ marginTop: 20, fontFamily: TITLE, fontWeight: 700, fontSize: 92, color: C.text, opacity: titleIn, textShadow: '0 6px 30px #000' }}>{data.patch}</div>
+        <div style={{ marginTop: 20, fontFamily: TITLE, fontWeight: 700, fontSize: 92, color: C.text, textShadow: '0 6px 30px #000' }}>{data.patch}</div>
         <div style={{ marginTop: 26, opacity: sub, transform: `scale(${0.9 + sub * 0.1})` }}>
           <Pill outline bg={C.cyan} size={38}>Meta of the week · {week}</Pill>
         </div>
