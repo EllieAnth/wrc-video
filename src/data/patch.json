@@ -1,342 +1,376 @@
 {
-  "patch": "7.3b",
+  "patch": "7.3d",
   "week": {
-    "start": "2026-10-12",
-    "end": "2026-10-18"
+    "start": "2026-10-26",
+    "end": "2026-11-01"
   },
   "rank": "Master+",
-  "syncedAt": "2026-10-19",
-  "version": "7.3b",
-  "date": "2026-10-14",
-  "notesVersion": "7.3b",
+  "syncedAt": "2026-11-02",
+  "version": "7.3d",
+  "date": "2026-10-29",
+  "notesVersion": "7.3d",
   "buffs": [
     {
-      "key": "volibear",
-      "name": "Volibear",
+      "key": "camille",
+      "name": "Camille",
       "type": "buff",
-      "summary": "Frenzied Maul goes to 110% AD (176% empowered) and heals 5/8/11/14% of missing health instead of 5/6/7/8%.",
-      "abilities": [
-        {
-          "slot": "W",
-          "name": "Frenzied Maul"
-        }
-      ],
+      "summary": "Camille's attack speed per level goes from 0.016 to 0.028.",
+      "abilities": [],
       "palette": [
-        "#89a3f0",
-        "#8fafde"
+        "#d7b095",
+        "#74bee9"
       ]
     },
     {
-      "key": "tryndamere",
-      "name": "Tryndamere",
+      "key": "leesin",
+      "name": "Lee Sin",
       "type": "buff",
-      "summary": "Every Fury point grants 0.5% critical strike chance at all levels, and Spinning Slash goes up to 80/130/180/230 (+110% bonus AD).",
+      "summary": "Lee Sin doubles his attack speed per level (0.02 → 0.04) and Dragon's Rage gains 25 base damage at every rank (150/375/600).",
+      "abilities": [
+        {
+          "slot": "R",
+          "name": "Dragon's Rage"
+        }
+      ],
+      "palette": [
+        "#ff548b",
+        "#c8ba9a"
+      ]
+    },
+    {
+      "key": "akali",
+      "name": "Akali",
+      "type": "buff",
+      "summary": "Akali doubles her attack speed per level (0.02 → 0.04) and goes to 37 base armor instead of 34.",
+      "abilities": [],
+      "palette": [
+        "#e588af",
+        "#8992ff"
+      ]
+    },
+    {
+      "key": "missfortune",
+      "name": "Miss Fortune",
+      "type": "buff",
+      "summary": "Love Tap goes to a 50% bonus AD multiplier (from 40%) and Bullet Time crits to 135–145.5% (from 130–139%).",
       "abilities": [
         {
           "slot": "P",
-          "name": "Battle Fury"
+          "name": "Love Tap"
         },
         {
-          "slot": "E",
-          "name": "Spinning Slash"
+          "slot": "R",
+          "name": "Bullet Time"
         }
       ],
       "palette": [
-        "#e1a893",
-        "#7cdcc4"
-      ]
-    },
-    {
-      "key": "jhin",
-      "name": "Jhin",
-      "type": "buff",
-      "summary": "Jhin's crits deal 85% of normal critical damage instead of 80%, and his fourth shot's missing-health bonus reaches its cap at level 10 instead of 15.",
-      "abilities": [
-        {
-          "slot": "P",
-          "name": "Whisper"
-        }
-      ],
-      "palette": [
-        "#ff3ba6",
-        "#9db5c9"
-      ]
-    },
-    {
-      "key": "yasuo",
-      "name": "Yasuo",
-      "type": "buff",
-      "summary": "Yasuo's crits deal 95% of normal critical damage instead of 90%, and the Way of the Wanderer shield goes up to 77–630.",
-      "abilities": [
-        {
-          "slot": "P",
-          "name": "Way of the Wanderer"
-        }
-      ],
-      "palette": [
-        "#56acff",
-        "#dd90b0"
+        "#ff8e45",
+        "#f2aa80"
       ]
     }
   ],
   "nerfs": [
     {
-      "key": "hwei",
-      "name": "Hwei",
+      "key": "malphite",
+      "name": "Malphite",
       "type": "nerf",
-      "summary": "Signature of the Visionary drops to 30–280 (+25% AP), Serenity's shields and damage go down, and Crushing Maw loses range (7.5 → 7) and 10 damage per rank.",
+      "summary": "Granite Shield drops to 10% max health and Thunderclap's first attack to 30/45/60/75 (+20% armor).",
       "abilities": [
         {
           "slot": "P",
-          "name": "Signature of the Visionary"
+          "name": "Granite Shield"
         },
         {
           "slot": "W",
-          "name": "Subject: Serenity"
-        },
-        {
-          "slot": "E",
-          "name": "Subject: Torment"
+          "name": "Thunderclap"
         }
       ],
       "palette": [
-        "#58cff6",
-        "#e790a5"
+        "#f69e88",
+        "#f39b8e"
       ]
     },
     {
-      "key": "nocturne",
-      "name": "Nocturne",
+      "key": "ekko",
+      "name": "Ekko",
       "type": "nerf",
-      "summary": "Nocturne loses 6 HP per level, Duskbringer loses 10 base damage and grants less AD at early ranks, and Paranoia comes back 10 s later at every rank (120/100/80 s).",
-      "abilities": [
-        {
-          "slot": "Q",
-          "name": "Duskbringer"
-        },
-        {
-          "slot": "R",
-          "name": "Paranoia"
-        }
-      ],
-      "palette": [
-        "#857aff",
-        "#6395ff"
-      ]
-    },
-    {
-      "key": "yunara",
-      "name": "Yunara",
-      "type": "nerf",
-      "summary": "Cultivation of Spirit's passive and active damage lose 5 per rank (5/10/15/20), and Transcend One's Self comes back later at ranks 2 and 3 (70/65/60 s).",
-      "abilities": [
-        {
-          "slot": "Q",
-          "name": "Cultivation of Spirit"
-        },
-        {
-          "slot": "R",
-          "name": "Transcend One's Self"
-        }
-      ],
-      "palette": [
-        "#8f5eff",
-        "#eba48d"
-      ]
-    },
-    {
-      "key": "senna",
-      "name": "Senna",
-      "type": "nerf",
-      "summary": "Each Mist stack now grants 0.9 AD instead of 1.25, her crits drop to 80% of normal critical damage and Piercing Darkness loses 20 base damage per rank.",
+      "summary": "Against monsters, Z-Drive Resonance goes to 110% damage (from 120%) and Timewinder to 100% (from 115%).",
       "abilities": [
         {
           "slot": "P",
-          "name": "Absolution"
+          "name": "Z-Drive Resonance"
         },
         {
           "slot": "Q",
-          "name": "Piercing Darkness"
+          "name": "Timewinder"
         }
       ],
       "palette": [
-        "#d78db8",
-        "#5ebcff"
+        "#ff6690",
+        "#81c2d8"
+      ]
+    },
+    {
+      "key": "samira",
+      "name": "Samira",
+      "type": "nerf",
+      "summary": "Flair goes to 115% AD (from 125%) and Inferno Trigger to 45% (from 50%).",
+      "abilities": [
+        {
+          "slot": "Q",
+          "name": "Flair"
+        },
+        {
+          "slot": "R",
+          "name": "Inferno Trigger"
+        }
+      ],
+      "palette": [
+        "#f69790",
+        "#b08fdd"
+      ]
+    },
+    {
+      "key": "ashe",
+      "name": "Ashe",
+      "type": "nerf",
+      "summary": "Frost Shot's bonus basic attack damage now caps at 123.5% (based on crit stats) instead of 130%.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Frost Shot"
+        }
+      ],
+      "palette": [
+        "#5b71ff",
+        "#c195c6"
+      ]
+    },
+    {
+      "key": "singed",
+      "name": "Singed",
+      "type": "nerf",
+      "summary": "Singed loses 30 base health (660) and 5 movement speed (350), Mega Adhesive goes to 14/13/12/11 s and Fling to 13 s.",
+      "abilities": [
+        {
+          "slot": "W",
+          "name": "Mega Adhesive"
+        },
+        {
+          "slot": "E",
+          "name": "Fling"
+        }
+      ],
+      "palette": [
+        "#6fff7e",
+        "#f0939a"
       ]
     }
   ],
   "adjustments": [],
   "items": [
     {
-      "key": "youmuus-ghostblade",
-      "name": "Youmuu's Ghostblade",
+      "key": "fiendhunter-bolts",
+      "name": "Fiendhunter Bolts",
       "type": "buff",
-      "summary": "Youmuu's Ghostblade now costs 2,900 gold instead of 3,000.",
-      "image": "items/youmuus-ghostblade.webp"
+      "summary": "Opening Barrage goes to 85% normal critical strike damage and 17.5% true damage (from 80% and 15%).",
+      "image": "items/fiendhunter-bolts.webp"
     },
     {
-      "key": "locket-of-the-iron-solari",
-      "name": "Locket of the Iron Solari",
+      "key": "divine-sunderer",
+      "name": "Divine Sunderer",
       "type": "buff",
-      "summary": "Locket of the Iron Solari goes to 2,500 gold and 300 HP, from 2,600 gold and 200 HP.",
-      "image": "items/locket-of-the-iron-solari.webp"
+      "summary": "Divine Sunderer now costs 3,300 gold instead of 3,400.",
+      "image": "items/divine-sunderer.webp"
     },
     {
-      "key": "statikk-shiv",
-      "name": "Statikk Shiv",
+      "key": "essence-reaver",
+      "name": "Essence Reaver",
       "type": "buff",
-      "summary": "Statikk Shiv now costs 2,900 gold instead of 3,000, and each attack grants 7 bonus Energized stacks instead of 5.",
-      "image": "items/statikk-shiv.webp"
+      "summary": "Essence Reaver now gives 55 AD instead of 50.",
+      "image": "items/essence-reaver.webp"
     },
     {
-      "key": "yun-tal-wildarrows",
-      "name": "Yun Tal Wildarrows",
-      "type": "buff",
-      "summary": "Yun Tal Wildarrows now costs 3,000 gold instead of 3,100.",
-      "image": "items/yun-tal-wildarrows.webp"
-    },
-    {
-      "key": "thornmail",
-      "name": "Thornmail",
+      "key": "whispering-circlet",
+      "name": "Whispering Circlet",
       "type": "nerf",
-      "summary": "Thornmail now costs 2,850 gold instead of 2,700.",
-      "image": "items/thornmail.webp"
+      "summary": "Whispering Circlet's heal and shield power goes from 8% to 6%.",
+      "image": "items/whispering-circlet.webp"
     },
     {
-      "key": "warmogs-armor",
-      "name": "Warmog's Armor",
+      "key": "diadem-of-songs",
+      "name": "Diadem of Songs",
       "type": "nerf",
-      "summary": "Warmog's Heart now needs 1,250 bonus health to trigger, up from 900.",
-      "image": "items/warmogs-armor.webp"
+      "summary": "Diadem of Songs' heal and shield power goes from 8% to 6%.",
+      "image": "items/diadem-of-songs.webp"
+    },
+    {
+      "key": "stormrazor",
+      "name": "Stormrazor",
+      "type": "nerf",
+      "summary": "Stormrazor's Bolt deals 100 damage (from 120) and gives 35% movement speed (from 45%).",
+      "image": "items/stormrazor.webp"
     }
   ],
   "effects": [
     {
-      "key": "senna",
-      "name": "Senna",
+      "key": "shyvana",
+      "name": "Shyvana",
+      "type": "adjust",
+      "wrBefore": 46.1,
+      "wrAfter": 52.71,
+      "wrDelta": 6.61,
+      "days": 3,
+      "pickBefore": 2.94,
+      "pickAfter": 5.45,
+      "pickDelta": 2.51,
+      "palette": [
+        "#f07fad",
+        "#ac9ed2"
+      ]
+    },
+    {
+      "key": "samira",
+      "name": "Samira",
       "type": "nerf",
-      "wrBefore": 53.98,
-      "wrAfter": 49.47,
-      "wrDelta": -4.51,
-      "days": 4,
-      "pickBefore": 12.22,
-      "pickAfter": 7.75,
-      "pickDelta": -4.47,
+      "wrBefore": 51.01,
+      "wrAfter": 48.93,
+      "wrDelta": -2.08,
+      "days": 3,
+      "pickBefore": 11.79,
+      "pickAfter": 7.68,
+      "pickDelta": -4.11,
       "palette": [
-        "#d78db8",
-        "#5ebcff"
+        "#f69790",
+        "#b08fdd"
       ]
     },
     {
-      "key": "hwei",
-      "name": "Hwei",
+      "key": "leesin",
+      "name": "Lee Sin",
+      "type": "buff",
+      "wrBefore": 46.9,
+      "wrAfter": 48.88,
+      "wrDelta": 1.98,
+      "days": 3,
+      "pickBefore": 12.86,
+      "pickAfter": 15.33,
+      "pickDelta": 2.47,
+      "palette": [
+        "#ff548b",
+        "#c8ba9a"
+      ]
+    },
+    {
+      "key": "malphite",
+      "name": "Malphite",
       "type": "nerf",
-      "wrBefore": 55.62,
-      "wrAfter": 52.13,
-      "wrDelta": -3.49,
-      "days": 4,
-      "pickBefore": 8.71,
-      "pickAfter": 6.94,
-      "pickDelta": -1.77,
+      "wrBefore": 54.75,
+      "wrAfter": 53.03,
+      "wrDelta": -1.72,
+      "days": 3,
+      "pickBefore": 8.03,
+      "pickAfter": 7.16,
+      "pickDelta": -0.87,
       "palette": [
-        "#58cff6",
-        "#e790a5"
+        "#f69e88",
+        "#f39b8e"
       ]
     },
     {
-      "key": "nocturne",
-      "name": "Nocturne",
-      "type": "nerf",
-      "wrBefore": 55.81,
-      "wrAfter": 52.58,
-      "wrDelta": -3.23,
-      "days": 4,
-      "pickBefore": 9.86,
-      "pickAfter": 6.87,
-      "pickDelta": -2.99,
-      "palette": [
-        "#857aff",
-        "#6395ff"
-      ]
-    },
-    {
-      "key": "yunara",
-      "name": "Yunara",
-      "type": "nerf",
-      "wrBefore": 51.36,
-      "wrAfter": 48.97,
-      "wrDelta": -2.39,
-      "days": 4,
-      "pickBefore": 16.36,
-      "pickAfter": 7.85,
-      "pickDelta": -8.51,
-      "palette": [
-        "#8f5eff",
-        "#eba48d"
-      ]
-    },
-    {
-      "key": "volibear",
-      "name": "Volibear",
+      "key": "akali",
+      "name": "Akali",
       "type": "buff",
-      "wrBefore": 47.62,
-      "wrAfter": 48.51,
-      "wrDelta": 0.89,
-      "days": 4,
-      "pickBefore": 4.73,
-      "pickAfter": 9.02,
-      "pickDelta": 4.29,
-      "palette": [
-        "#89a3f0",
-        "#8fafde"
-      ]
-    },
-    {
-      "key": "jhin",
-      "name": "Jhin",
-      "type": "buff",
-      "wrBefore": 48.63,
-      "wrAfter": 49.45,
-      "wrDelta": 0.82,
-      "days": 4,
-      "pickBefore": 9.57,
-      "pickAfter": 18.81,
-      "pickDelta": 9.24,
-      "palette": [
-        "#ff3ba6",
-        "#9db5c9"
-      ]
-    },
-    {
-      "key": "tryndamere",
-      "name": "Tryndamere",
-      "type": "buff",
-      "wrBefore": 44.71,
-      "wrAfter": 45.46,
-      "wrDelta": 0.75,
-      "days": 4,
-      "pickBefore": 1.82,
-      "pickAfter": 2.73,
-      "pickDelta": 0.91,
-      "palette": [
-        "#e1a893",
-        "#7cdcc4"
-      ]
-    },
-    {
-      "key": "yasuo",
-      "name": "Yasuo",
-      "type": "buff",
-      "wrBefore": 46.73,
-      "wrAfter": 47.3,
-      "wrDelta": 0.57,
-      "days": 4,
-      "pickBefore": 8.27,
-      "pickAfter": 9.12,
+      "wrBefore": 47.02,
+      "wrAfter": 48.46,
+      "wrDelta": 1.44,
+      "days": 3,
+      "pickBefore": 4.96,
+      "pickAfter": 5.81,
       "pickDelta": 0.85,
       "palette": [
-        "#56acff",
-        "#dd90b0"
+        "#e588af",
+        "#8992ff"
+      ]
+    },
+    {
+      "key": "ashe",
+      "name": "Ashe",
+      "type": "nerf",
+      "wrBefore": 53.5,
+      "wrAfter": 52.66,
+      "wrDelta": -0.84,
+      "days": 3,
+      "pickBefore": 9.61,
+      "pickAfter": 6.44,
+      "pickDelta": -3.17,
+      "palette": [
+        "#5b71ff",
+        "#c195c6"
+      ]
+    },
+    {
+      "key": "nasus",
+      "name": "Nasus",
+      "type": "adjust",
+      "wrBefore": 46.4,
+      "wrAfter": 46.92,
+      "wrDelta": 0.52,
+      "days": 3,
+      "pickBefore": 5.62,
+      "pickAfter": 5.97,
+      "pickDelta": 0.35,
+      "palette": [
+        "#bb4cff",
+        "#daba88"
+      ]
+    },
+    {
+      "key": "camille",
+      "name": "Camille",
+      "type": "buff",
+      "wrBefore": 48,
+      "wrAfter": 48.49,
+      "wrDelta": 0.49,
+      "days": 3,
+      "pickBefore": 2.04,
+      "pickAfter": 2.76,
+      "pickDelta": 0.72,
+      "palette": [
+        "#d7b095",
+        "#74bee9"
+      ]
+    },
+    {
+      "key": "missfortune",
+      "name": "Miss Fortune",
+      "type": "buff",
+      "wrBefore": 48.59,
+      "wrAfter": 49.05,
+      "wrDelta": 0.46,
+      "days": 3,
+      "pickBefore": 12.68,
+      "pickAfter": 11.1,
+      "pickDelta": -1.58,
+      "palette": [
+        "#ff8e45",
+        "#f2aa80"
+      ]
+    },
+    {
+      "key": "ekko",
+      "name": "Ekko",
+      "type": "nerf",
+      "wrBefore": 50.13,
+      "wrAfter": 50.54,
+      "wrDelta": 0.41,
+      "days": 3,
+      "pickBefore": 4.99,
+      "pickAfter": 3.07,
+      "pickDelta": -1.92,
+      "palette": [
+        "#ff6690",
+        "#81c2d8"
       ]
     }
   ]

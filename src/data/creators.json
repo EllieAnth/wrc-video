@@ -345,6 +345,61 @@
       "champions": [
         "darius"
       ]
+    },
+    "https://www.youtube.com/channel/UC7mzKAwqaqSVC6OL09omrWQ": {
+      "creator": "Mantesque Gaming",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "kalista"
+      ]
+    },
+    "https://www.youtube.com/channel/UCR6LKqXWssmu5kMa2bTysCA": {
+      "creator": "ProGuides Wild Rift Challenger Tips & Tricks",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "braum"
+      ]
+    },
+    "https://www.youtube.com/channel/UCxkuEjsXzjCUk0sOWMsnX4g": {
+      "creator": "Innerpeace Wild Rift",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "leona"
+      ]
+    },
+    "https://www.youtube.com/channel/UCW-aYWV6js0sjzSKWfsApQg": {
+      "creator": "Wild Rift Best China Gameplay - Tier OVO",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "yone"
+      ]
+    },
+    "https://www.youtube.com/channel/UC-4kpzKuMSQP02PPE6OLqiQ": {
+      "creator": "WagaoShadow",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "shyvana"
+      ]
     }
   }
 }

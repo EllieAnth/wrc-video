@@ -383,5 +383,60 @@
     "start": 17.6,
     "duration": 7,
     "source": "1920x1080"
+  },
+  "kalista": {
+    "src": "clips/kalista-creator.mp4",
+    "creator": "Mantesque Gaming",
+    "channel": "https://www.youtube.com/channel/UC7mzKAwqaqSVC6OL09omrWQ",
+    "url": "https://www.youtube.com/watch?v=o--RgFwpyFs",
+    "title": "Pentakill Kalista Wild Rift #leagueoflegends #wildriftbr #wildrift #wrshorts #lolshorts",
+    "kind": "short",
+    "start": 6.7,
+    "duration": 7,
+    "source": "1080x1920"
+  },
+  "braum": {
+    "src": "clips/braum-creator.mp4",
+    "creator": "ProGuides Wild Rift Challenger Tips & Tricks",
+    "channel": "https://www.youtube.com/channel/UCR6LKqXWssmu5kMa2bTysCA",
+    "url": "https://www.youtube.com/watch?v=rU6bNJVFwB8",
+    "title": "OP SUPPORT: Braum GUIDE + BUILD in 1 Minute - Wild Rift (LoL Mobile) #Shorts",
+    "kind": "short",
+    "start": 29.9,
+    "duration": 7,
+    "source": "1080x1920"
+  },
+  "leona": {
+    "src": "clips/leona-creator.mp4",
+    "creator": "Innerpeace Wild Rift",
+    "channel": "https://www.youtube.com/channel/UCxkuEjsXzjCUk0sOWMsnX4g",
+    "url": "https://www.youtube.com/watch?v=plHr4sFQxW0",
+    "title": "Leona QUADRAKILL - Proving That Support CAN Carry",
+    "kind": "short",
+    "start": 2.4,
+    "duration": 7,
+    "source": "1080x1920"
+  },
+  "yone": {
+    "src": "clips/yone-creator.mp4",
+    "creator": "Wild Rift Best China Gameplay - Tier OVO",
+    "channel": "https://www.youtube.com/channel/UCW-aYWV6js0sjzSKWfsApQg",
+    "url": "https://www.youtube.com/watch?v=kpLrCguwung",
+    "title": "Wild Rift China Top1 Yone Montage Insane Combo Pentakill",
+    "kind": "short",
+    "start": 24.6,
+    "duration": 7,
+    "source": "1080x1920"
+  },
+  "shyvana": {
+    "src": "clips/shyvana-creator.mp4",
+    "creator": "WagaoShadow",
+    "channel": "https://www.youtube.com/channel/UC-4kpzKuMSQP02PPE6OLqiQ",
+    "url": "https://www.youtube.com/watch?v=slrB3XTC2GE",
+    "title": "Penta Kill Shyvana Supergalactica Wild Rift (Baila Lento)",
+    "kind": "search",
+    "start": 32.6,
+    "duration": 7,
+    "source": "1920x886"
   }
 }
