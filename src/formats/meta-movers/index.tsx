@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame } from 
 import data from '../../data/tierlist.json';
 import { BODY, C, ROLE_SUB, TITLE, pct, weekLabel } from '../../theme';
 import { Background, Flash } from '../../fx/Background';
-import { CountUp, GoldText, Kicker, Pill, RevealWords, useShine } from '../../fx/Text';
+import { CountUp, GoldText, Kicker, RevealWords, useShine } from '../../fx/Text';
 import { Outro, ProgressBar, SceneHead, TopBar, Watermark, DropBadge } from '../../fx/Chrome';
 import { CardRow, MoveRow, TierBoard } from '../../fx/Card';
 import { CreatorPanel, SpellPanel, creatorClip } from '../../fx/Video';
@@ -17,6 +17,22 @@ type Role = (typeof data.roles)[number];
 type Clip = { src: string; start: number };
 const clips = data.clips as Record<string, Clip>;
 const findChamp = (key: string) => data.roles.flatMap((r) => r.splus).find((c) => c.key === key);
+
+// ── Tampon de semaine : la date doit dire « ce n'est pas la vidéo de la semaine dernière » (Anthony, 05/11) ──
+// Lisible dès l'image 0 (pas d'opacité d'entrée) : claquement 1,15 → 1, balayage lumineux, halo qui pulse.
+const DateStamp: React.FC = () => {
+  const f = useCurrentFrame();
+  const slam = useSpring(0, { damping: 9, stiffness: 180 });
+  const sweep = ramp(f, 8, 30);
+  const pulse = 0.5 + 0.5 * Math.sin(f / 5);
+  return (
+    <div style={{ marginTop: 44, display: 'inline-block', position: 'relative', overflow: 'hidden', transform: `scale(${1.15 - slam * 0.15}) rotate(${(1 - slam) * -2}deg)`, padding: '16px 46px 20px', borderRadius: 26, background: `${C.bg0}e6`, border: `5px solid ${C.cyan}`, boxShadow: `0 0 ${30 + pulse * 40}px ${C.cyan}${pulse > 0.5 ? 'aa' : '66'}` }}>
+      <div style={{ fontFamily: BODY, fontWeight: 800, fontSize: 34, color: C.cyan2, letterSpacing: 10, textTransform: 'uppercase' }}>This week</div>
+      <div style={{ fontFamily: TITLE, fontWeight: 900, fontSize: 112, lineHeight: 1.05, color: C.text, letterSpacing: 2, whiteSpace: 'nowrap' }}>{week.toUpperCase()}</div>
+      <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(105deg, transparent ${sweep * 140 - 30}%, #ffffff55 ${sweep * 140 - 15}%, transparent ${sweep * 140}%)`, pointerEvents: 'none' }} />
+    </div>
+  );
+};
 
 // ── Intro : clip du n° 1 plein cadre, titre doré, semaine ─────────────────────
 const Intro: React.FC = () => {
@@ -35,10 +51,8 @@ const Intro: React.FC = () => {
         <div style={{ marginTop: 18, fontFamily: TITLE, fontWeight: 900, fontSize: 168, lineHeight: 1, transform: `scale(${0.9 + titleIn * 0.1})`, textShadow: '0 20px 60px #000' }}>
           <GoldText shine={shine}>TIER LIST</GoldText>
         </div>
-        <div style={{ marginTop: 20, fontFamily: TITLE, fontWeight: 700, fontSize: 92, color: C.text, textShadow: '0 6px 30px #000' }}>{data.patch}</div>
-        <div style={{ marginTop: 26, opacity: sub, transform: `scale(${0.9 + sub * 0.1})` }}>
-          <Pill outline bg={C.cyan} size={38}>Meta of the week · {week}</Pill>
-        </div>
+        <DateStamp />
+        <div style={{ marginTop: 22, fontFamily: BODY, fontWeight: 800, fontSize: 44, color: C.text, letterSpacing: 4, textShadow: '0 6px 30px #000' }}>Patch {data.patch}</div>
       </div>
       {hero && (
         <div style={{ position: 'absolute', left: 0, right: 0, bottom: 300, textAlign: 'center', opacity: sub }}>
