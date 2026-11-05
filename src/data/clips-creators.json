@@ -438,5 +438,38 @@
     "start": 32.6,
     "duration": 7,
     "source": "1920x886"
+  },
+  "rell": {
+    "src": "clips/rell-creator.mp4",
+    "creator": "CaptainIndigo",
+    "channel": "https://www.youtube.com/channel/UC5zOzMmZVlL3d52Ic5onAXA",
+    "url": "https://www.youtube.com/watch?v=0ZpEzV9M9Wc",
+    "title": "Rell Support Pentakill",
+    "kind": "search",
+    "start": 3.7,
+    "duration": 7,
+    "source": "1920x1080"
+  },
+  "swain": {
+    "src": "clips/swain-creator.mp4",
+    "creator": "Biscoito Wild Rift ",
+    "channel": "https://www.youtube.com/channel/UCU6musHrrG-xvz1e-g1UAiQ",
+    "url": "https://www.youtube.com/watch?v=Dv49ZxIfsi8",
+    "title": "O PENTA Mais Satisfatório de SWAIN! #shorts #wildrift #leagueoflegends #pentakill #swain",
+    "kind": "short",
+    "start": 17.1,
+    "duration": 7,
+    "source": "1080x1920"
+  },
+  "olaf": {
+    "src": "clips/olaf-creator.mp4",
+    "creator": "Ossborn",
+    "channel": "https://www.youtube.com/channel/UCf0DPmLCsKQrA-ytMUKQ4IA",
+    "url": "https://www.youtube.com/watch?v=LMiwG3dn_Fw",
+    "title": "Pentakill Olaf #wildrift #montage #moba #shorts #gaming #olaf  #wildriftindonesia #pentakill",
+    "kind": "short",
+    "start": 26.9,
+    "duration": 7,
+    "source": "1080x1920"
   }
 }

@@ -1,232 +1,49 @@
 {
-  "patch": "7.3d",
+  "patch": "7.3e",
   "week": {
-    "start": "2026-10-26",
-    "end": "2026-11-01"
+    "start": "2026-11-02",
+    "end": "2026-11-08"
   },
   "rank": "Master+",
-  "syncedAt": "2026-11-02",
+  "syncedAt": "2026-11-05",
   "version": "7.3d",
   "date": "2026-10-29",
-  "notesVersion": "7.3d",
-  "buffs": [
-    {
-      "key": "camille",
-      "name": "Camille",
-      "type": "buff",
-      "summary": "Camille's attack speed per level goes from 0.016 to 0.028.",
-      "abilities": [],
-      "palette": [
-        "#d7b095",
-        "#74bee9"
-      ]
-    },
-    {
-      "key": "leesin",
-      "name": "Lee Sin",
-      "type": "buff",
-      "summary": "Lee Sin doubles his attack speed per level (0.02 → 0.04) and Dragon's Rage gains 25 base damage at every rank (150/375/600).",
-      "abilities": [
-        {
-          "slot": "R",
-          "name": "Dragon's Rage"
-        }
-      ],
-      "palette": [
-        "#ff548b",
-        "#c8ba9a"
-      ]
-    },
-    {
-      "key": "akali",
-      "name": "Akali",
-      "type": "buff",
-      "summary": "Akali doubles her attack speed per level (0.02 → 0.04) and goes to 37 base armor instead of 34.",
-      "abilities": [],
-      "palette": [
-        "#e588af",
-        "#8992ff"
-      ]
-    },
-    {
-      "key": "missfortune",
-      "name": "Miss Fortune",
-      "type": "buff",
-      "summary": "Love Tap goes to a 50% bonus AD multiplier (from 40%) and Bullet Time crits to 135–145.5% (from 130–139%).",
-      "abilities": [
-        {
-          "slot": "P",
-          "name": "Love Tap"
-        },
-        {
-          "slot": "R",
-          "name": "Bullet Time"
-        }
-      ],
-      "palette": [
-        "#ff8e45",
-        "#f2aa80"
-      ]
-    }
-  ],
-  "nerfs": [
-    {
-      "key": "malphite",
-      "name": "Malphite",
-      "type": "nerf",
-      "summary": "Granite Shield drops to 10% max health and Thunderclap's first attack to 30/45/60/75 (+20% armor).",
-      "abilities": [
-        {
-          "slot": "P",
-          "name": "Granite Shield"
-        },
-        {
-          "slot": "W",
-          "name": "Thunderclap"
-        }
-      ],
-      "palette": [
-        "#f69e88",
-        "#f39b8e"
-      ]
-    },
-    {
-      "key": "ekko",
-      "name": "Ekko",
-      "type": "nerf",
-      "summary": "Against monsters, Z-Drive Resonance goes to 110% damage (from 120%) and Timewinder to 100% (from 115%).",
-      "abilities": [
-        {
-          "slot": "P",
-          "name": "Z-Drive Resonance"
-        },
-        {
-          "slot": "Q",
-          "name": "Timewinder"
-        }
-      ],
-      "palette": [
-        "#ff6690",
-        "#81c2d8"
-      ]
-    },
-    {
-      "key": "samira",
-      "name": "Samira",
-      "type": "nerf",
-      "summary": "Flair goes to 115% AD (from 125%) and Inferno Trigger to 45% (from 50%).",
-      "abilities": [
-        {
-          "slot": "Q",
-          "name": "Flair"
-        },
-        {
-          "slot": "R",
-          "name": "Inferno Trigger"
-        }
-      ],
-      "palette": [
-        "#f69790",
-        "#b08fdd"
-      ]
-    },
-    {
-      "key": "ashe",
-      "name": "Ashe",
-      "type": "nerf",
-      "summary": "Frost Shot's bonus basic attack damage now caps at 123.5% (based on crit stats) instead of 130%.",
-      "abilities": [
-        {
-          "slot": "P",
-          "name": "Frost Shot"
-        }
-      ],
-      "palette": [
-        "#5b71ff",
-        "#c195c6"
-      ]
-    },
-    {
-      "key": "singed",
-      "name": "Singed",
-      "type": "nerf",
-      "summary": "Singed loses 30 base health (660) and 5 movement speed (350), Mega Adhesive goes to 14/13/12/11 s and Fling to 13 s.",
-      "abilities": [
-        {
-          "slot": "W",
-          "name": "Mega Adhesive"
-        },
-        {
-          "slot": "E",
-          "name": "Fling"
-        }
-      ],
-      "palette": [
-        "#6fff7e",
-        "#f0939a"
-      ]
-    }
-  ],
+  "notesVersion": "7.3e",
+  "buffs": [],
+  "nerfs": [],
   "adjustments": [],
-  "items": [
-    {
-      "key": "fiendhunter-bolts",
-      "name": "Fiendhunter Bolts",
-      "type": "buff",
-      "summary": "Opening Barrage goes to 85% normal critical strike damage and 17.5% true damage (from 80% and 15%).",
-      "image": "items/fiendhunter-bolts.webp"
-    },
-    {
-      "key": "divine-sunderer",
-      "name": "Divine Sunderer",
-      "type": "buff",
-      "summary": "Divine Sunderer now costs 3,300 gold instead of 3,400.",
-      "image": "items/divine-sunderer.webp"
-    },
-    {
-      "key": "essence-reaver",
-      "name": "Essence Reaver",
-      "type": "buff",
-      "summary": "Essence Reaver now gives 55 AD instead of 50.",
-      "image": "items/essence-reaver.webp"
-    },
-    {
-      "key": "whispering-circlet",
-      "name": "Whispering Circlet",
-      "type": "nerf",
-      "summary": "Whispering Circlet's heal and shield power goes from 8% to 6%.",
-      "image": "items/whispering-circlet.webp"
-    },
-    {
-      "key": "diadem-of-songs",
-      "name": "Diadem of Songs",
-      "type": "nerf",
-      "summary": "Diadem of Songs' heal and shield power goes from 8% to 6%.",
-      "image": "items/diadem-of-songs.webp"
-    },
-    {
-      "key": "stormrazor",
-      "name": "Stormrazor",
-      "type": "nerf",
-      "summary": "Stormrazor's Bolt deals 100 damage (from 120) and gives 35% movement speed (from 45%).",
-      "image": "items/stormrazor.webp"
-    }
-  ],
+  "items": [],
   "effects": [
     {
       "key": "shyvana",
       "name": "Shyvana",
       "type": "adjust",
       "wrBefore": 46.1,
-      "wrAfter": 52.71,
-      "wrDelta": 6.61,
-      "days": 3,
+      "wrAfter": 52.95,
+      "wrDelta": 6.85,
+      "days": 6,
       "pickBefore": 2.94,
-      "pickAfter": 5.45,
-      "pickDelta": 2.51,
+      "pickAfter": 5.76,
+      "pickDelta": 2.82,
       "palette": [
         "#f07fad",
         "#ac9ed2"
+      ]
+    },
+    {
+      "key": "malphite",
+      "name": "Malphite",
+      "type": "nerf",
+      "wrBefore": 54.75,
+      "wrAfter": 52.53,
+      "wrDelta": -2.22,
+      "days": 6,
+      "pickBefore": 8.03,
+      "pickAfter": 7,
+      "pickDelta": -1.03,
+      "palette": [
+        "#f69e88",
+        "#f39b8e"
       ]
     },
     {
@@ -234,12 +51,12 @@
       "name": "Samira",
       "type": "nerf",
       "wrBefore": 51.01,
-      "wrAfter": 48.93,
-      "wrDelta": -2.08,
-      "days": 3,
+      "wrAfter": 49.06,
+      "wrDelta": -1.95,
+      "days": 6,
       "pickBefore": 11.79,
-      "pickAfter": 7.68,
-      "pickDelta": -4.11,
+      "pickAfter": 7.38,
+      "pickDelta": -4.41,
       "palette": [
         "#f69790",
         "#b08fdd"
@@ -250,31 +67,15 @@
       "name": "Lee Sin",
       "type": "buff",
       "wrBefore": 46.9,
-      "wrAfter": 48.88,
-      "wrDelta": 1.98,
-      "days": 3,
+      "wrAfter": 48.7,
+      "wrDelta": 1.8,
+      "days": 6,
       "pickBefore": 12.86,
-      "pickAfter": 15.33,
-      "pickDelta": 2.47,
+      "pickAfter": 15.62,
+      "pickDelta": 2.76,
       "palette": [
         "#ff548b",
         "#c8ba9a"
-      ]
-    },
-    {
-      "key": "malphite",
-      "name": "Malphite",
-      "type": "nerf",
-      "wrBefore": 54.75,
-      "wrAfter": 53.03,
-      "wrDelta": -1.72,
-      "days": 3,
-      "pickBefore": 8.03,
-      "pickAfter": 7.16,
-      "pickDelta": -0.87,
-      "palette": [
-        "#f69e88",
-        "#f39b8e"
       ]
     },
     {
@@ -282,12 +83,12 @@
       "name": "Akali",
       "type": "buff",
       "wrBefore": 47.02,
-      "wrAfter": 48.46,
-      "wrDelta": 1.44,
-      "days": 3,
+      "wrAfter": 48.4,
+      "wrDelta": 1.38,
+      "days": 6,
       "pickBefore": 4.96,
-      "pickAfter": 5.81,
-      "pickDelta": 0.85,
+      "pickAfter": 5.5,
+      "pickDelta": 0.54,
       "palette": [
         "#e588af",
         "#8992ff"
@@ -298,31 +99,15 @@
       "name": "Ashe",
       "type": "nerf",
       "wrBefore": 53.5,
-      "wrAfter": 52.66,
-      "wrDelta": -0.84,
-      "days": 3,
+      "wrAfter": 52.19,
+      "wrDelta": -1.31,
+      "days": 6,
       "pickBefore": 9.61,
-      "pickAfter": 6.44,
-      "pickDelta": -3.17,
+      "pickAfter": 6.36,
+      "pickDelta": -3.25,
       "palette": [
         "#5b71ff",
         "#c195c6"
-      ]
-    },
-    {
-      "key": "nasus",
-      "name": "Nasus",
-      "type": "adjust",
-      "wrBefore": 46.4,
-      "wrAfter": 46.92,
-      "wrDelta": 0.52,
-      "days": 3,
-      "pickBefore": 5.62,
-      "pickAfter": 5.97,
-      "pickDelta": 0.35,
-      "palette": [
-        "#bb4cff",
-        "#daba88"
       ]
     },
     {
@@ -330,31 +115,15 @@
       "name": "Camille",
       "type": "buff",
       "wrBefore": 48,
-      "wrAfter": 48.49,
-      "wrDelta": 0.49,
-      "days": 3,
+      "wrAfter": 49.03,
+      "wrDelta": 1.03,
+      "days": 6,
       "pickBefore": 2.04,
-      "pickAfter": 2.76,
-      "pickDelta": 0.72,
+      "pickAfter": 2.41,
+      "pickDelta": 0.37,
       "palette": [
         "#d7b095",
         "#74bee9"
-      ]
-    },
-    {
-      "key": "missfortune",
-      "name": "Miss Fortune",
-      "type": "buff",
-      "wrBefore": 48.59,
-      "wrAfter": 49.05,
-      "wrDelta": 0.46,
-      "days": 3,
-      "pickBefore": 12.68,
-      "pickAfter": 11.1,
-      "pickDelta": -1.58,
-      "palette": [
-        "#ff8e45",
-        "#f2aa80"
       ]
     },
     {
@@ -362,15 +131,47 @@
       "name": "Ekko",
       "type": "nerf",
       "wrBefore": 50.13,
-      "wrAfter": 50.54,
-      "wrDelta": 0.41,
-      "days": 3,
+      "wrAfter": 51.05,
+      "wrDelta": 0.92,
+      "days": 6,
       "pickBefore": 4.99,
-      "pickAfter": 3.07,
-      "pickDelta": -1.92,
+      "pickAfter": 3.03,
+      "pickDelta": -1.96,
       "palette": [
         "#ff6690",
         "#81c2d8"
+      ]
+    },
+    {
+      "key": "nasus",
+      "name": "Nasus",
+      "type": "adjust",
+      "wrBefore": 46.4,
+      "wrAfter": 47.01,
+      "wrDelta": 0.61,
+      "days": 6,
+      "pickBefore": 5.62,
+      "pickAfter": 6.01,
+      "pickDelta": 0.39,
+      "palette": [
+        "#bb4cff",
+        "#daba88"
+      ]
+    },
+    {
+      "key": "missfortune",
+      "name": "Miss Fortune",
+      "type": "buff",
+      "wrBefore": 48.59,
+      "wrAfter": 49.03,
+      "wrDelta": 0.44,
+      "days": 6,
+      "pickBefore": 12.68,
+      "pickAfter": 10.52,
+      "pickDelta": -2.16,
+      "palette": [
+        "#ff8e45",
+        "#f2aa80"
       ]
     }
   ]

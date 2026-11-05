@@ -400,6 +400,39 @@
       "champions": [
         "shyvana"
       ]
+    },
+    "https://www.youtube.com/channel/UC5zOzMmZVlL3d52Ic5onAXA": {
+      "creator": "CaptainIndigo",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "rell"
+      ]
+    },
+    "https://www.youtube.com/channel/UCU6musHrrG-xvz1e-g1UAiQ": {
+      "creator": "Biscoito Wild Rift ",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "swain"
+      ]
+    },
+    "https://www.youtube.com/channel/UCf0DPmLCsKQrA-ytMUKQ4IA": {
+      "creator": "Ossborn",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "olaf"
+      ]
     }
   }
 }
