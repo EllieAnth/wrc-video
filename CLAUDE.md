@@ -100,6 +100,16 @@ largeur (paysage) ou ≤ 40 % en hauteur (portrait), reste du panneau rempli par
 recadrage 9:16 au centre perdait le champion dès que la caméra du créateur n'était pas verrouillée
 sur lui (retour d'Anthony, 2026-10-15). Changer le cadrage = re-rendre ; changer l'encodage =
 `fetch-clips.mjs --reframe` (ré-encode depuis le cache du T7, sans re-télécharger).
+**Contrôles obligatoires (06/11, retour d'Anthony : Smolder et Hwei en LoL PC, Braum en carte de build figée)** —
+un clip n'est retenu que s'il passe les trois : (1) « Wild Rift » (ou wildrift, LoL mobile, 英雄联盟手游…) dans le
+**titre, les tags ou le nom de la chaîne** — la description seule ne compte pas ; (2) le champion nommé dans le titre
+ou les tags ; (3) du mouvement : médiane YDIF ≥ 0,8 (`--min-motion`, carte figée ≈ 0,1, jeu ≥ 1). Titres guide /
+build / tier list / trailer / skin spotlight écartés. Un refus automatique entre dans `clips-rejected.json` ; le
+résultat (`checks`) est stocké dans `clips-creators.json`, un clip sans `checks` repasse les contrôles. Planche
+1 i/s de chaque clip retenu : `out/clips-review/<key>.jpg`. Le log finit par `✓ clip validé pour chaque champion à
+l'écran` ou `⛔ sans clip validé` (vedette, n° 1 de chaque rôle, vedette du patch). **Plus d'aperçu de sort Riot
+dans meta-movers** : le CDN `champion-abilities` est celui de LoL PC ; sans clip, c'est le splash. Les 403 de
+yt-dlp viennent d'une version périmée : `brew upgrade yt-dlp` (2026.03 → 2026.10 le 06/11).
 Chaînes exclues : Riot / Wild Rift officiel. Anthony juge les clips et demande des remplacements :
 `--champ=<key> --replace` refait le choix. Repli automatique si aucun clip : splash en Ken Burns.
 

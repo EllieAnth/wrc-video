@@ -6,7 +6,7 @@ import { Background, Flash } from '../../fx/Background';
 import { CountUp, GoldText, Kicker, RevealWords, useShine } from '../../fx/Text';
 import { Outro, ProgressBar, SceneHead, TopBar, Watermark, DropBadge } from '../../fx/Chrome';
 import { CardRow, MoveRow, TierBoard } from '../../fx/Card';
-import { CreatorPanel, SpellPanel, creatorClip } from '../../fx/Video';
+import { CreatorPanel } from '../../fx/Video';
 import { Sparkline } from '../../fx/Sparkline';
 import { ease, ramp, useSceneInOut, useSpring } from '../../fx/util';
 import * as T from './timeline';
@@ -14,8 +14,6 @@ import * as T from './timeline';
 export const DURATION = T.TOTAL;
 const week = weekLabel(data.week);
 type Role = (typeof data.roles)[number];
-type Clip = { src: string; start: number };
-const clips = data.clips as Record<string, Clip>;
 const findChamp = (key: string) => data.roles.flatMap((r) => r.splus).find((c) => c.key === key);
 
 // ── Tampon de semaine : la date doit dire « ce n'est pas la vidéo de la semaine dernière » (Anthony, 05/11) ──
@@ -65,24 +63,20 @@ const Intro: React.FC = () => {
   );
 };
 
-// ── Rôle : en-tête, clip du n° 1 (créateur, sinon sort Riot), cartes S+, courbe de tendance ──
+// ── Rôle : en-tête, clip du n° 1 (créateur Wild Rift, sinon splash), cartes S+, courbe de tendance ──
 const RoleScene: React.FC<{ role: Role; index: number }> = ({ role, index }) => {
   const f = useCurrentFrame();
   const star = role.splus.find((c) => c.key === role.spotlight) || role.splus[0];
   const n = role.splus.length;
   const size = n <= 3 ? 210 : n === 4 ? 185 : 160;
-  const spell = clips[`${role.spotlight}-${(role as { spotlightSpell?: string }).spotlightSpell || 'R'}`];
-  const useCreator = !!creatorClip(role.spotlight || '');
   const sparkIn = ramp(f, 40, 52);
   const reasonIn = ramp(f, 64, 78);
   return (
     <AbsoluteFill style={useSceneInOut(T.ROLE)}>
       <Watermark text={role.role} top={1500} />
-      {useCreator || !spell ? (
-        <CreatorPanel champ={role.spotlight || star.key} top={470} height={640} delay={0} durationFrames={T.ROLE} badgeBottom={50} />
-      ) : (
-        <SpellPanel src={spell.src} start={spell.start} name={star.name} spell={(role as { spotlightSpell?: string }).spotlightSpell || 'R'} top={470} height={640} delay={0} durationFrames={T.ROLE} />
-      )}
+      {/* Clip de créateur validé Wild Rift, sinon splash. Plus d'aperçu de sort Riot : ces vidéos viennent du CDN de
+          LoL PC (Smolder, Meta Movers du 05/11, retour d'Anthony du 06/11). */}
+      <CreatorPanel champ={role.spotlight || star.key} top={470} height={640} delay={0} durationFrames={T.ROLE} badgeBottom={50} />
       <SceneHead kicker={`${index + 1} / ${data.roles.length} · ${ROLE_SUB[role.role]}`} title={role.role} badge="S+" top={280} />
       <CardRow champs={role.splus} size={size} delay={T.CARD_DELAY} stagger={T.CARD_STAGGER} star={role.spotlight} top={1130} sweepAt={T.CARD_DELAY + 30} />
       <div style={{ position: 'absolute', left: 90, top: 1440, opacity: sparkIn, transform: `translateY(${(1 - sparkIn) * 30}px)` }}>

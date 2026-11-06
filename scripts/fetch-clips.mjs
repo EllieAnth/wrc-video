@@ -66,27 +66,88 @@ const rejected = fs.existsSync(REJECTED) ? JSON.parse(fs.readFileSync(REJECTED, 
 
 const ytId = (url) => (url.match(/(?:shorts\/|v=|youtu\.be\/)([\w-]{11})/) || [])[1];
 
-function candidates(key) {
+// ── Contrôles de validité (retour d'Anthony, 2026-11-06 : Smolder et Hwei montraient du LoL PC, Braum une carte
+// de build figée). Un clip n'est retenu que s'il passe les TROIS : (1) Wild Rift nommé dans le titre, les tags ou
+// le nom de la chaîne — la description seule ne compte pas (liens et hashtags recopiés) ; (2) le champion nommé dans
+// le titre ou les tags (Vi illustré par « Morgana | Wild Rift: PENTAKILL ») ; (3) de l'image qui bouge : médiane du
+// YDIF (signalstats, écart moyen de luminance d'une image à la suivante) ≥ MIN_MOTION. Mesuré le 06/11 sur les 43
+// clips : carte de build Braum 0,13, Sion 0,05 (plan fixe coupé de deux sauts), tout clip de jeu ≥ 1,0.
+const MIN_MOTION = Number(arg('min-motion', 0.8));
+const WR_RE = /wild\s*rift|wildrift|\blol\s*mobile\b|league of legends mobile|\blolm\b|lol手游|英雄联盟手游|英雄聯盟手遊|와일드\s*리프트|ワイルドリフト/i;
+// Hors sujet même s'il nomme Wild Rift : cartes de build, tier lists, bandes-annonces, autres jeux Riot.
+const OFF_RE = /\b(guide|builds?|tier\s*list|patch\s*notes?|skin\s*(spotlight|preview)|cinematic|trailer|teamfight tactics|tft|2xko|runeterra)\b/i;
+const champName = (key) => avatarByNorm.get(key)?.name || key;
+function namesChampion(key, text) {
+  const n = norm(champName(key));
+  if (n.length > 3) return norm(text).includes(n);
+  return new RegExp(`(^|[^a-z])${n}([^a-z]|$)`, 'i').test(String(text).toLowerCase()); // « vi » : mot entier
+}
+// Renvoie null si le clip est valide, sinon la raison. `meta` = { title, tags, channelName, description }.
+function metaProblem(key, meta) {
+  const tags = (meta.tags || []).join(' ');
+  if (OFF_RE.test(meta.title || '')) return `hors sujet (« ${meta.title} »)`;
+  if (!WR_RE.test(`${meta.title} ${tags} ${meta.channelName || ''}`)) return `Wild Rift absent du titre, des tags et de la chaîne (« ${meta.title} »)`;
+  if (!namesChampion(key, `${meta.title} ${tags}`)) return `${champName(key)} absent du titre et des tags (« ${meta.title} »)`;
+  return null;
+}
+const wrSource = (meta) => (WR_RE.test(meta.title || '') ? 'title' : WR_RE.test((meta.tags || []).join(' ')) ? 'tags' : 'channel');
+function motion(file) {
+  const r = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', file, '-vf', 'scale=320:-2,signalstats,metadata=print:key=lavfi.signalstats.YDIF', '-an', '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 1e8 });
+  const v = [...(r.stderr || '').matchAll(/YDIF=([\d.]+)/g)].map((m) => Number(m[1])).sort((a, b) => a - b);
+  return v.length ? Math.round(v[Math.floor(v.length / 2)] * 100) / 100 : 0;
+}
+// Planche de contrôle (1 image/s) pour l'œil : out/clips-review/<key>.jpg — Anthony ou une session la regarde avant publication.
+const REVIEW = path.join(ROOT, 'out/clips-review');
+function reviewSheet(key, file) {
+  fs.mkdirSync(REVIEW, { recursive: true });
+  spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', 'fps=1,scale=320:-2,tile=7x1', '-frames:v', '1', path.join(REVIEW, `${key}.jpg`)]);
+}
+
+// Refus automatique : mémorisé dans clips-rejected.json (la vidéo ne sera plus sondée pour ce champion).
+function reject(key, url, why) {
+  rejected[key] = [...new Set([...(rejected[key] || []), ytId(url)].filter(Boolean))];
+  fs.writeFileSync(REJECTED, JSON.stringify(rejected, null, 2) + '\n');
+  console.log(`  ✗ ${key} : ${why}`);
+}
+// Métadonnées d'une vidéo déjà retenue : info.json du cache, sinon yt-dlp -j (sans télécharger), sinon ce qu'on a stocké.
+function metaFor(url, stored) {
+  const f = path.join(CACHE, `${ytId(url)}.info.json`);
+  let info = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+  if (!info) { const r = run(['--no-warnings', '--skip-download', '-j', url], 60000); try { info = JSON.parse(r.stdout); } catch { /* vidéo retirée */ } }
+  return info ? { title: info.title, tags: info.tags || [], channelName: `${info.channel || ''} ${info.uploader || ''}` } : { title: stored.title, tags: [], channelName: stored.creator };
+}
+
+// Candidats, dans l'ordre : index du site, puis recherches YouTube (paresseuses : lancées seulement si l'index n'a rien donné).
+function* candidates(key) {
   const e = byNorm.get(key);
-  const list = [];
+  const seen = new Set();
+  const ok = (c) => { const id = ytId(c.url); if (!id || seen.has(id)) return false; seen.add(id); return !/wild rift official|riot games|league of legends: wild rift/i.test(c.channel || '') && !OFF_RE.test(c.title || ''); };
   if (e) {
+    const list = [];
     for (const v of e.shorts || []) list.push({ url: v.url, title: v.title, kind: 'short' });
     const cat = json(`assets/data/champion-videos/${e.slug}.json`)?.categories || {};
-    for (const c of ['highlights', 'ranked', 'meta', 'guide']) for (const v of cat[c]?.videos || []) if (v.watchUrl || v.videoId) list.push({ url: v.watchUrl || `https://www.youtube.com/watch?v=${v.videoId}`, title: v.title, kind: c, channel: v.channel, duration: v.durationSeconds });
+    for (const c of ['highlights', 'ranked', 'meta']) for (const v of cat[c]?.videos || []) if (v.watchUrl || v.videoId) list.push({ url: v.watchUrl || `https://www.youtube.com/watch?v=${v.videoId}`, title: v.title, kind: c, channel: v.channel, duration: v.durationSeconds });
     for (const v of e.youtube || []) list.push({ url: v.url, title: v.title, kind: 'video' });
+    for (const c of list) if (ok(c)) yield c;
   }
-  // Recherche YouTube de secours : l'index du site date, plusieurs de ses vidéos ont été retirées.
-  const name = avatarByNorm.get(key)?.name || key;
-  for (const q of [`${name} wild rift pentakill`, `${name} wild rift highlights`]) {
-    const r = spawnSync('yt-dlp', ['--no-warnings', '--flat-playlist', '-j', `ytsearch8:${q}`], { encoding: 'utf8', timeout: 60000 });
+  // Recherche YouTube : l'index du site date, plusieurs de ses vidéos ont été retirées.
+  const name = champName(key);
+  for (const q of [`${name} wild rift pentakill`, `${name} wild rift highlights`, `${name} wild rift gameplay`, `${name} wildrift shorts`, `${name} wild rift montage`]) {
+    const r = spawnSync('yt-dlp', ['--no-warnings', '--flat-playlist', '-j', `ytsearch12:${q}`], { encoding: 'utf8', timeout: 60000 });
     const hits = (r.stdout || '').trim().split('\n').filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
     // Shorts et vidéos courtes d'abord (le passage fort est facile à isoler), puis par audience.
     hits.sort((a, b) => ((a.duration || 999) <= 120 ? 0 : 1) - ((b.duration || 999) <= 120 ? 0 : 1) || (b.view_count || 0) - (a.view_count || 0));
-    for (const h of hits) if (h.duration && h.duration <= 900) list.push({ url: h.url || `https://www.youtube.com/watch?v=${h.id}`, title: h.title, kind: 'search', channel: h.channel || h.uploader, duration: h.duration });
+    for (const h of hits) {
+      if (!h.duration || h.duration > 900) continue;
+      // Pré-filtre gratuit sur le titre seul : le champion doit y être (la recherche YouTube ramène ses voisins).
+      if (!namesChampion(key, h.title || '')) continue;
+      // …et Wild Rift dans le titre ou la chaîne : sans ça, la recherche ramène surtout du LoL PC (LPL, ARAM Mayhem),
+      // et chaque sonde coûte une piste audio. Les vidéos qui ne nomment WR que dans leurs tags viennent de l'index.
+      if (!WR_RE.test(`${h.title} ${h.channel || ''} ${h.uploader || ''}`)) continue;
+      const c = { url: h.url || `https://www.youtube.com/watch?v=${h.id}`, title: h.title, kind: 'search', channel: h.channel || h.uploader, duration: h.duration };
+      if (ok(c)) yield c;
+    }
   }
-  // Déduplication par id, et on écarte les vidéos officielles de Riot (ce sont des aperçus, pas du jeu classé).
-  const seen = new Set();
-  return list.filter((c) => { const id = ytId(c.url); if (!id || seen.has(id)) return false; seen.add(id); return !/wild rift official|riot games|league of legends: wild rift/i.test(c.channel || ''); });
 }
 
 const YT = ['--no-warnings', '--no-playlist', '-o', path.join(CACHE, '%(id)s.%(ext)s')];
@@ -107,7 +168,7 @@ function probe(url) {
   const audio = findFile(`${id}.audio.`);
   if (!fs.existsSync(meta) || !audio) return null;
   const info = JSON.parse(fs.readFileSync(meta, 'utf8'));
-  return { id, audio, creator: info.uploader || info.channel, channel: info.channel_url || info.uploader_url, title: info.title, duration: info.duration, width: info.width, height: info.height, url: info.webpage_url || url };
+  return { id, audio, creator: info.uploader || info.channel, channel: info.channel_url || info.uploader_url, title: info.title, tags: info.tags || [], channelName: `${info.channel || ''} ${info.uploader || ''}`, duration: info.duration, width: info.width, height: info.height, url: info.webpage_url || url };
 }
 
 // 2. Seulement le passage choisi, en pleine résolution (sections découpées par yt-dlp/ffmpeg).
@@ -160,6 +221,14 @@ for (const key of (REFRAME && !arg('champ') ? Object.keys(data) : wanted)) {
     fs.writeFileSync(REJECTED, JSON.stringify(rejected, null, 2) + '\n');
     console.log(`× ${key} : ${data[key].creator} écarté`); delete data[key]; if (fs.existsSync(out)) fs.unlinkSync(out);
   }
+  // Clip déjà retenu : il repasse les contrôles s'il ne les a jamais passés (clips d'avant le 06/11) ; en CI
+  // (--prune-missing) on ne touche à rien, YouTube y est bloqué.
+  if (fs.existsSync(out) && data[key] && !PRUNE && !data[key].checks) {
+    const meta = metaFor(data[key].url, data[key]); const mv = motion(out);
+    const why = metaProblem(key, meta) || (mv < MIN_MOTION ? `image figée (mouvement ${mv} < ${MIN_MOTION})` : null);
+    if (why) { reject(key, data[key].url, why); delete data[key]; fs.unlinkSync(out); }
+    else { data[key].checks = { wildRift: wrSource(meta), motion: mv }; reviewSheet(key, out); }
+  }
   if (fs.existsSync(out) && data[key]) { console.log(`= ${key} (${data[key].creator})`); continue; }
   const banned = new Set(rejected[key] || []);
   let done = false;
@@ -169,18 +238,29 @@ for (const key of (REFRAME && !arg('champ') ? Object.keys(data) : wanted)) {
     const d = probe(c.url);
     if (!d || !d.duration || d.duration > 1500) continue;
     if (refused(d.channel)) continue; // créateur qui a refusé (src/data/creators.json)
+    const why = metaProblem(key, d);
+    if (why) { reject(key, d.url, why); continue; }
     const start = d.duration <= WINDOW + 1 ? 0 : loudestWindow(d.audio, d.duration);
     const len = Math.min(WINDOW, d.duration - start);
     const seg = downloadSegment(d.id, c.url, start, len);
     if (!seg) continue;
     const err = encode(seg, start, len, out);
     if (err) { console.warn(`! ffmpeg ${key}: ${err}`); continue; }
-    data[key] = { src: `clips/${key}-creator.mp4`, creator: d.creator, channel: d.channel, url: d.url, title: d.title, kind: c.kind, start: Math.round(start * 10) / 10, duration: Math.round(len * 10) / 10, source: dims(out) };
-    console.log(`+ ${key} ← ${d.creator} · ${c.kind} · ${start.toFixed(1)}s`);
+    const mv = motion(out);
+    if (mv < MIN_MOTION) { reject(key, d.url, `image figée (mouvement ${mv} < ${MIN_MOTION})`); fs.unlinkSync(out); continue; }
+    data[key] = { src: `clips/${key}-creator.mp4`, creator: d.creator, channel: d.channel, url: d.url, title: d.title, kind: c.kind, start: Math.round(start * 10) / 10, duration: Math.round(len * 10) / 10, source: dims(out), checks: { wildRift: wrSource(d), motion: mv } };
+    reviewSheet(key, out);
+    console.log(`+ ${key} ← ${d.creator} · ${c.kind} · ${start.toFixed(1)}s · Wild Rift (${wrSource(d)}) · mouvement ${mv}`);
     done = true; break;
   }
   if (!done) console.warn(`! ${key} : aucun clip utilisable`);
 }
+// Champions qui OCCUPENT l'écran (vedette, n° 1 de chaque rôle, vedette du patch) : sans clip, ils passent en splash.
+// Le dire en tête de log plutôt que le découvrir à la publication.
+const onScreen = [...new Set([tl.hero, ...tl.roles.map((r) => r.spotlight).filter(Boolean), ...patchHeadline()])];
+const bare = onScreen.filter((k) => !data[k]);
+if (bare.length && !PRUNE) console.warn(`⛔ sans clip validé (repli splash) : ${bare.join(', ')} — relancer --champ=${bare.join(',')} ou chercher à la main`);
+else if (!PRUNE) console.log(`✓ clip validé pour chaque champion à l'écran : ${onScreen.join(', ')} — planches dans out/clips-review/`);
 if (PRUNE) for (const k of Object.keys(data)) if (!fs.existsSync(path.join(OUT_DIR, `${k}-creator.mp4`))) { delete data[k]; console.log(`- ${k} : fichier absent, repli splash`); }
 fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n');
 // Registre : toute chaîne utilisée y figure ; une nouvelle entre en `pending` (à prévenir avant les réseaux).

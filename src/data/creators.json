@@ -143,7 +143,8 @@
       "contact": null,
       "note": null,
       "champions": [
-        "galio"
+        "galio",
+        "braum"
       ]
     },
     "https://www.youtube.com/channel/UCGnXCTZfumW3fagr0yoHc5Q": {
@@ -288,7 +289,8 @@
       "contact": null,
       "note": null,
       "champions": [
-        "yasuo"
+        "yasuo",
+        "hwei"
       ]
     },
     "https://www.youtube.com/channel/UCx8N8d1-J1cVr6lzUwMQwsw": {
@@ -432,6 +434,40 @@
       "note": null,
       "champions": [
         "olaf"
+      ]
+    },
+    "https://www.youtube.com/channel/UCBAXyWN-4TxKFdRkrRwvCHw": {
+      "creator": "Dorans",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "smolder"
+      ]
+    },
+    "https://www.youtube.com/channel/UC-QXKllezN9OxLh6S-F8B9g": {
+      "creator": "OUTSIDER WR",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "nocturne",
+        "syndra"
+      ]
+    },
+    "https://www.youtube.com/channel/UCAXndbK-XYdvkDOYOlBjgWQ": {
+      "creator": "JayM",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "rell"
       ]
     }
   }

@@ -8,7 +8,11 @@
     "kind": "search",
     "start": 28.3,
     "duration": 7,
-    "source": "1920x886"
+    "source": "1920x886",
+    "checks": {
+      "wildRift": "title",
+      "motion": 2.67
+    }
   },
   "shen": {
     "src": "clips/shen-creator.mp4",
@@ -19,7 +23,11 @@
     "kind": "search",
     "start": 6.6,
     "duration": 7,
-    "source": "1920x1080"
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 4.4
+    }
   },
   "mordekaiser": {
     "src": "clips/mordekaiser-creator.mp4",
@@ -30,7 +38,11 @@
     "kind": "guide",
     "start": 1.6,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "tags",
+      "motion": 5.45
+    }
   },
   "teemo": {
     "src": "clips/teemo-creator.mp4",
@@ -41,18 +53,11 @@
     "kind": "short",
     "start": 28,
     "duration": 7,
-    "source": "1080x1920"
-  },
-  "nocturne": {
-    "src": "clips/nocturne-creator.mp4",
-    "creator": "Snaak",
-    "channel": "https://www.youtube.com/channel/UCtgmoZ2HrYtKFaleARaB6uA",
-    "url": "https://www.youtube.com/watch?v=HuXS5mFEJrk",
-    "title": "Nocturne ult be like",
-    "kind": "search",
-    "start": 3.3,
-    "duration": 7,
-    "source": "1920x1080"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 2.17
+    }
   },
   "rammus": {
     "src": "clips/rammus-creator.mp4",
@@ -63,7 +68,11 @@
     "kind": "search",
     "start": 28.4,
     "duration": 7,
-    "source": "1920x1080"
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 1.22
+    }
   },
   "ekko": {
     "src": "clips/ekko-creator.mp4",
@@ -85,29 +94,11 @@
     "kind": "short",
     "start": 3.2,
     "duration": 7,
-    "source": "1080x1920"
-  },
-  "hwei": {
-    "src": "clips/hwei-creator.mp4",
-    "creator": "Power Spike",
-    "channel": "https://www.youtube.com/channel/UCg19EDNLIUCLCZ4IVoJTajA",
-    "url": "https://www.youtube.com/watch?v=Gfzqegn9sFk",
-    "title": "Ashe Kills Full HP Hwei In 1 Second With This Item | League of Legends Clip",
-    "kind": "search",
-    "start": 5.1,
-    "duration": 7,
-    "source": "1920x1080"
-  },
-  "syndra": {
-    "src": "clips/syndra-creator.mp4",
-    "creator": "Mikey閔閔",
-    "channel": "https://www.youtube.com/channel/UCmVi2OTltg8eoVY0Vjn1ppA",
-    "url": "https://www.youtube.com/watch?v=dBjjsqas3pI",
-    "title": "Syndra RANKED PENTAKILL! 🤯   |Mikey閔閔 #leagueoflegends #pentakill #lol",
-    "kind": "short",
-    "start": 8.8,
-    "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 5.46
+    }
   },
   "brand": {
     "src": "clips/brand-creator.mp4",
@@ -118,7 +109,11 @@
     "kind": "short",
     "start": 1.6,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 4.33
+    }
   },
   "morgana": {
     "src": "clips/morgana-creator.mp4",
@@ -129,7 +124,11 @@
     "kind": "search",
     "start": 9.4,
     "duration": 7,
-    "source": "1920x864"
+    "source": "1920x864",
+    "checks": {
+      "wildRift": "title",
+      "motion": 2.45
+    }
   },
   "galio": {
     "src": "clips/galio-creator.mp4",
@@ -140,7 +139,11 @@
     "kind": "short",
     "start": 3.7,
     "duration": 7,
-    "source": "1920x1920"
+    "source": "1920x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 8.31
+    }
   },
   "senna": {
     "src": "clips/senna-creator.mp4",
@@ -151,7 +154,11 @@
     "kind": "short",
     "start": 19.1,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 4.67
+    }
   },
   "yunara": {
     "src": "clips/yunara-creator.mp4",
@@ -371,7 +378,11 @@
     "kind": "short",
     "start": 38.6,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 1.1
+    }
   },
   "darius": {
     "src": "clips/darius-creator.mp4",
@@ -393,18 +404,11 @@
     "kind": "short",
     "start": 6.7,
     "duration": 7,
-    "source": "1080x1920"
-  },
-  "braum": {
-    "src": "clips/braum-creator.mp4",
-    "creator": "ProGuides Wild Rift Challenger Tips & Tricks",
-    "channel": "https://www.youtube.com/channel/UCR6LKqXWssmu5kMa2bTysCA",
-    "url": "https://www.youtube.com/watch?v=rU6bNJVFwB8",
-    "title": "OP SUPPORT: Braum GUIDE + BUILD in 1 Minute - Wild Rift (LoL Mobile) #Shorts",
-    "kind": "short",
-    "start": 29.9,
-    "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 7.11
+    }
   },
   "leona": {
     "src": "clips/leona-creator.mp4",
@@ -415,7 +419,11 @@
     "kind": "short",
     "start": 2.4,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "tags",
+      "motion": 3.27
+    }
   },
   "yone": {
     "src": "clips/yone-creator.mp4",
@@ -437,18 +445,11 @@
     "kind": "search",
     "start": 32.6,
     "duration": 7,
-    "source": "1920x886"
-  },
-  "rell": {
-    "src": "clips/rell-creator.mp4",
-    "creator": "CaptainIndigo",
-    "channel": "https://www.youtube.com/channel/UC5zOzMmZVlL3d52Ic5onAXA",
-    "url": "https://www.youtube.com/watch?v=0ZpEzV9M9Wc",
-    "title": "Rell Support Pentakill",
-    "kind": "search",
-    "start": 3.7,
-    "duration": 7,
-    "source": "1920x1080"
+    "source": "1920x886",
+    "checks": {
+      "wildRift": "title",
+      "motion": 8.13
+    }
   },
   "swain": {
     "src": "clips/swain-creator.mp4",
@@ -459,7 +460,11 @@
     "kind": "short",
     "start": 17.1,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 5.18
+    }
   },
   "olaf": {
     "src": "clips/olaf-creator.mp4",
@@ -470,6 +475,100 @@
     "kind": "short",
     "start": 26.9,
     "duration": 7,
-    "source": "1080x1920"
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 1.38
+    }
+  },
+  "smolder": {
+    "src": "clips/smolder-creator.mp4",
+    "creator": "Dorans",
+    "channel": "https://www.youtube.com/channel/UCBAXyWN-4TxKFdRkrRwvCHw",
+    "url": "https://www.youtube.com/watch?v=4CeK089Lhrc",
+    "title": "Full AP Smolder.exe | Wild Rift",
+    "kind": "search",
+    "start": 54,
+    "duration": 7,
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 5.78
+    }
+  },
+  "nocturne": {
+    "src": "clips/nocturne-creator.mp4",
+    "creator": "OUTSIDER WR",
+    "channel": "https://www.youtube.com/channel/UC-QXKllezN9OxLh6S-F8B9g",
+    "url": "https://www.youtube.com/watch?v=uvOx9MIp4Ds",
+    "title": "Wild Rift Nocturne One Shot Delete in Season 23!",
+    "kind": "highlights",
+    "start": 10.6,
+    "duration": 7,
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 3.89
+    }
+  },
+  "hwei": {
+    "src": "clips/hwei-creator.mp4",
+    "creator": "Night Challenger Wild Rift",
+    "channel": "https://www.youtube.com/channel/UC8iUseZGyQyTy2_v1Twl_eg",
+    "url": "https://www.youtube.com/watch?v=SwSatw3_G8s",
+    "title": "WILD RIFT HWEI - TOP 1 HWEI GAMEPLAY - GRANDMASTER RANKED",
+    "kind": "search",
+    "start": 490.6,
+    "duration": 7,
+    "source": "1920x864",
+    "checks": {
+      "wildRift": "title",
+      "motion": 6.78
+    }
+  },
+  "syndra": {
+    "src": "clips/syndra-creator.mp4",
+    "creator": "OUTSIDER WR",
+    "channel": "https://www.youtube.com/channel/UC-QXKllezN9OxLh6S-F8B9g",
+    "url": "https://www.youtube.com/watch?v=EiGazbyXaSg",
+    "title": "Wild Rift Syndra is OP! One Shot Combo Delete",
+    "kind": "highlights",
+    "start": 11,
+    "duration": 7,
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 5.23
+    }
+  },
+  "braum": {
+    "src": "clips/braum-creator.mp4",
+    "creator": "Tiarty - China Wild Rift",
+    "channel": "https://www.youtube.com/channel/UCJC1TNXpRYi8zKkSFtg2-Uw",
+    "url": "https://www.youtube.com/watch?v=ILGwRzGzq28",
+    "title": "Early Battle Braum Gets Two - China Wild Rift New #braum #chinaserver #wildrift",
+    "kind": "short",
+    "start": 9.2,
+    "duration": 7,
+    "source": "1920x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 5.71
+    }
+  },
+  "rell": {
+    "src": "clips/rell-creator.mp4",
+    "creator": "JayM",
+    "channel": "https://www.youtube.com/channel/UCAXndbK-XYdvkDOYOlBjgWQ",
+    "url": "https://www.youtube.com/watch?v=Z0lZbdJvZ5E",
+    "title": "Rell Support with the NEW 'Ice Overlord' Rune is BROKEN! | WildRift Ranked Support Montage",
+    "kind": "search",
+    "start": 14.1,
+    "duration": 7,
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 1.98
+    }
   }
 }
