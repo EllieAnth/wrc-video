@@ -40,8 +40,16 @@ jobs:
           cache: npm
 
       - name: System tools (ffmpeg, yt-dlp)
+        # 11/11 : miroirs Ubuntu injoignables (« Temporary failure resolving security.ubuntu.com ») → apt-get install
+        # a attendu 45 min sans fin, deux fois. apt borné dans le temps, sinon ffmpeg statique (GitHub, joignable).
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          if ! command -v ffmpeg >/dev/null; then
+            if ! { timeout 240 sudo apt-get update -qq && timeout 300 sudo apt-get install -y -qq ffmpeg; }; then
+              echo "::warning::apt indisponible : ffmpeg statique BtbN n8.1"
+              curl -sL --retry 3 --max-time 300 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ -C /tmp
+              sudo cp /tmp/ffmpeg-n8.1-latest-linux64-gpl-8.1/bin/ff* /usr/local/bin/
+            fi
+          fi
           sudo curl -sL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
           sudo chmod a+rx /usr/local/bin/yt-dlp
           ffmpeg -version | head -1 && yt-dlp --version
