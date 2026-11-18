@@ -1,0 +1,95 @@
+# Sondeur horaire (2026-11-18) : rend la vidéo d'un NOUVEAU patch sans attendre le lundi, et rattrape un rendu
+# hebdo en échec. Décision d'Anthony du 11/11 (nexus-core docs/second-brain/handoff-2026-10-31-social-buffer.md,
+# « Vidéo patch : diffusion immédiate ») : dès que la vidéo du patch est prête, elle part sur les réseaux.
+#
+# Chaîne, sans aucun jeton en écriture entre dépôts (règle 1 de nexus-core .claude/rules/securite-secrets.md : ce
+# dépôt est public, un secret posé ici est lisible par quiconque peut pousser) :
+#   1. ici, chaque heure : notes du patch courant sur nexus-core main (patch<v>.json = meta_current) et aucune
+#      vidéo de ce patch, ni sur le site ni dans la dernière release → `render.yml -f formats=patch` ;
+#   2. nexus-core patch-watch.yml (4 passages par jour) voit la release et lance meta-movers-video.yml ;
+#   3. qui publie la vidéo sur le site puis lance social-weekly.yml : le format patch part sans veto ni brouillon.
+# Lecture de nexus-core : NEXUS_CORE_TOKEN (Contents: read seul), clone superficiel comme render.yml.
+# Lancement : `github.token` (actions: write) ne lance que les workflows de CE dépôt.
+#
+# Bornes : rien si un rendu est en cours ou en file ; au plus 3 rendus lancés par ce sondeur en 24 h (un rendu qui
+# échoue en boucle s'arrête et le dit). Dépôt public : minutes gratuites.
+#
+# Rattrapage hebdo : le rendu du lundi 16/11 a échoué (coupure réseau) sans alerte et la semaine n'est sortie que
+# le mercredi, à la main. Lundi ≥ 20:00 UTC ou mardi < 06:00 UTC, release `week-<lundi>` sans meta-movers.mp4 →
+# rendu complet (avant le rattrapage de mardi 07:30 de nexus-core meta-movers-video.yml). Toujours absente mardi
+# entre 06:00 et 06:59 UTC : le job rougit UNE fois (mail d'échec de GitHub), pas toutes les heures.
+name: Patch poll
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: patch-poll
+  cancel-in-progress: true
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Lire nexus-core (lecture seule)
+        run: |
+          git clone --filter=blob:none --no-checkout --depth=1 --branch main \
+            "https://x-access-token:${{ secrets.NEXUS_CORE_TOKEN }}@github.com/EllieAnth/nexus-core.git" nexus-core
+
+      - name: Décider et lancer render.yml
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          show() { git -C nexus-core show "origin/main:$1"; }
+          P="$(show assets/data/meta_current.json | jq -r '.patch.version')"
+          NOTES="$(git -C nexus-core ls-tree --name-only origin/main assets/data/ | sed 's#.*/##' | grep -E '^patch[0-9]+[a-z]?\.json$' | sort | tail -1)"
+          N="$(echo "$NOTES" | sed -E 's/^patch|\.json$//g; s/^([0-9])([0-9])/\1.\2/')"
+          ONSITE="$(show assets/data/patch-videos.json 2>/dev/null | jq -r --arg p "$P" '[.weeks[]? | select(.patch == $p)] | length' || echo 0)"
+          echo "site : patch $P · notes $N ($NOTES) · vidéos de ce patch sur le site : $ONSITE"
+
+          busy="$(gh run list -R "$REPO" --workflow render.yml --limit 10 --json status --jq '[.[] | select(.status != "completed")] | length')"
+          since="$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)"
+          launched="$(gh api "repos/$REPO/actions/workflows/render.yml/runs?event=workflow_dispatch&created=%3E%3D$since&per_page=50" --jq '[.workflow_runs[] | select(.triggering_actor.login == "github-actions[bot]")] | length')"
+          echo "rendus en cours : $busy · lancés par ce sondeur en 24 h : $launched"
+          if [ "$busy" != "0" ]; then echo "Un rendu tourne déjà : rien."; exit 0; fi
+          if [ "$launched" -ge 3 ]; then echo "::warning::3 rendus lancés en 24 h sans aboutir : le sondeur s'arrête jusqu'à demain (lire les runs de render.yml)."; exit 0; fi
+
+          monday="$(date -u -d "$(( $(date -u +%u) - 1 )) days ago" +%F)"
+          assets="$(gh release view "week-$monday" -R "$REPO" --json assets --jq '[.assets[].name] | join(" ")' 2>/dev/null || true)"
+
+          # 1. Nouveau patch : notes sur main, aucune vidéo de ce patch ni sur le site ni dans la release.
+          if [ "$N" = "$P" ] && [ "$ONSITE" = "0" ]; then
+            rendered=""
+            if echo " $assets " | grep -q ' patch-chapters.json '; then
+              rendered="$(gh release download "week-$monday" -R "$REPO" -p patch-chapters.json -O - | jq -r '.patch')"
+            fi
+            if [ "$rendered" = "$P" ]; then
+              echo "Vidéo du patch $P rendue (week-$monday) : nexus-core patch-watch la publiera."
+            else
+              echo "Nouveau patch $P sans vidéo (release week-$monday : « ${rendered:-aucune} ») → rendu patch."
+              gh workflow run render.yml -R "$REPO" -f formats=patch
+              exit 0
+            fi
+          else
+            echo "Pas de nouveau patch à rendre (notes $N, site $P, vidéos sur le site $ONSITE)."
+          fi
+
+          # 2. Rattrapage du rendu hebdo absent.
+          dow="$(date -u +%u)"; hour="$(date -u +%H)"
+          if echo " $assets " | grep -q ' meta-movers.mp4 '; then echo "Rendu hebdo week-$monday présent."; exit 0; fi
+          if { [ "$dow" = "1" ] && [ "$hour" -ge 20 ]; } || { [ "$dow" = "2" ] && [ "$hour" -lt 6 ]; }; then
+            echo "Release week-$monday sans meta-movers.mp4 → rendu complet."
+            gh workflow run render.yml -R "$REPO"
+          elif [ "$dow" = "2" ] && [ "$hour" = "06" ]; then
+            echo "::error::rendu hebdo week-$monday toujours absent mardi matin : relancer render.yml et lire son dernier run."
+            exit 1
+          fi
