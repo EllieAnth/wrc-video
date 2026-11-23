@@ -226,17 +226,6 @@
     "duration": 7,
     "source": "1080x1920"
   },
-  "skarner": {
-    "src": "clips/skarner-creator.mp4",
-    "creator": "League Lights",
-    "channel": "https://www.youtube.com/channel/UCprjg04diqkyWSPAy4vyhdw",
-    "url": "https://www.youtube.com/watch?v=MwVc0Eb7yu4",
-    "title": "If You Think Skarner is Unplayable...",
-    "kind": "search",
-    "start": 9.6,
-    "duration": 7,
-    "source": "1920x1080"
-  },
   "samira": {
     "src": "clips/samira-creator.mp4",
     "creator": "Rift Focus",
@@ -569,6 +558,111 @@
     "checks": {
       "wildRift": "title",
       "motion": 1.98
+    }
+  },
+  "skarner": {
+    "src": "clips/skarner-creator.mp4",
+    "creator": "CommanderX23",
+    "channel": "https://www.youtube.com/channel/UCg_tK64HL-LJ2LaMhGSdeMA",
+    "url": "https://www.youtube.com/watch?v=wM6s_D0kpPY",
+    "title": "Skarner highlights #leagueoflegends #gaming #otp #wildrift #skarner #riotgames #gamer #memes",
+    "kind": "search",
+    "start": 100.3,
+    "duration": 7,
+    "source": "1920x1080",
+    "checks": {
+      "wildRift": "title",
+      "motion": 12.69
+    }
+  },
+  "sona": {
+    "src": "clips/sona-creator.mp4",
+    "creator": "wulion",
+    "channel": "https://www.youtube.com/channel/UCDa16bnPnptsDaMY8VaPziQ",
+    "url": "https://www.youtube.com/watch?v=iih3-FK-hdo",
+    "title": "Lucian & Sona - Wild Rift",
+    "kind": "short",
+    "start": 42.8,
+    "duration": 7,
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 6.36
+    }
+  },
+  "ezreal": {
+    "src": "clips/ezreal-creator.mp4",
+    "creator": "HellsDevil",
+    "channel": "https://www.youtube.com/channel/UCVl23bJtVvs5LZjrzamIbpQ",
+    "url": "https://www.youtube.com/watch?v=qAn8-cMQf_E",
+    "title": "AP Ezreal In Wild Rift!",
+    "kind": "short",
+    "start": 18.5,
+    "duration": 7,
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 3.55
+    }
+  },
+  "vex": {
+    "src": "clips/vex-creator.mp4",
+    "creator": "RÈYJÚ ",
+    "channel": "https://www.youtube.com/channel/UCPhlktDwx6cNev1ROsK8KIA",
+    "url": "https://www.youtube.com/watch?v=bHlW8q14VNk",
+    "title": "Legendary Vex Highlights #shorts #wildrift #vex #shortsgaming #rèyjú",
+    "kind": "short",
+    "start": 49.1,
+    "duration": 7,
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 4.89
+    }
+  },
+  "rakan": {
+    "src": "clips/rakan-creator.mp4",
+    "creator": "Laposa",
+    "channel": "https://www.youtube.com/channel/UCqM3_jhgUwEf0Nfxn-10kwg",
+    "url": "https://www.youtube.com/watch?v=qPb7tyMNEiU",
+    "title": "RAKAN TÁ MUITO BOM DE JOGAR - Wild Rift  #leagueoflegends #wildrift #challenger",
+    "kind": "short",
+    "start": 151.9,
+    "duration": 7,
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 3.49
+    }
+  },
+  "akshan": {
+    "src": "clips/akshan-creator.mp4",
+    "creator": "Singed",
+    "channel": "https://www.youtube.com/channel/UCmVpwY9V_a80H5nvu_jguRg",
+    "url": "https://www.youtube.com/watch?v=tp-ycXEkFKY",
+    "title": "Wild Rift Akshan Quadra #akshan #wildrift #montage #gameplay #shorts",
+    "kind": "short",
+    "start": 4.1,
+    "duration": 7,
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "title",
+      "motion": 7.39
+    }
+  },
+  "irelia": {
+    "src": "clips/irelia-creator.mp4",
+    "creator": "iTzSTU4RT",
+    "channel": "https://www.youtube.com/channel/UCENcTdPf7Or6mHoFDHJAoFQ",
+    "url": "https://www.youtube.com/watch?v=77Vc1Ak61fI",
+    "title": "Irelia Pentakill Countering Vel'Koz 🔥",
+    "kind": "highlights",
+    "start": 45.9,
+    "duration": 7,
+    "source": "1080x1920",
+    "checks": {
+      "wildRift": "tags",
+      "motion": 5.54
     }
   }
 }

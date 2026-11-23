@@ -32,7 +32,8 @@
       "note": null,
       "champions": [
         "mordekaiser",
-        "volibear"
+        "volibear",
+        "ezreal"
       ]
     },
     "https://www.youtube.com/channel/UCnIO3jX7cWbYb6wfQq1AjKg": {
@@ -468,6 +469,72 @@
       "note": null,
       "champions": [
         "rell"
+      ]
+    },
+    "https://www.youtube.com/channel/UCg_tK64HL-LJ2LaMhGSdeMA": {
+      "creator": "CommanderX23",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "skarner"
+      ]
+    },
+    "https://www.youtube.com/channel/UCDa16bnPnptsDaMY8VaPziQ": {
+      "creator": "wulion",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "sona"
+      ]
+    },
+    "https://www.youtube.com/channel/UCPhlktDwx6cNev1ROsK8KIA": {
+      "creator": "RÈYJÚ ",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "vex"
+      ]
+    },
+    "https://www.youtube.com/channel/UCqM3_jhgUwEf0Nfxn-10kwg": {
+      "creator": "Laposa",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "rakan"
+      ]
+    },
+    "https://www.youtube.com/channel/UCmVpwY9V_a80H5nvu_jguRg": {
+      "creator": "Singed",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "akshan"
+      ]
+    },
+    "https://www.youtube.com/channel/UCENcTdPf7Or6mHoFDHJAoFQ": {
+      "creator": "iTzSTU4RT",
+      "status": "pending",
+      "notifiedAt": null,
+      "answeredAt": null,
+      "contact": null,
+      "note": null,
+      "champions": [
+        "irelia"
       ]
     }
   }

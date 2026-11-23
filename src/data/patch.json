@@ -1,177 +1,376 @@
 {
-  "patch": "7.3e",
+  "patch": "7.3f",
   "week": {
-    "start": "2026-11-02",
-    "end": "2026-11-08"
+    "start": "2026-11-16",
+    "end": "2026-11-22"
   },
   "rank": "Master+",
-  "syncedAt": "2026-11-05",
-  "version": "7.3d",
-  "date": "2026-10-29",
-  "notesVersion": "7.3e",
-  "buffs": [],
-  "nerfs": [],
+  "syncedAt": "2026-11-23",
+  "version": "7.3f",
+  "date": "2026-11-11",
+  "notesVersion": "7.3f",
+  "buffs": [
+    {
+      "key": "yasuo",
+      "name": "Yasuo",
+      "type": "buff",
+      "summary": "Sweeping Blade rises to 70/90/110/130 base damage and Yasuo's armor per level goes from 4.3 to 5.2.",
+      "abilities": [
+        {
+          "slot": "E",
+          "name": "Sweeping Blade"
+        }
+      ],
+      "palette": [
+        "#56acff",
+        "#dd90b0"
+      ]
+    },
+    {
+      "key": "lucian",
+      "name": "Lucian",
+      "type": "buff",
+      "summary": "Lightslinger's second shot goes to 45/55/65% attack damage and Piercing Light to 120% bonus attack damage.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Lightslinger"
+        },
+        {
+          "slot": "Q",
+          "name": "Piercing Light"
+        }
+      ],
+      "palette": [
+        "#ff9389",
+        "#7babf6"
+      ]
+    },
+    {
+      "key": "rumble",
+      "name": "Rumble",
+      "type": "buff",
+      "summary": "The Equalizer goes to 800/1,200/1,600 (+220% AP) and Junkyard Titan's basic attack magic damage to 25% AP.",
+      "abilities": [
+        {
+          "slot": "P",
+          "name": "Junkyard Titan"
+        },
+        {
+          "slot": "R",
+          "name": "The Equalizer"
+        }
+      ],
+      "palette": [
+        "#ff986e",
+        "#a48eea"
+      ]
+    },
+    {
+      "key": "graves",
+      "name": "Graves",
+      "type": "buff",
+      "summary": "Graves's base armor goes from 36 to 40 and his armor per level from 4.5 to 5.",
+      "abilities": [],
+      "palette": [
+        "#ff8b7b",
+        "#93b9d1"
+      ]
+    },
+    {
+      "key": "akshan",
+      "name": "Akshan",
+      "type": "buff",
+      "summary": "Akshan's base magic resistance goes from 30 to 34.",
+      "abilities": [],
+      "palette": [
+        "#ffaa61",
+        "#93b2d7"
+      ]
+    }
+  ],
+  "nerfs": [
+    {
+      "key": "kalista",
+      "name": "Kalista",
+      "type": "nerf",
+      "summary": "Pierce's base damage goes to 30/110/190/270: lower on the first three ranks, 5 more at rank 4.",
+      "abilities": [
+        {
+          "slot": "Q",
+          "name": "Pierce"
+        }
+      ],
+      "palette": [
+        "#37daff",
+        "#cfa5a9"
+      ]
+    },
+    {
+      "key": "shen",
+      "name": "Shen",
+      "type": "nerf",
+      "summary": "Stand United now has a 120/110/100-second cooldown and its base shield drops to 160/260/360.",
+      "abilities": [
+        {
+          "slot": "R",
+          "name": "Stand United"
+        }
+      ],
+      "palette": [
+        "#7e70ff",
+        "#7e8bff"
+      ]
+    },
+    {
+      "key": "kassadin",
+      "name": "Kassadin",
+      "type": "nerf",
+      "summary": "Kassadin's base magic resistance goes from 38 to 34 and Force Pulse's AP ratio from 60% to 50%.",
+      "abilities": [
+        {
+          "slot": "E",
+          "name": "Force Pulse"
+        }
+      ],
+      "palette": [
+        "#9c71ff",
+        "#d795b0"
+      ]
+    }
+  ],
   "adjustments": [],
-  "items": [],
+  "items": [
+    {
+      "key": "ludens-echo",
+      "name": "Luden's Echo",
+      "type": "buff",
+      "summary": "Discordic Echo goes to 80 + 9% AP for the first projectile and 22.5 + 1.4% AP for the following ones.",
+      "image": "items/ludens-echo.webp"
+    },
+    {
+      "key": "rod-of-ages",
+      "name": "Rod of Ages",
+      "type": "buff",
+      "summary": "Rod of Ages costs 2,600 gold, Eternity refunds 20% mana and Veteran gives 20 health and 40 mana per stack.",
+      "image": "items/rod-of-ages.png"
+    },
+    {
+      "key": "lich-bane",
+      "name": "Lich Bane",
+      "type": "buff",
+      "summary": "Lich Bane gives 6% movement speed and Spellblade goes to a 50% AP ratio.",
+      "image": "items/lich-bane.webp"
+    },
+    {
+      "key": "morellonomicon",
+      "name": "Morellonomicon",
+      "type": "buff",
+      "summary": "Morellonomicon costs 2,550 gold instead of 2,650.",
+      "image": "items/morellonomicon.webp"
+    },
+    {
+      "key": "hextech-rocketbelt",
+      "name": "Hextech Rocketbelt",
+      "type": "buff",
+      "summary": "Hextech Rocketbelt costs 2,650 gold, gives 300 health and Protobelt deals 110 + 15% AP.",
+      "image": "items/hextech-rocketbelt.png"
+    },
+    {
+      "key": "goredrinker",
+      "name": "Goredrinker",
+      "type": "buff",
+      "summary": "Goredrinker gives 45 attack damage and 400 health.",
+      "image": "items/goredrinker.png"
+    },
+    {
+      "key": "liandrys-torment",
+      "name": "Liandry's Torment",
+      "type": "nerf",
+      "summary": "Liandry's Torment gives 60 AP instead of 70.",
+      "image": "items/liandrys-torment.webp"
+    },
+    {
+      "key": "bulwark-of-the-mountain",
+      "name": "Bulwark of the Mountain",
+      "type": "nerf",
+      "summary": "Soulcast grants 60 gold per minute instead of 75.",
+      "image": "items/bulwark-of-the-mountain.webp"
+    },
+    {
+      "key": "black-mist-scythe",
+      "name": "Black Mist Scythe",
+      "type": "nerf",
+      "summary": "Soulcast grants 60 gold per minute instead of 75.",
+      "image": "items/black-mist-scythe.png"
+    },
+    {
+      "key": "eclipse",
+      "name": "Eclipse",
+      "type": "nerf",
+      "summary": "Eclipse gives 60 attack damage instead of 65.",
+      "image": "items/eclipse.webp"
+    }
+  ],
   "effects": [
     {
-      "key": "shyvana",
-      "name": "Shyvana",
+      "key": "irelia",
+      "name": "Irelia",
       "type": "adjust",
-      "wrBefore": 46.1,
-      "wrAfter": 52.95,
-      "wrDelta": 6.85,
-      "days": 6,
-      "pickBefore": 2.94,
-      "pickAfter": 5.76,
-      "pickDelta": 2.82,
+      "wrBefore": 47.74,
+      "wrAfter": 44.76,
+      "wrDelta": -2.98,
+      "days": 10,
+      "pickBefore": 1.28,
+      "pickAfter": 1.09,
+      "pickDelta": -0.19,
       "palette": [
-        "#f07fad",
-        "#ac9ed2"
+        "#ff8791",
+        "#a388f1"
       ]
     },
     {
-      "key": "malphite",
-      "name": "Malphite",
-      "type": "nerf",
-      "wrBefore": 54.75,
-      "wrAfter": 52.53,
-      "wrDelta": -2.22,
-      "days": 6,
-      "pickBefore": 8.03,
-      "pickAfter": 7,
-      "pickDelta": -1.03,
-      "palette": [
-        "#f69e88",
-        "#f39b8e"
-      ]
-    },
-    {
-      "key": "samira",
-      "name": "Samira",
-      "type": "nerf",
-      "wrBefore": 51.01,
-      "wrAfter": 49.06,
-      "wrDelta": -1.95,
-      "days": 6,
-      "pickBefore": 11.79,
-      "pickAfter": 7.38,
-      "pickDelta": -4.41,
-      "palette": [
-        "#f69790",
-        "#b08fdd"
-      ]
-    },
-    {
-      "key": "leesin",
-      "name": "Lee Sin",
-      "type": "buff",
-      "wrBefore": 46.9,
-      "wrAfter": 48.7,
-      "wrDelta": 1.8,
-      "days": 6,
-      "pickBefore": 12.86,
-      "pickAfter": 15.62,
-      "pickDelta": 2.76,
-      "palette": [
-        "#ff548b",
-        "#c8ba9a"
-      ]
-    },
-    {
-      "key": "akali",
-      "name": "Akali",
-      "type": "buff",
-      "wrBefore": 47.02,
-      "wrAfter": 48.4,
-      "wrDelta": 1.38,
-      "days": 6,
-      "pickBefore": 4.96,
-      "pickAfter": 5.5,
-      "pickDelta": 0.54,
-      "palette": [
-        "#e588af",
-        "#8992ff"
-      ]
-    },
-    {
-      "key": "ashe",
-      "name": "Ashe",
-      "type": "nerf",
-      "wrBefore": 53.5,
-      "wrAfter": 52.19,
-      "wrDelta": -1.31,
-      "days": 6,
-      "pickBefore": 9.61,
-      "pickAfter": 6.36,
-      "pickDelta": -3.25,
-      "palette": [
-        "#5b71ff",
-        "#c195c6"
-      ]
-    },
-    {
-      "key": "camille",
-      "name": "Camille",
-      "type": "buff",
-      "wrBefore": 48,
-      "wrAfter": 49.03,
-      "wrDelta": 1.03,
-      "days": 6,
-      "pickBefore": 2.04,
-      "pickAfter": 2.41,
-      "pickDelta": 0.37,
-      "palette": [
-        "#d7b095",
-        "#74bee9"
-      ]
-    },
-    {
-      "key": "ekko",
-      "name": "Ekko",
-      "type": "nerf",
-      "wrBefore": 50.13,
-      "wrAfter": 51.05,
-      "wrDelta": 0.92,
-      "days": 6,
-      "pickBefore": 4.99,
-      "pickAfter": 3.03,
-      "pickDelta": -1.96,
-      "palette": [
-        "#ff6690",
-        "#81c2d8"
-      ]
-    },
-    {
-      "key": "nasus",
-      "name": "Nasus",
+      "key": "viktor",
+      "name": "Viktor",
       "type": "adjust",
-      "wrBefore": 46.4,
-      "wrAfter": 47.01,
-      "wrDelta": 0.61,
-      "days": 6,
-      "pickBefore": 5.62,
-      "pickAfter": 6.01,
-      "pickDelta": 0.39,
+      "wrBefore": 49.66,
+      "wrAfter": 51.86,
+      "wrDelta": 2.2,
+      "days": 10,
+      "pickBefore": 3.47,
+      "pickAfter": 6.03,
+      "pickDelta": 2.56,
       "palette": [
-        "#bb4cff",
-        "#daba88"
+        "#86b0e5",
+        "#f58f98"
       ]
     },
     {
-      "key": "missfortune",
-      "name": "Miss Fortune",
-      "type": "buff",
-      "wrBefore": 48.59,
-      "wrAfter": 49.03,
-      "wrDelta": 0.44,
-      "days": 6,
-      "pickBefore": 12.68,
-      "pickAfter": 10.52,
-      "pickDelta": -2.16,
+      "key": "kassadin",
+      "name": "Kassadin",
+      "type": "nerf",
+      "wrBefore": 50.68,
+      "wrAfter": 52.11,
+      "wrDelta": 1.43,
+      "days": 10,
+      "pickBefore": 1.63,
+      "pickAfter": 1.07,
+      "pickDelta": -0.56,
       "palette": [
-        "#ff8e45",
-        "#f2aa80"
+        "#9c71ff",
+        "#d795b0"
+      ]
+    },
+    {
+      "key": "yasuo",
+      "name": "Yasuo",
+      "type": "buff",
+      "wrBefore": 47.4,
+      "wrAfter": 48.76,
+      "wrDelta": 1.36,
+      "days": 10,
+      "pickBefore": 7.72,
+      "pickAfter": 10.29,
+      "pickDelta": 2.57,
+      "palette": [
+        "#56acff",
+        "#dd90b0"
+      ]
+    },
+    {
+      "key": "akshan",
+      "name": "Akshan",
+      "type": "buff",
+      "wrBefore": 49,
+      "wrAfter": 47.72,
+      "wrDelta": -1.28,
+      "days": 10,
+      "pickBefore": 1.05,
+      "pickAfter": 1.21,
+      "pickDelta": 0.16,
+      "palette": [
+        "#ffaa61",
+        "#93b2d7"
+      ]
+    },
+    {
+      "key": "shen",
+      "name": "Shen",
+      "type": "nerf",
+      "wrBefore": 55.26,
+      "wrAfter": 54.24,
+      "wrDelta": -1.02,
+      "days": 10,
+      "pickBefore": 2.63,
+      "pickAfter": 1.92,
+      "pickDelta": -0.71,
+      "palette": [
+        "#7e70ff",
+        "#7e8bff"
+      ]
+    },
+    {
+      "key": "lucian",
+      "name": "Lucian",
+      "type": "buff",
+      "wrBefore": 46.89,
+      "wrAfter": 47.77,
+      "wrDelta": 0.88,
+      "days": 10,
+      "pickBefore": 3.6,
+      "pickAfter": 8.49,
+      "pickDelta": 4.89,
+      "palette": [
+        "#ff9389",
+        "#7babf6"
+      ]
+    },
+    {
+      "key": "rumble",
+      "name": "Rumble",
+      "type": "buff",
+      "wrBefore": 48.91,
+      "wrAfter": 49.44,
+      "wrDelta": 0.53,
+      "days": 10,
+      "pickBefore": 2.03,
+      "pickAfter": 3.09,
+      "pickDelta": 1.06,
+      "palette": [
+        "#ff986e",
+        "#a48eea"
+      ]
+    },
+    {
+      "key": "kalista",
+      "name": "Kalista",
+      "type": "nerf",
+      "wrBefore": 50.73,
+      "wrAfter": 50.26,
+      "wrDelta": -0.47,
+      "days": 10,
+      "pickBefore": 7.06,
+      "pickAfter": 6.42,
+      "pickDelta": -0.64,
+      "palette": [
+        "#37daff",
+        "#cfa5a9"
+      ]
+    },
+    {
+      "key": "graves",
+      "name": "Graves",
+      "type": "buff",
+      "wrBefore": 47.68,
+      "wrAfter": 47.87,
+      "wrDelta": 0.19,
+      "days": 10,
+      "pickBefore": 7.26,
+      "pickAfter": 9.58,
+      "pickDelta": 2.32,
+      "palette": [
+        "#ff8b7b",
+        "#93b9d1"
       ]
     }
   ]
